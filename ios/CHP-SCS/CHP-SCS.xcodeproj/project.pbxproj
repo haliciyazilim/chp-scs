@@ -17,11 +17,16 @@
 		05CE055B17676144009955B8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CE055A17676144009955B8 /* Default@2x.png */; };
 		05CE055D17676144009955B8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CE055C17676144009955B8 /* Default-568h@2x.png */; };
 		05CE056017676144009955B8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CE055E17676144009955B8 /* MainStoryboard.storyboard */; };
-		05CE056317676144009955B8 /* SCSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CE056217676144009955B8 /* SCSViewController.m */; };
+		05F4CED11769B3A400D3EA4F /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CECE1769B3A400D3EA4F /* ECSlidingViewController.m */; };
+		05F4CED21769B3A400D3EA4F /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CED01769B3A400D3EA4F /* UIImage+ImageWithUIView.m */; };
+		05F4CED81769B42700D3EA4F /* SCSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */; };
+		05F4CEDB1769B49200D3EA4F /* SCSSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */; };
+		05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */; };
+		05F4CEE11769B4C200D3EA4F /* SCSSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05CE054317676144009955B8 /* CHP-SCS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CHP-SCS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05CE054317676144009955B8 /* chp-scs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chp-scs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CE054617676144009955B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05CE054817676144009955B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05CE054A17676144009955B8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -35,8 +40,18 @@
 		05CE055A17676144009955B8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		05CE055C17676144009955B8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		05CE055F17676144009955B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		05CE056117676144009955B8 /* SCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCSViewController.h; sourceTree = "<group>"; };
-		05CE056217676144009955B8 /* SCSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSViewController.m; sourceTree = "<group>"; };
+		05F4CECD1769B3A400D3EA4F /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		05F4CECE1769B3A400D3EA4F /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		05F4CECF1769B3A400D3EA4F /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		05F4CED01769B3A400D3EA4F /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		05F4CED61769B42700D3EA4F /* SCSMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSMenuViewController.h; path = ViewControllers/SCSMenuViewController.h; sourceTree = "<group>"; };
+		05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMenuViewController.m; path = ViewControllers/SCSMenuViewController.m; sourceTree = "<group>"; };
+		05F4CED91769B49200D3EA4F /* SCSSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSlidingViewController.h; path = ViewControllers/SCSSlidingViewController.h; sourceTree = "<group>"; };
+		05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSlidingViewController.m; path = ViewControllers/SCSSlidingViewController.m; sourceTree = "<group>"; };
+		05F4CEDC1769B4A400D3EA4F /* SCSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSMainViewController.h; path = ViewControllers/SCSMainViewController.h; sourceTree = "<group>"; };
+		05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMainViewController.m; path = ViewControllers/SCSMainViewController.m; sourceTree = "<group>"; };
+		05F4CEDF1769B4C100D3EA4F /* SCSSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSecondViewController.h; path = ViewControllers/SCSSecondViewController.h; sourceTree = "<group>"; };
+		05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSecondViewController.m; path = ViewControllers/SCSSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +80,7 @@
 		05CE054417676144009955B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05CE054317676144009955B8 /* CHP-SCS.app */,
+				05CE054317676144009955B8 /* chp-scs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,11 +98,18 @@
 		05CE054C17676144009955B8 /* CHP-SCS */ = {
 			isa = PBXGroup;
 			children = (
+				05F4CED91769B49200D3EA4F /* SCSSlidingViewController.h */,
+				05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */,
+				05F4CED61769B42700D3EA4F /* SCSMenuViewController.h */,
+				05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */,
+				05F4CEDC1769B4A400D3EA4F /* SCSMainViewController.h */,
+				05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */,
+				05F4CEDF1769B4C100D3EA4F /* SCSSecondViewController.h */,
+				05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */,
+				05F4CECC1769B3A400D3EA4F /* ECSlidingViewController */,
 				05CE055517676144009955B8 /* SCSAppDelegate.h */,
 				05CE055617676144009955B8 /* SCSAppDelegate.m */,
 				05CE055E17676144009955B8 /* MainStoryboard.storyboard */,
-				05CE056117676144009955B8 /* SCSViewController.h */,
-				05CE056217676144009955B8 /* SCSViewController.m */,
 				05CE054D17676144009955B8 /* Supporting Files */,
 			);
 			path = "CHP-SCS";
@@ -107,6 +129,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		05F4CECC1769B3A400D3EA4F /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05F4CECD1769B3A400D3EA4F /* ECSlidingViewController.h */,
+				05F4CECE1769B3A400D3EA4F /* ECSlidingViewController.m */,
+				05F4CECF1769B3A400D3EA4F /* UIImage+ImageWithUIView.h */,
+				05F4CED01769B3A400D3EA4F /* UIImage+ImageWithUIView.m */,
+			);
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,7 +157,7 @@
 			);
 			name = "CHP-SCS";
 			productName = "CHP-SCS";
-			productReference = 05CE054317676144009955B8 /* CHP-SCS.app */;
+			productReference = 05CE054317676144009955B8 /* chp-scs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +209,12 @@
 			files = (
 				05CE055317676144009955B8 /* main.m in Sources */,
 				05CE055717676144009955B8 /* SCSAppDelegate.m in Sources */,
-				05CE056317676144009955B8 /* SCSViewController.m in Sources */,
+				05F4CED11769B3A400D3EA4F /* ECSlidingViewController.m in Sources */,
+				05F4CED21769B3A400D3EA4F /* UIImage+ImageWithUIView.m in Sources */,
+				05F4CED81769B42700D3EA4F /* SCSMenuViewController.m in Sources */,
+				05F4CEDB1769B49200D3EA4F /* SCSSlidingViewController.m in Sources */,
+				05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */,
+				05F4CEE11769B4C200D3EA4F /* SCSSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +299,14 @@
 		05CE056717676144009955B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CHP-SCS/CHP-SCS-Prefix.pch";
 				INFOPLIST_FILE = "CHP-SCS/CHP-SCS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "chp-scs";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -272,10 +314,14 @@
 		05CE056817676144009955B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CHP-SCS/CHP-SCS-Prefix.pch";
 				INFOPLIST_FILE = "CHP-SCS/CHP-SCS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "chp-scs";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -299,6 +345,7 @@
 				05CE056817676144009955B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

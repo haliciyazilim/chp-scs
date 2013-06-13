@@ -35,6 +35,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -80,17 +81,20 @@
         <class className="ECSlidingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
         </class>
-        <class className="SCSMainViewController" superclassName="UIViewController">
+        <class className="SCSMainViewController" superclassName="SCSViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCSMainViewController.h"/>
         </class>
         <class className="SCSMenuViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCSMenuViewController.h"/>
         </class>
-        <class className="SCSSecondViewController" superclassName="UIViewController">
+        <class className="SCSSecondViewController" superclassName="SCSViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCSSecondViewController.h"/>
         </class>
         <class className="SCSSlidingViewController" superclassName="ECSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCSSlidingViewController.h"/>
+        </class>
+        <class className="SCSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCSViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

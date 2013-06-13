@@ -25,6 +25,7 @@
 		05F4CEDB1769B49200D3EA4F /* SCSSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */; };
 		05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */; };
 		05F4CEE11769B4C200D3EA4F /* SCSSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */; };
+		AE3950D71769E76600F1EDCC /* queen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE3950D61769E76600F1EDCC /* queen.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		05F4CEDF1769B4C100D3EA4F /* SCSSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSecondViewController.h; path = ViewControllers/SCSSecondViewController.h; sourceTree = "<group>"; };
 		05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSecondViewController.m; path = ViewControllers/SCSSecondViewController.m; sourceTree = "<group>"; };
 		AE3950D41769E0A900F1EDCC /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
+		AE3950D61769E76600F1EDCC /* queen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = queen.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				05CE055517676144009955B8 /* SCSAppDelegate.h */,
 				05CE055617676144009955B8 /* SCSAppDelegate.m */,
 				05CE055E17676144009955B8 /* MainStoryboard.storyboard */,
+				AE3950D51769E76600F1EDCC /* images */,
 				05CE054D17676144009955B8 /* Supporting Files */,
 			);
 			path = "CHP-SCS";
@@ -176,6 +179,14 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		AE3950D51769E76600F1EDCC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				AE3950D61769E76600F1EDCC /* queen.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,6 +244,7 @@
 				05CE055B17676144009955B8 /* Default@2x.png in Resources */,
 				05CE055D17676144009955B8 /* Default-568h@2x.png in Resources */,
 				05CE056017676144009955B8 /* MainStoryboard.storyboard in Resources */,
+				AE3950D71769E76600F1EDCC /* queen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

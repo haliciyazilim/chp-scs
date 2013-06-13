@@ -9,6 +9,7 @@
 #import "SCSViewController.h"
 #import "ECSlidingViewController.h"
 #import "SCSMenuViewController.h"
+#import "TypeDefs.h"
 
 @interface SCSViewController ()
 
@@ -44,6 +45,9 @@
     
     [self.view addGestureRecognizer:[self.slidingViewController panGesture]];
     [self.topBar.menuButton addTarget:self action:@selector(revealMenu) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view setBackgroundColor:MAIN_CONTENT_BACKGROUND_COLOR];
+    
 
 }
 

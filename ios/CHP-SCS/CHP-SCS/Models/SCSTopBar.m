@@ -7,6 +7,7 @@
 //
 
 #import "SCSTopBar.h"
+#import "TypeDefs.h"
 
 @implementation SCSTopBar
 
@@ -26,14 +27,13 @@
         CGRect frame = [[UIScreen mainScreen] bounds];
         
         [self setFrame:CGRectMake(0.0, 0.0, frame.size.width, 44.0)];
-        [self setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
+        [self setBackgroundColor:TOP_BAR_BACKGROUND_COLOR];
         
         self.barTitle = [[UILabel alloc] initWithFrame:CGRectMake(45.0, 0.0, 220.0, self.frame.size.height)];
-        [self.barTitle setBackgroundColor:[UIColor redColor]];
-        [self.barTitle setTextColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
-//        [self.barTitle setFont:[UIFont fontWithName:@"" size:10.0]];
-        [self.barTitle setText:@"barTitle Text"];
+        [self.barTitle setBackgroundColor:[UIColor clearColor]];
+        [self.barTitle setTextColor:TOP_BAR_TEXT_COLOR];
         [self.barTitle setTextAlignment:NSTextAlignmentLeft];
+        [self.barTitle setFont:TOP_BAR_TEXT_FONT];
         
         self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.menuButton setFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
@@ -46,7 +46,7 @@
     return self;
 }
 - (void) setTitleText:(NSString *)title {
-    
+    [self.barTitle setText:title];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

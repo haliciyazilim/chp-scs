@@ -27,7 +27,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    
     [self.topBar setTitleText:@"Anasayfa"];
+    
+    UIImageView* cardBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"card_bg.png"]];
+    [cardBackground setFrame:CGRectMake(0.0, 44.0, frame.size.width, 135.0)];
+    
+    [self.view addSubview:cardBackground];
     
     
 }

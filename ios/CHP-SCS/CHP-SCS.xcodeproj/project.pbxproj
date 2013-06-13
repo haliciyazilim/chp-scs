@@ -64,6 +64,7 @@
 		05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMainViewController.m; path = ViewControllers/SCSMainViewController.m; sourceTree = "<group>"; };
 		05F4CEDF1769B4C100D3EA4F /* SCSSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSecondViewController.h; path = ViewControllers/SCSSecondViewController.h; sourceTree = "<group>"; };
 		05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSecondViewController.m; path = ViewControllers/SCSSecondViewController.m; sourceTree = "<group>"; };
+		AE3950D41769E0A900F1EDCC /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 		05CE054C17676144009955B8 /* CHP-SCS */ = {
 			isa = PBXGroup;
 			children = (
+				AE3950D31769E08C00F1EDCC /* Common */,
 				05E354E21769D8CC00EC44F3 /* Models */,
 				05E354E11769D8AE00EC44F3 /* ViewControllers */,
 				05F4CECC1769B3A400D3EA4F /* ECSlidingViewController */,
@@ -173,6 +175,14 @@
 				05F4CED01769B3A400D3EA4F /* UIImage+ImageWithUIView.m */,
 			);
 			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		AE3950D31769E08C00F1EDCC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AE3950D41769E0A900F1EDCC /* TypeDefs.h */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

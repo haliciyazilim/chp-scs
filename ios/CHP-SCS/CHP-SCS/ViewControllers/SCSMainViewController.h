@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCSViewController.h"
 
-@interface SCSMainViewController : UIViewController
+@interface SCSMainViewController : SCSViewController
 
 @end

@@ -26,6 +26,7 @@
         CGRect frame = [[UIScreen mainScreen] bounds];
         
         [self setFrame:CGRectMake(0.0, 0.0, frame.size.width, 44.0)];
+        [self setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
         
         self.barTitle = [[UILabel alloc] initWithFrame:CGRectMake(45.0, 0.0, 220.0, self.frame.size.height)];
         [self.barTitle setBackgroundColor:[UIColor redColor]];
@@ -40,8 +41,6 @@
         
         [self addSubview:self.menuButton];
         [self addSubview:self.barTitle];
-        
-        [self setBackgroundColor:[UIColor yellowColor]];
     }
     
     return self;

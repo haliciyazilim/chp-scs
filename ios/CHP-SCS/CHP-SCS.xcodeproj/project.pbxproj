@@ -19,6 +19,9 @@
 		05CE056017676144009955B8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CE055E17676144009955B8 /* MainStoryboard.storyboard */; };
 		05E354E01769D7DB00EC44F3 /* SCSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E354DF1769D7DB00EC44F3 /* SCSViewController.m */; };
 		05E354E51769D8E100EC44F3 /* SCSTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E354E41769D8E100EC44F3 /* SCSTopBar.m */; };
+		05E354E91769E47E00EC44F3 /* SWZ721L.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 05E354E61769E47E00EC44F3 /* SWZ721L.TTF */; };
+		05E354EA1769E47E00EC44F3 /* SWZ721M.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 05E354E71769E47E00EC44F3 /* SWZ721M.TTF */; };
+		05E354EB1769E47E00EC44F3 /* SWZ721T.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 05E354E81769E47E00EC44F3 /* SWZ721T.TTF */; };
 		05F4CED11769B3A400D3EA4F /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CECE1769B3A400D3EA4F /* ECSlidingViewController.m */; };
 		05F4CED21769B3A400D3EA4F /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CED01769B3A400D3EA4F /* UIImage+ImageWithUIView.m */; };
 		05F4CED81769B42700D3EA4F /* SCSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */; };
@@ -46,6 +49,9 @@
 		05E354DF1769D7DB00EC44F3 /* SCSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSViewController.m; path = ViewControllers/SCSViewController.m; sourceTree = "<group>"; };
 		05E354E31769D8E100EC44F3 /* SCSTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSTopBar.h; sourceTree = "<group>"; };
 		05E354E41769D8E100EC44F3 /* SCSTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSTopBar.m; sourceTree = "<group>"; };
+		05E354E61769E47E00EC44F3 /* SWZ721L.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SWZ721L.TTF; sourceTree = "<group>"; };
+		05E354E71769E47E00EC44F3 /* SWZ721M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SWZ721M.TTF; sourceTree = "<group>"; };
+		05E354E81769E47E00EC44F3 /* SWZ721T.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SWZ721T.TTF; sourceTree = "<group>"; };
 		05F4CECD1769B3A400D3EA4F /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		05F4CECE1769B3A400D3EA4F /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		05F4CECF1769B3A400D3EA4F /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 		05CE054D17676144009955B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05E354E61769E47E00EC44F3 /* SWZ721L.TTF */,
+				05E354E71769E47E00EC44F3 /* SWZ721M.TTF */,
+				05E354E81769E47E00EC44F3 /* SWZ721T.TTF */,
 				05CE054E17676144009955B8 /* CHP-SCS-Info.plist */,
 				05CE054F17676144009955B8 /* InfoPlist.strings */,
 				05CE055217676144009955B8 /* main.m */,
@@ -223,6 +232,9 @@
 				05CE055B17676144009955B8 /* Default@2x.png in Resources */,
 				05CE055D17676144009955B8 /* Default-568h@2x.png in Resources */,
 				05CE056017676144009955B8 /* MainStoryboard.storyboard in Resources */,
+				05E354E91769E47E00EC44F3 /* SWZ721L.TTF in Resources */,
+				05E354EA1769E47E00EC44F3 /* SWZ721M.TTF in Resources */,
+				05E354EB1769E47E00EC44F3 /* SWZ721T.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

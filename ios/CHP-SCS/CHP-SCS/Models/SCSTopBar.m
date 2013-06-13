@@ -29,18 +29,23 @@
         [self setFrame:CGRectMake(0.0, 0.0, frame.size.width, 44.0)];
         [self setBackgroundColor:TOP_BAR_BACKGROUND_COLOR];
         
-        self.barTitle = [[UILabel alloc] initWithFrame:CGRectMake(45.0, 0.0, 220.0, self.frame.size.height)];
+        self.barTitle = [[UILabel alloc] initWithFrame:CGRectMake(60.0, 0.0, 205.0, self.frame.size.height)];
         [self.barTitle setBackgroundColor:[UIColor clearColor]];
         [self.barTitle setTextColor:TOP_BAR_TEXT_COLOR];
         [self.barTitle setTextAlignment:NSTextAlignmentLeft];
         [self.barTitle setFont:TOP_BAR_TEXT_FONT];
         
         self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.menuButton setFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
-        [self.menuButton setBackgroundColor:[UIColor blueColor]];
+        [self.menuButton setFrame:CGRectMake(0.0, 0.0, 44.0, self.frame.size.height)];
+        [self.menuButton setBackgroundColor:[UIColor clearColor]];
+        [self.menuButton setBackgroundImage:[UIImage imageNamed:@"topbar_main_btn.jpg"] forState:UIControlStateNormal];
+        
+        UIImageView* logoView = [[UIImageView alloc] initWithFrame:CGRectMake(270.0, 0.0, 50.0, self.frame.size.height)];
+        [logoView setImage:[UIImage imageNamed:@"topbar_chp_logo.png"]];
         
         [self addSubview:self.menuButton];
         [self addSubview:self.barTitle];
+        [self addSubview:logoView];
     }
     
     return self;

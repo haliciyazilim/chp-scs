@@ -70,10 +70,11 @@
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
     }
     
     cell.textLabel.text = [self.menu objectAtIndex:indexPath.row];
-    
+    [cell.imageView setImage:[UIImage imageNamed:@"queen.jpg"]];
     // Configure the cell...
     
     return cell;

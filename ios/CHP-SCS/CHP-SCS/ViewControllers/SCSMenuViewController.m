@@ -7,8 +7,11 @@
 //
 
 #import "SCSMenuViewController.h"
+#import "ECSlidingViewController.h"
 
 @interface SCSMenuViewController ()
+
+@property (strong,nonatomic) NSArray *menu;
 
 @end
 
@@ -32,6 +35,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.menu = [NSArray arrayWithObjects:@"SCSMain", @"SCSSecond", nil];
+    
+    [self.slidingViewController setAnchorRightRevealAmount:200.0f];
+    self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,22 +53,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.menu count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = [self.menu objectAtIndex:indexPath.row];
     
     // Configure the cell...
     
@@ -116,6 +129,18 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    NSString *identifier = [self.menu objectAtIndex:indexPath.row];
+    
+    UIViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        CGRect frame = self.slidingViewController.topViewController.view.frame;
+        self.slidingViewController.topViewController = newViewController;
+        self.slidingViewController.topViewController.view.frame = frame;
+        [self.slidingViewController resetTopView];
+    }];
+    
 }
 
 @end

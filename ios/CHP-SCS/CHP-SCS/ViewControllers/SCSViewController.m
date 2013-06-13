@@ -43,7 +43,12 @@
     }
     
     [self.view addGestureRecognizer:[self.slidingViewController panGesture]];
+    [self.topBar.menuButton addTarget:self action:@selector(revealMenu) forControlEvents:UIControlEventTouchUpInside];
 
+}
+
+- (void) revealMenu {
+    [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 - (void)didReceiveMemoryWarning

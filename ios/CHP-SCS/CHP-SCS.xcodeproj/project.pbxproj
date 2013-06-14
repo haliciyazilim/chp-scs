@@ -49,12 +49,12 @@
 		05F4CED81769B42700D3EA4F /* SCSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */; };
 		05F4CEDB1769B49200D3EA4F /* SCSSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */; };
 		05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */; };
-		AE3950D71769E76600F1EDCC /* queen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE3950D61769E76600F1EDCC /* queen.jpg */; };
 		AEE559D6176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */; };
 		AEE559D9176AF3BD00A019FC /* SCSGenelgelerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D8176AF3BC00A019FC /* SCSGenelgelerViewController.m */; };
 		AEE559DC176AF40800A019FC /* SCSSandikBilgiKartiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559DB176AF40800A019FC /* SCSSandikBilgiKartiViewController.m */; };
 		AEE559DF176AF43F00A019FC /* SCSSandikSecmenListesiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559DE176AF43F00A019FC /* SCSSandikSecmenListesiViewController.m */; };
 		AEE559E2176AF49300A019FC /* SCSIletisimViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559E1176AF49300A019FC /* SCSIletisimViewController.m */; };
+		AEE559E5176AFAB100A019FC /* SCSMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559E4176AFAB100A019FC /* SCSMenuTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,7 +112,6 @@
 		05F4CEDC1769B4A400D3EA4F /* SCSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSMainViewController.h; path = ViewControllers/SCSMainViewController.h; sourceTree = "<group>"; };
 		05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMainViewController.m; path = ViewControllers/SCSMainViewController.m; sourceTree = "<group>"; };
 		AE3950D41769E0A900F1EDCC /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
-		AE3950D61769E76600F1EDCC /* queen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = queen.jpg; sourceTree = "<group>"; };
 		AEE559D4176AF36E00A019FC /* SCSEgitimDokumanlariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSEgitimDokumanlariViewController.h; path = ViewControllers/SCSEgitimDokumanlariViewController.h; sourceTree = "<group>"; };
 		AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSEgitimDokumanlariViewController.m; path = ViewControllers/SCSEgitimDokumanlariViewController.m; sourceTree = "<group>"; };
 		AEE559D7176AF3BC00A019FC /* SCSGenelgelerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSGenelgelerViewController.h; path = ViewControllers/SCSGenelgelerViewController.h; sourceTree = "<group>"; };
@@ -123,6 +122,8 @@
 		AEE559DE176AF43F00A019FC /* SCSSandikSecmenListesiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSandikSecmenListesiViewController.m; path = ViewControllers/SCSSandikSecmenListesiViewController.m; sourceTree = "<group>"; };
 		AEE559E0176AF49300A019FC /* SCSIletisimViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSIletisimViewController.h; path = ViewControllers/SCSIletisimViewController.h; sourceTree = "<group>"; };
 		AEE559E1176AF49300A019FC /* SCSIletisimViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSIletisimViewController.m; path = ViewControllers/SCSIletisimViewController.m; sourceTree = "<group>"; };
+		AEE559E3176AFAB100A019FC /* SCSMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSMenuTableViewCell.h; sourceTree = "<group>"; };
+		AEE559E4176AFAB100A019FC /* SCSMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSMenuTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +226,8 @@
 			children = (
 				05E354E31769D8E100EC44F3 /* SCSTopBar.h */,
 				05E354E41769D8E100EC44F3 /* SCSTopBar.m */,
+				AEE559E3176AFAB100A019FC /* SCSMenuTableViewCell.h */,
+				AEE559E4176AFAB100A019FC /* SCSMenuTableViewCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,7 +304,6 @@
 				05E354EC1769EEE800EC44F3 /* card */,
 				05E354F01769EEE800EC44F3 /* menu */,
 				05E354F71769EEE800EC44F3 /* topbar */,
-				AE3950D61769E76600F1EDCC /* queen.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -363,7 +365,6 @@
 				05CE055B17676144009955B8 /* Default@2x.png in Resources */,
 				05CE055D17676144009955B8 /* Default-568h@2x.png in Resources */,
 				05CE056017676144009955B8 /* MainStoryboard.storyboard in Resources */,
-				AE3950D71769E76600F1EDCC /* queen.jpg in Resources */,
 				05E354E91769E47E00EC44F3 /* SWZ721L.TTF in Resources */,
 				05E354EA1769E47E00EC44F3 /* SWZ721M.TTF in Resources */,
 				05E354EB1769E47E00EC44F3 /* SWZ721T.TTF in Resources */,
@@ -413,6 +414,7 @@
 				AEE559DC176AF40800A019FC /* SCSSandikBilgiKartiViewController.m in Sources */,
 				AEE559DF176AF43F00A019FC /* SCSSandikSecmenListesiViewController.m in Sources */,
 				AEE559E2176AF49300A019FC /* SCSIletisimViewController.m in Sources */,
+				AEE559E5176AFAB100A019FC /* SCSMenuTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@
 #import "SCSMenuViewController.h"
 #import "ECSlidingViewController.h"
 #import "SCSViewController.h"
+#import "TypeDefs.h"
+#import "SCSMenuTableViewCell.h"
 
 #define TITLE @"title"
 #define IDENTIFIER @"identifier"
@@ -43,7 +45,14 @@
     
 //    self.menu = [NSArray arrayWithObjects:@"SCSMain", @"SCSSecond", nil];
     
+    [self.tableView registerClass:[SCSMenuTableViewCell class] forCellReuseIdentifier:@"MenuCell"];
+    
+    [self.tableView setScrollEnabled:NO];
+    
+    
     self.menu = @[
+                  @{
+                      },
                   @{
                       TITLE:@"Anasayfa",
                       IDENTIFIER:@"SCSMain",
@@ -78,6 +87,39 @@
     
     [self.slidingViewController setAnchorRightRevealAmount:200.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+    [self.tableView setBackgroundColor:MENU_BACKGROUND_COLOR];
+    [self.tableView setSeparatorColor:MENU_SEPERATOR_COLOR];
+    [self initHeader];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
+}
+
+- (void) initHeader
+{
+    UIView* header = [[UIView alloc] init];
+    [header setFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 44.0)];
+    [header setBackgroundColor:[UIColor redColor]];
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"topbar_chp_logo"]];
+    [imageView setFrame:CGRectMake(0.0, 0.0, 50, 44.0)];
+    [header addSubview:imageView];
+    
+    UILabel* label = [[UILabel alloc] init];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setTextColor:[UIColor whiteColor]];
+    
+    [label setText:@"CHP - SCS"];
+    [label setFrame:CGRectMake(60, 0.0, 250, 44.0)];
+    [label setTextAlignment:NSTextAlignmentLeft];
+    [header addSubview:label];
+    
+    [self.tableView addSubview:header];
     
 }
 
@@ -103,16 +145,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MenuCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    if(indexPath.row != 0){
+        cell.textLabel.text = [[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE];
+        [cell.imageView setImage:[UIImage imageNamed:[[self.menu objectAtIndex:indexPath.row] objectForKey:IMAGE]]];
         
     }
-    
-    cell.textLabel.text = [[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE];
-    [cell.imageView setImage:[UIImage imageNamed:[[self.menu objectAtIndex:indexPath.row] objectForKey:IMAGE]]];
+    else {
+        cell.selectedBackgroundView = nil;
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    }
     // Configure the cell...
     
     return cell;
@@ -123,16 +170,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = [[self.menu objectAtIndex:indexPath.row] objectForKey:IDENTIFIER];
-    
-    SCSViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    [newViewController setTopBarTitle:[[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE]];
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-    }];
+    if(indexPath.row != 0){
+        
+        NSString *identifier = [[self.menu objectAtIndex:indexPath.row] objectForKey:IDENTIFIER];
+        
+        SCSViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        [newViewController setTopBarTitle:[[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE]];
+        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+            CGRect frame = self.slidingViewController.topViewController.view.frame;
+            self.slidingViewController.topViewController = newViewController;
+            self.slidingViewController.topViewController.view.frame = frame;
+            [self.slidingViewController resetTopView];
+        }];
+    }
     
 }
 

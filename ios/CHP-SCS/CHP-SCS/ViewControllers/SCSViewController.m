@@ -39,6 +39,8 @@
     self.view.layer.shadowRadius = 10.0;
     self.view.layer.shadowColor = [[UIColor blackColor] CGColor];
     
+    self.slidingViewController.anchorRightPeekAmount = 44.0;
+    
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[SCSMenuViewController class]]) {
         self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SCSMenu"];
     }

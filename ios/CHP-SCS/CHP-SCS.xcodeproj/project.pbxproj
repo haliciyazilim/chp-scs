@@ -43,6 +43,7 @@
 		05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */; };
 		05F4CEE11769B4C200D3EA4F /* SCSSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */; };
 		AE3950D71769E76600F1EDCC /* queen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE3950D61769E76600F1EDCC /* queen.jpg */; };
+		AEE2FBE3176A205900E84FAA /* SCSSecmenKartiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE2FBE2176A205900E84FAA /* SCSSecmenKartiViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +61,8 @@
 		05CE055A17676144009955B8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		05CE055C17676144009955B8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		05CE055F17676144009955B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		05E354DE1769D7DB00EC44F3 /* SCSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSViewController.h; path = ViewControllers/SCSViewController.h; sourceTree = "<group>"; };
-		05E354DF1769D7DB00EC44F3 /* SCSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSViewController.m; path = ViewControllers/SCSViewController.m; sourceTree = "<group>"; };
+		05E354DE1769D7DB00EC44F3 /* SCSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSViewController.h; path = ../ViewControllers/SCSViewController.h; sourceTree = "<group>"; };
+		05E354DF1769D7DB00EC44F3 /* SCSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSViewController.m; path = ../ViewControllers/SCSViewController.m; sourceTree = "<group>"; };
 		05E354E31769D8E100EC44F3 /* SCSTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSTopBar.h; sourceTree = "<group>"; };
 		05E354E41769D8E100EC44F3 /* SCSTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSTopBar.m; sourceTree = "<group>"; };
 		05E354E61769E47E00EC44F3 /* SWZ721L.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SWZ721L.TTF; sourceTree = "<group>"; };
@@ -87,14 +88,16 @@
 		05F4CED01769B3A400D3EA4F /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		05F4CED61769B42700D3EA4F /* SCSMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSMenuViewController.h; path = ViewControllers/SCSMenuViewController.h; sourceTree = "<group>"; };
 		05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMenuViewController.m; path = ViewControllers/SCSMenuViewController.m; sourceTree = "<group>"; };
-		05F4CED91769B49200D3EA4F /* SCSSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSlidingViewController.h; path = ViewControllers/SCSSlidingViewController.h; sourceTree = "<group>"; };
-		05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSlidingViewController.m; path = ViewControllers/SCSSlidingViewController.m; sourceTree = "<group>"; };
+		05F4CED91769B49200D3EA4F /* SCSSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSlidingViewController.h; path = ../ViewControllers/SCSSlidingViewController.h; sourceTree = "<group>"; };
+		05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSlidingViewController.m; path = ../ViewControllers/SCSSlidingViewController.m; sourceTree = "<group>"; };
 		05F4CEDC1769B4A400D3EA4F /* SCSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSMainViewController.h; path = ViewControllers/SCSMainViewController.h; sourceTree = "<group>"; };
 		05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMainViewController.m; path = ViewControllers/SCSMainViewController.m; sourceTree = "<group>"; };
 		05F4CEDF1769B4C100D3EA4F /* SCSSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSecondViewController.h; path = ViewControllers/SCSSecondViewController.h; sourceTree = "<group>"; };
 		05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSecondViewController.m; path = ViewControllers/SCSSecondViewController.m; sourceTree = "<group>"; };
 		AE3950D41769E0A900F1EDCC /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
 		AE3950D61769E76600F1EDCC /* queen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = queen.jpg; sourceTree = "<group>"; };
+		AEE2FBE1176A205900E84FAA /* SCSSecmenKartiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSSecmenKartiViewController.h; path = ViewControllers/SCSSecmenKartiViewController.h; sourceTree = "<group>"; };
+		AEE2FBE2176A205900E84FAA /* SCSSecmenKartiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSSecmenKartiViewController.m; path = ViewControllers/SCSSecmenKartiViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +147,6 @@
 				AE3950D31769E08C00F1EDCC /* Common */,
 				05E354E21769D8CC00EC44F3 /* Models */,
 				05E354E11769D8AE00EC44F3 /* ViewControllers */,
-				05F4CECC1769B3A400D3EA4F /* ECSlidingViewController */,
 				05CE055517676144009955B8 /* SCSAppDelegate.h */,
 				05CE055617676144009955B8 /* SCSAppDelegate.m */,
 				05CE055E17676144009955B8 /* MainStoryboard.storyboard */,
@@ -174,16 +176,15 @@
 		05E354E11769D8AE00EC44F3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				05E354DE1769D7DB00EC44F3 /* SCSViewController.h */,
-				05E354DF1769D7DB00EC44F3 /* SCSViewController.m */,
-				05F4CED91769B49200D3EA4F /* SCSSlidingViewController.h */,
-				05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */,
+				05F4CECC1769B3A400D3EA4F /* ECSlidingViewController */,
 				05F4CED61769B42700D3EA4F /* SCSMenuViewController.h */,
 				05F4CED71769B42700D3EA4F /* SCSMenuViewController.m */,
 				05F4CEDC1769B4A400D3EA4F /* SCSMainViewController.h */,
 				05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */,
 				05F4CEDF1769B4C100D3EA4F /* SCSSecondViewController.h */,
 				05F4CEE01769B4C100D3EA4F /* SCSSecondViewController.m */,
+				AEE2FBE1176A205900E84FAA /* SCSSecmenKartiViewController.h */,
+				AEE2FBE2176A205900E84FAA /* SCSSecmenKartiViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +236,10 @@
 		05F4CECC1769B3A400D3EA4F /* ECSlidingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				05E354DE1769D7DB00EC44F3 /* SCSViewController.h */,
+				05E354DF1769D7DB00EC44F3 /* SCSViewController.m */,
+				05F4CED91769B49200D3EA4F /* SCSSlidingViewController.h */,
+				05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */,
 				05F4CECD1769B3A400D3EA4F /* ECSlidingViewController.h */,
 				05F4CECE1769B3A400D3EA4F /* ECSlidingViewController.m */,
 				05F4CECF1769B3A400D3EA4F /* UIImage+ImageWithUIView.h */,
@@ -357,6 +362,7 @@
 				05F4CEE11769B4C200D3EA4F /* SCSSecondViewController.m in Sources */,
 				05E354E01769D7DB00EC44F3 /* SCSViewController.m in Sources */,
 				05E354E51769D8E100EC44F3 /* SCSTopBar.m in Sources */,
+				AEE2FBE3176A205900E84FAA /* SCSSecmenKartiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

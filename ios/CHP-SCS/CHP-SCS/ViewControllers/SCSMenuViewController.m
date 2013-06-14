@@ -9,6 +9,10 @@
 #import "SCSMenuViewController.h"
 #import "ECSlidingViewController.h"
 
+#define TITLE @"title"
+#define IDENTIFIER @"identifier"
+#define IMAGE @"image"
+
 @interface SCSMenuViewController ()
 
 @property (strong,nonatomic) NSArray *menu;
@@ -36,7 +40,30 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.menu = [NSArray arrayWithObjects:@"SCSMain", @"SCSSecond", nil];
+//    self.menu = [NSArray arrayWithObjects:@"SCSMain", @"SCSSecond", nil];
+    
+    self.menu = @[
+                  @{
+                      TITLE:@"Secmen Karti",
+                      IDENTIFIER:@"SecmenKarti",
+                      IMAGE:@"queen.jpg"
+                      },
+                  @{
+                      TITLE:@"Secmen Karti",
+                      IDENTIFIER:@"SecmenKarti",
+                      IMAGE:@"queen.jpg"
+                      },
+                  @{
+                      TITLE:@"Secmen Karti",
+                      IDENTIFIER:@"SecmenKarti",
+                      IMAGE:@"queen.jpg"
+                      },
+                  @{
+                      TITLE:@"Secmen Karti",
+                      IDENTIFIER:@"SecmenKarti",
+                      IMAGE:@"queen.jpg"
+                      },
+              ];
     
     [self.slidingViewController setAnchorRightRevealAmount:200.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
@@ -73,8 +100,8 @@
         
     }
     
-    cell.textLabel.text = [self.menu objectAtIndex:indexPath.row];
-    [cell.imageView setImage:[UIImage imageNamed:@"queen.jpg"]];
+    cell.textLabel.text = [[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE];
+    [cell.imageView setImage:[UIImage imageNamed:[[self.menu objectAtIndex:indexPath.row] objectForKey:IMAGE]]];
     // Configure the cell...
     
     return cell;
@@ -131,7 +158,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    NSString *identifier = [self.menu objectAtIndex:indexPath.row];
+    NSString *identifier = [[self.menu objectAtIndex:indexPath.row] objectForKey:IDENTIFIER];
     
     UIViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
     

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/sorumluKartiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg" >
+
+            <ImageView
+                android:id="@+id/imgSorumluKartiFoto"
+                android:layout_width="109dp"
+                android:layout_height="109dp"
+                android:layout_centerHorizontal="false"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_views"
+                android:background="@drawable/foto_bg"
+                android:scaleType="fitXY"
+                android:src="@drawable/vesika_yok" />
+
+            <TextView
+                android:id="@+id/tvsorumluKartiDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_views"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/imgSorumluKartiFoto"
+                android:text="2013"
+                android:textColor="@color/sorumlu_karti_date"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvSorumluKartiHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvsorumluKartiDate"
+                android:layout_marginLeft="@dimen/margin_views"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@id/imgSorumluKartiFoto"
+                android:text="@string/sandik_cevresi_sorumlu_karti_header"
+                android:textColor="@color/sorumlu_karti_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvSorumluKartiSurName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvSorumluKartiHeader"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="@dimen/margin_views"
+                android:text="Erdoğan"
+                android:textColor="@color/sorumlu_karti_name"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/tvSorumluKartiName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvSorumluKartiSurName"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="40dp"
+                android:text="Hağan Ali"
+                android:textColor="@color/sorumlu_karti_name"
+                android:textSize="23sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/divider_large_size"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_views"
+                android:layout_toRightOf="@+id/imgSorumluKartiFoto"
+                android:background="@color/foto_border" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/sorumluKartiSandikBilgileriLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_views"
+            android:layout_marginRight="@dimen/margin_views"
+            android:layout_marginTop="@dimen/margin_views"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/sorumluKartiSandikBilgileriName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvSorumluKartiSandikNoHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/sandik_no"
+                    android:textColor="@color/sorumlu_karti_content_header"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvSorumluKartiSandikSandikNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="-10dp"
+                    android:gravity="top|left"
+                    android:includeFontPadding="false"
+                    android:paddingTop="0dp"
+                    android:text="0000"
+                    android:textColor="@color/sorumlu_karti_content"
+                    android:textSize="50sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sorumluKartiSandikYeriLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_views"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvSorumluKartiSandikYeriHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sandik_yeri"
+                    android:textColor="@color/sorumlu_karti_content_header"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvSorumluKartiSandikYeriIl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kahramanmaraş"
+                    android:textColor="@color/sorumlu_karti_content"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvSorumluKartiSandikYeriIlce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gönen"
+                    android:textColor="@color/sorumlu_karti_content"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/divider_large_size"
+                android:background="@color/list_divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sorumluKartiMuhtarlikBilgileriLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_views"
+            android:layout_marginRight="@dimen/margin_views"
+            android:layout_marginTop="@dimen/margin_views"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvSorumluKartiSandikMuhtarlikHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/sandik_muhtarlik"
+                android:textColor="@color/sorumlu_karti_content_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvSorumluKartiSandikMuhtarlik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Alaca Mescit Mahallesi"
+                android:textColor="@color/sorumlu_karti_content"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sorumluKartiSandikAlaniLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_views"
+            android:layout_marginLeft="@dimen/margin_views"
+            android:layout_marginRight="@dimen/margin_views"
+            android:layout_marginTop="@dimen/margin_views"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvSorumluKartiSandikAlaniHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/sandik_alani"
+                android:textColor="@color/sorumlu_karti_content_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvSorumluKartiSandikAlani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_views"
+                android:layout_marginLeft="10dp"
+                android:text="SüleymanDemiral İ.Ö.Ö"
+                android:textColor="@color/sorumlu_karti_content"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/divider_large_size"
+                android:layout_marginTop="5dp"
+                android:background="@color/list_divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sorumluKartiSandikGorevliBilgileriLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_views"
+            android:layout_marginLeft="@dimen/margin_views"
+            android:layout_marginRight="@dimen/margin_views"
+            android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/sorumluKartiSandikBilgileriName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvSorumluKartiSandikGorevli2NameHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sandik_gorevlisi_2"
+                        android:textColor="@color/sorumlu_karti_content_header"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvSorumluKartiSandikGorevli2Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:gravity="top|left"
+                        android:includeFontPadding="false"
+                        android:paddingTop="0dp"
+                        android:text="Harun Soydemir"
+                        android:textColor="@color/sorumlu_karti_content"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sorumluKartiSandikYeriLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvSorumluKartiSandikGorevli2PhoneHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sandik_gorevlisi_2_tel"
+                        android:textColor="@color/sorumlu_karti_content_header"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvSorumluKartiSandikGorevli2Phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0312 200 20 20"
+                        android:textColor="@color/sorumlu_karti_content"
+                        android:textSize="14sp" />
+                </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

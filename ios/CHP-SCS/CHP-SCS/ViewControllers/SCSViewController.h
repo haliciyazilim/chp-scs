@@ -13,4 +13,6 @@
 
 @property (strong,nonatomic) SCSTopBar* topBar;
 
+- (void) setTopBarTitle:(NSString *)title;
+
 @end

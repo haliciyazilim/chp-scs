@@ -16,7 +16,9 @@
 @end
 
 @implementation SCSViewController
-
+{
+    NSString* topBarTitle;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,6 +26,17 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)setTopBarTitle:(NSString *)title
+{
+    topBarTitle = title;
+    [self configureView];
+}
+
+- (void) configureView
+{
+    [self.topBar setTitleText:topBarTitle];
 }
 
 - (void)viewDidLoad
@@ -49,7 +62,7 @@
     [self.topBar.menuButton addTarget:self action:@selector(revealMenu) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view setBackgroundColor:MAIN_CONTENT_BACKGROUND_COLOR];
-    
+    [self configureView];
 
 }
 

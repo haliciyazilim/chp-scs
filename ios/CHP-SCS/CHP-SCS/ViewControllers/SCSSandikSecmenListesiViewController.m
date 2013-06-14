@@ -1,18 +1,18 @@
 //
-//  SCSMainViewController.m
+//  SCSSandikSecmenListesiViewController.m
 //  CHP-SCS
 //
-//  Created by Alperen Kavun on 13.06.2013.
+//  Created by Yunus Eren Guzel on 6/14/13.
 //  Copyright (c) 2013 Halici. All rights reserved.
 //
 
-#import "SCSMainViewController.h"
+#import "SCSSandikSecmenListesiViewController.h"
 
-@interface SCSMainViewController ()
+@interface SCSSandikSecmenListesiViewController ()
 
 @end
 
-@implementation SCSMainViewController
+@implementation SCSSandikSecmenListesiViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,19 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    
-    [self.topBar setTitleText:@"Anasayfa"];
-    
-    
-    UIImageView* cardBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"card_bg.png"]];
-    [cardBackground setFrame:CGRectMake(0.0, 44.0, frame.size.width, 135.0)];
-    
-    [self.view addSubview:cardBackground];
-    
-    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

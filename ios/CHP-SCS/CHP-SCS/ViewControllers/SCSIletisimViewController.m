@@ -1,18 +1,18 @@
 //
-//  SCSSecmenKartiViewController.m
+//  SCSIletisimViewController.m
 //  CHP-SCS
 //
-//  Created by Yunus Eren Guzel on 6/13/13.
+//  Created by Yunus Eren Guzel on 6/14/13.
 //  Copyright (c) 2013 Halici. All rights reserved.
 //
 
-#import "SCSSecmenKartiViewController.h"
+#import "SCSIletisimViewController.h"
 
-@interface SCSSecmenKartiViewController ()
+@interface SCSIletisimViewController ()
 
 @end
 
-@implementation SCSSecmenKartiViewController
+@implementation SCSIletisimViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    [self.topBar setTitleText:@"Secmen Karti"];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,4 +10,8 @@
 
 @interface SCSMenuTableViewCell : UITableViewCell
 
+@property (readonly) UIImageView* cellIcon;
+@property (readonly) UILabel* cellTitle;
+
+
 @end

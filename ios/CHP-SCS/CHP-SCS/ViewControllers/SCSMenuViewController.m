@@ -102,22 +102,8 @@
 
 - (void) initHeader
 {
-    UIView* header = [[UIView alloc] init];
-    [header setFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 44.0)];
-    [header setBackgroundColor:[UIColor redColor]];
     
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"topbar_chp_logo"]];
-    [imageView setFrame:CGRectMake(0.0, 0.0, 50, 44.0)];
-    [header addSubview:imageView];
-    
-    UILabel* label = [[UILabel alloc] init];
-    [label setBackgroundColor:[UIColor clearColor]];
-    [label setTextColor:[UIColor whiteColor]];
-    
-    [label setText:@"CHP - SCS"];
-    [label setFrame:CGRectMake(60, 0.0, 250, 44.0)];
-    [label setTextAlignment:NSTextAlignmentLeft];
-    [header addSubview:label];
+    UIImageView* header = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu_header.png"]];
     
     [self.tableView addSubview:header];
     
@@ -146,14 +132,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MenuCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    SCSMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[SCSMenuTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     if(indexPath.row != 0){
-        cell.textLabel.text = [[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE];
-        [cell.imageView setImage:[UIImage imageNamed:[[self.menu objectAtIndex:indexPath.row] objectForKey:IMAGE]]];
+        cell.cellTitle.text = [[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE];
+        [cell.cellIcon setImage:[UIImage imageNamed:[[self.menu objectAtIndex:indexPath.row] objectForKey:IMAGE]]];
         
     }
     else {

@@ -47,32 +47,32 @@
                   @{
                       TITLE:@"Anasayfa",
                       IDENTIFIER:@"SCSMain",
-                      IMAGE:@"queen.jpg"
+                      IMAGE:@"icon_card_default.png"
                       },
                   @{
                       TITLE:@"Egitim Dokumanlari",
                       IDENTIFIER:@"Egitim",
-                      IMAGE:@"queen.jpg"
+                      IMAGE:@"icon_egitim_default.png"
                       },
                   @{
                       TITLE:@"Genelgeler",
                       IDENTIFIER:@"Genelgeler",
-                      IMAGE:@"queen.jpg"
+                      IMAGE:@"icon_genelgeler_default.png"
                       },
                   @{
                       TITLE:@"Sandik Bilgi Karti",
                       IDENTIFIER:@"SandikBilgiKarti",
-                      IMAGE:@"queen.jpg"
+                      IMAGE:@"icon_sandikbilgi_default.png"
                       },
                   @{
                       TITLE:@"Sandik Secmen Listesi",
                       IDENTIFIER:@"SandikSecmenListesi",
-                      IMAGE:@"queen.jpg"
+                      IMAGE:@"icon_sandiksecmen_default.png"
                       },
                   @{
                       TITLE:@"Iletisim",
                       IDENTIFIER:@"Iletisim",
-                      IMAGE:@"queen.jpg"
+                      IMAGE:@"icon_iletisim_default.png"
                       },
               ];
     

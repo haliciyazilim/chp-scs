@@ -1,7 +1,9 @@
 package com.halici.chp_scs.fragment;
 
 
+
 import com.halici.chp_scs.R;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,4 +31,5 @@ public class IletisimFragment extends Fragment{
 		
 		return v;
 	}
+	
 }

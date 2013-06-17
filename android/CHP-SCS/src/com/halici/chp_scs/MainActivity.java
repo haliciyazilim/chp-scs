@@ -1,5 +1,6 @@
 package com.halici.chp_scs;
 
+import com.artifex.mupdfdemo.MuPDFActivity;
 import com.halici.chp_scs.adapter.ActionsAdapter;
 import com.halici.chp_scs.fragment.IletisimFragment;
 import com.halici.chp_scs.fragment.SandikCevresiSorumluKartiFragment;
@@ -141,5 +142,12 @@ public class MainActivity extends FragmentActivity {
     currentUri = uri;
     currentContentFragmentTag = tag;
   }
+  
+  public void showPDF(View view){
+		Intent intent=new Intent(this, MuPDFActivity.class);
+		intent.putExtra("pdfFile", "/mnt/sdcard/Download/matematik_1.pdf");
+		startActivity(intent);
+		
+	}
 
  }

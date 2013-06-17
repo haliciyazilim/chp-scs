@@ -34,8 +34,7 @@
         app:shadow_drawable="@drawable/shadow"
         app:shadow_width="@dimen/default_pref_shadow_width"
         app1:actions_layout="@layout/actions"
-        app1:actions_spacing="@dimen/actions_spacing"
-         >
+        app1:actions_spacing="@dimen/actions_spacing" >
 
     </shared.ui.actionscontentview.ActionsContentView>
 

@@ -134,7 +134,7 @@ public class ActionsContentView extends ViewGroup {
   /**
    * Swiping type.
    */
-  private int mSwipeType = FADE_NONE;
+  private int mSwipeType = SWIPING_ALL;
   /**
    * Swiping edge width.
    */
@@ -186,7 +186,7 @@ public class ActionsContentView extends ViewGroup {
     final int flingDurationDefault = context.getResources().getInteger(R.integer.default_actionscontentview_fling_duration);
     mFlingDuration = a.getInteger(R.styleable.ActionsContentView_fling_duration, flingDurationDefault);
 
-    mSwipeType = a.getInteger(R.styleable.ActionsContentView_swiping_type, SWIPING_EDGE);
+    mSwipeType = a.getInteger(R.styleable.ActionsContentView_swiping_type, SWIPING_ALL);
     final int swipingEdgeWidthDefault = context.getResources().getDimensionPixelSize(R.dimen.default_actionscontentview_swiping_edge_width);
     mSwipeEdgeWidth = a.getDimensionPixelSize(R.styleable.ActionsContentView_swiping_edge_width, swipingEdgeWidthDefault);
 
@@ -210,7 +210,7 @@ public class ActionsContentView extends ViewGroup {
       Log.d(TAG, "  fade type: " + mFadeType);
       Log.d(TAG, "  fade max value: " + mFadeValue);
       Log.d(TAG, "  fling duration: " + mFlingDuration);
-      Log.d(TAG, "  swiping type: " + mSwipeType);
+      Log.d(TAG, "  swiping typee: " + mSwipeType);
       Log.d(TAG, "  swiping edge width: " + mSwipeEdgeWidth);
       Log.d(TAG, "  effects: " + mEffects);
       Log.d(TAG, "  effect actions: " + effectActionsRes);
@@ -755,7 +755,7 @@ public class ActionsContentView extends ViewGroup {
     /**
      * Swiping type.
      */
-    private int mSwipeType = FADE_NONE;
+    private int mSwipeType = SWIPING_ALL;
     /**
      * Swiping edge width.
      */
@@ -943,12 +943,17 @@ public class ActionsContentView extends ViewGroup {
             // handle all events of scrolling by X axis
             mHandleEvent = Boolean.TRUE;
             scrollBy((int) distanceX);
+            
+            System.out.println("******* ife girdi");
           } else {
             mHandleEvent = Boolean.FALSE;
+            System.out.println("******* else girdi: "+mSwipeType);
+            
           }
         }
       } else if (mHandleEvent) {
         // it is not first event we should handle as scrolling by X axis
+    	  System.out.println("******* else ife girdi");
         scrollBy((int) distanceX);
       }
 

@@ -19,5 +19,5 @@
     <dimen name="default_pref_shadow_width">8dip</dimen>
     <integer name="default_pref_fade_max_value">0</integer>
     <integer name="default_pref_fling_delay">900</integer>
-    <dimen name="default_pref_swiping_edge_width">48dip</dimen>
+    <dimen name="default_pref_swiping_edge_width">96dip</dimen>
 </resources>

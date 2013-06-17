@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Halici. All rights reserved.
 //
 
-#import "SCSViewController.h"
+#import "SCSTableViewController.h"
 
-@interface SCSEgitimDokumanlariViewController : SCSViewController
+@interface SCSEgitimDokumanlariViewController : SCSTableViewController
 
 @end

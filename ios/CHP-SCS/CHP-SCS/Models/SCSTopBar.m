@@ -34,6 +34,8 @@
         [self.barTitle setTextColor:TOP_BAR_TEXT_COLOR];
         [self.barTitle setTextAlignment:NSTextAlignmentLeft];
         [self.barTitle setFont:TOP_BAR_TEXT_FONT];
+        [self.barTitle setShadowColor:[UIColor colorWithWhite:0.0 alpha:0.3]];
+        [self.barTitle setShadowOffset:CGSizeMake(0, 1)];
         
         self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.menuButton setFrame:CGRectMake(0.0, 0.0, 44.0, self.frame.size.height)];

@@ -44,12 +44,15 @@
     [self.tableView setFrame:CGRectMake(0.0, 44.0, self.view.frame.size.width, self.view.frame.size.height-44.0)];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:@"PdfCell"];
+    [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_TITLE];
+    [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_SUBTITLE];
+    [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_FILE];
     [self.view addSubview:self.tableView];
     
     data = @[
              @{
                  TITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
+                 SUBTITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
                  FILES:@[
                          @{
                              FILE_NAME:@"Dokumani indir",
@@ -102,8 +105,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"PdfCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell;
+    if(indexPath.row == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_TITLE forIndexPath:indexPath];
+    }
+    else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil){
+        cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_SUBTITLE forIndexPath:indexPath];
+    }
+    else{
+        cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_FILE forIndexPath:indexPath];
+    }
     
     return cell;
 }
@@ -111,8 +122,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self showPdfWithUrl:nil];
-    
-    
 }
 
 - (void) showPdfWithUrl:(NSString*)url

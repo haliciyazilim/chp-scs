@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#define SCSPDFCELL_TITLE @"SCSPdfCellTitle"
+#define SCSPDFCELL_SUBTITLE @"SCSPdfCellSubtitle"
+#define SCSPDFCELL_FILE @"SCSPdfCellFile"
 
 @interface SCSTablePdfCell : UITableViewCell
 

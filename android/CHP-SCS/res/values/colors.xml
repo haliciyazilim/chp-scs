@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="divider">#A6382E</color>
+    <color name="top_bar_bg">#A6382E</color>
+    <color name="actions_bg">#322E25</color>
+    <color name="actions_divider">#23201A</color>
+    <color name="action_text">#827e76</color>
+    <color name="list_divider">#322e25</color>
+    <color name="header_text">#DFC8BB</color>
+    
+    
+    
+    <color name="content_bg">#504C40</color>
+    <color name="foto_border">#e9d9d0</color>
+    <color name="sorumlu_karti_date">#504C40</color>
+    <color name="sorumlu_karti_header">#D94A3D</color>
+    <color name="sorumlu_karti_name">#322E25</color>
+    <color name="sorumlu_karti_content_header">#F43D2C</color>
+    <color name="sorumlu_karti_content">#fff</color>
+</resources>

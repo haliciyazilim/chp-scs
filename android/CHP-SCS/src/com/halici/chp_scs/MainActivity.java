@@ -37,7 +37,7 @@ public class MainActivity extends FragmentActivity {
     setContentView(R.layout.main);
 
     viewActionsContentView = (ActionsContentView) findViewById(R.id.actionsContentView);
-    viewActionsContentView.setSwipingType(ActionsContentView.SWIPING_EDGE);
+    viewActionsContentView.setSwipingType(ActionsContentView.SWIPING_ALL);
 
 
     final ListView viewActionsList = (ListView) findViewById(R.id.actions);

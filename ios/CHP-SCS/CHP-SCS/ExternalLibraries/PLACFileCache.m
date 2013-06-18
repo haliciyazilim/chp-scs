@@ -141,7 +141,6 @@ static PLACFileCache * sharedFileCache;
 - (NSData *) manageURL:(NSString *)url withTransform:(id)transformIdentifier delegate:(id<PLACFileCacheDelegate>)manageDelegate {  
   NSData * returnData;
   NSString * filename = [self encodeURL:url];
-    NSLog(@"filename: %@",filename);
   if ([[NSFileManager defaultManager] fileExistsAtPath:[self.cacheDirectory stringByAppendingPathComponent:filename]]) {
     [[self.cacheInfo objectForKey:@"cachedFiles"] removeObject:filename];
     [[self.cacheInfo objectForKey:@"cachedFiles"] addObject:filename];

@@ -16,7 +16,7 @@
 #define FILES @"FILES"
 #define URL @"url"
 #define FILE_NAME @"file_name"
-
+#define PLACFileCacheTransformIdentifier @"PDF_FILE"
 @interface SCSTableViewController ()
 
 @end
@@ -43,7 +43,9 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     [self.tableView setFrame:CGRectMake(0.0, 44.0, self.view.frame.size.width, self.view.frame.size.height-44.0)];
 
-
+    [[[PLACFileCache alloc] initWithDirectory:
+     [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"pdf"] maxSize:100*1024*1024] setDelegate:self];
+    
     
     UIView* view = [UIView new];
     [view setBackgroundColor:MAIN_CONTENT_BACKGROUND_COLOR];
@@ -147,12 +149,17 @@
         [self.view addSubview:webView];
     }
     [webView setHidden:NO];
-    [webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
+    [[PLACFileCache sharedCache] manageURL:url];
+    NSString* filePath = [[PLACFileCache sharedCache] filePathForUrl:url];
+    [webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL fileURLWithPath:filePath]]];
+
     if(backButton == nil){
         backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [backButton setFrame:CGRectMake(0.0, self.view.frame.size.height-44.0, self.view.frame.size.width, 44.0)];
         [backButton addTarget:self action:@selector(hideWebView) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:backButton];
+        [backButton setBackgroundColor:[UIColor greenColor]];
+        [backButton setTitle:@"<<" forState:UIControlStateNormal];
         
     }
     [backButton setHidden:NO];
@@ -163,6 +170,15 @@
     [webView setHidden:YES];
     [backButton setHidden:YES];
     [self.tableView reloadData];
+}
+- (void) fileCache:(PLACFileCache *)cache didFailWithError:(NSError *)error
+{
+    
+}
+
+- (void) fileCache:(PLACFileCache *)cache didLoadFile:(NSData *)fileData withTransform:(NSString *)transformIdentifier fromURL:(NSString *)url
+{
+    [self showPdfWithUrl:url];
 }
 
 @end

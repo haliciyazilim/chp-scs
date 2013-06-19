@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SCSViewController.h"
 #import "PLACFileCache.h"
+#import "TypeDefs.h"
+#import "Config.h"
 
 @interface SCSPDFWebView : UIWebView <PLACFileCacheDelegate>
 
@@ -18,7 +20,7 @@
 
 - (id) initWithViewController:(SCSViewController*)viewController;
 
-- (void) setCloseCallback:(void(^)())block;
+- (void) setCloseCallback:(VoidBlock)block;
 
 - (void) showPdfWithUrl:(NSString*)url;
 

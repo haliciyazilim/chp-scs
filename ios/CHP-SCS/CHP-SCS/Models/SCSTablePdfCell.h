@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Config.h"
+
 #define SCSPDFCELL_TITLE @"SCSPdfCellTitle"
 #define SCSPDFCELL_SUBTITLE @"SCSPdfCellSubtitle"
 #define SCSPDFCELL_FILE @"SCSPdfCellFile"

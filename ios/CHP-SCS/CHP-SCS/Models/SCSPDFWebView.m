@@ -7,6 +7,7 @@
 //
 
 #import "SCSPDFWebView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation SCSPDFWebView
 {
@@ -53,6 +54,7 @@
     [self.viewController.view addSubview:self.printButton];
     [self.printButton setBackgroundColor:[UIColor blueColor]];
     [self.printButton setTitle:@"P" forState:UIControlStateNormal];
+    [self.printButton.layer setCornerRadius:10.0];
     [self.printButton setHidden:YES];
 }
 
@@ -77,8 +79,10 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.backButton.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
     }];
-    [UIView animateWithDuration:0.3 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    self.printButton.transform = CGAffineTransformMakeTranslation(0.0, 5.0);
+    [UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.printButton.alpha = 1.0;
+        self.printButton.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
     } completion:^(BOOL finished) {
         
     }];

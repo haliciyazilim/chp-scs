@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SCSViewController.h"
 #import "SCSTablePdfCell.h"
+#import "PLACFileCache.h"
 
-@interface SCSTableViewController : SCSViewController <UITableViewDataSource,UITableViewDelegate>
+@interface SCSTableViewController : SCSViewController <UITableViewDataSource,UITableViewDelegate,PLACFileCacheDelegate>
 
 @property (readonly,nonatomic) UITableView* tableView;
 

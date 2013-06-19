@@ -7,6 +7,7 @@
 //
 
 #import "SCSTablePdfCell.h"
+#import "TypeDefs.h"
 
 @implementation SCSTablePdfCell
 {
@@ -36,12 +37,15 @@
     backgroundView = [UIView new];
     [backgroundView setBackgroundColor:[UIColor redColor]];
     [self setBackgroundView:backgroundView];
+    
+    [self.textLabel setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void) stylizeForFile
 {
     [self setSelectionStyle:UITableViewCellSelectionStyleBlue];
     [backgroundView setBackgroundColor:[UIColor redColor]];
+    [self.textLabel setFont:PDF_TABLE_CELL_FILENAME_FONT];
 }
 
 - (void) stylizeForTitle
@@ -49,6 +53,7 @@
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     [backgroundView setBackgroundColor:[UIColor blueColor]];
     [self setUserInteractionEnabled:NO];
+    [self.textLabel setFont:PDF_TABLE_CELL_TITLE_FONT];
 }
 
 
@@ -58,6 +63,7 @@
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     [backgroundView setBackgroundColor:[UIColor grayColor]];
     [self setUserInteractionEnabled:NO];
+    [self.textLabel setFont:PDF_TABLE_CELL_SUBTITLE_FONT];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

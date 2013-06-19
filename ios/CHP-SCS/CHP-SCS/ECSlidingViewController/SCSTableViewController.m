@@ -16,7 +16,7 @@
 #define FILES @"FILES"
 #define URL @"url"
 #define FILE_NAME @"file_name"
-
+#define PLACFileCacheTransformIdentifier @"PDF_FILE"
 @interface SCSTableViewController ()
 
 @end
@@ -42,6 +42,15 @@
     [super viewDidLoad];
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     [self.tableView setFrame:CGRectMake(0.0, 44.0, self.view.frame.size.width, self.view.frame.size.height-44.0)];
+
+    [[[PLACFileCache alloc] initWithDirectory:
+     [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"pdf"] maxSize:100*1024*1024] setDelegate:self];
+    
+    
+    UIView* view = [UIView new];
+    [view setBackgroundColor:MAIN_CONTENT_BACKGROUND_COLOR];
+    [self.tableView setBackgroundView:view];
+    
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_TITLE];
@@ -52,7 +61,7 @@
     data = @[
              @{
                  TITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
-                 SUBTITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
+                 SUBTITLE:@"Scme ve scilme hakki",
                  FILES:@[
                          @{
                              FILE_NAME:@"Dokumani indir",
@@ -108,20 +117,29 @@
     UITableViewCell *cell;
     if(indexPath.row == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_TITLE forIndexPath:indexPath];
+        [cell.textLabel setText:[[data objectAtIndex:indexPath.section] objectForKey:TITLE]];
     }
     else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil){
         cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_SUBTITLE forIndexPath:indexPath];
+        [cell.textLabel setText:[[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]];
     }
     else{
         cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_FILE forIndexPath:indexPath];
+        int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil ? 1 : 0);
+        [cell.textLabel setText:[[[[data objectAtIndex:indexPath.section] objectForKey:FILES] objectAtIndex:index] objectForKey:FILE_NAME]];
     }
+    
+    cell.frame = CGRectMake(0.0, cell.frame.origin.y, self.tableView.frame.size.width, cell.frame.size.height);
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self showPdfWithUrl:nil];
+    int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil ? 1 : 0);
+
+    [self showPdfWithUrl:[[[[data objectAtIndex:indexPath.section] objectForKey:FILES] objectAtIndex:index] objectForKey:URL]];
+    
 }
 
 - (void) showPdfWithUrl:(NSString*)url
@@ -131,11 +149,17 @@
         [self.view addSubview:webView];
     }
     [webView setHidden:NO];
+    [[PLACFileCache sharedCache] manageURL:url];
+    NSString* filePath = [[PLACFileCache sharedCache] filePathForUrl:url];
+    [webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL fileURLWithPath:filePath]]];
+
     if(backButton == nil){
         backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [backButton setFrame:CGRectMake(0.0, self.view.frame.size.height-44.0, self.view.frame.size.width, 44.0)];
         [backButton addTarget:self action:@selector(hideWebView) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:backButton];
+        [backButton setBackgroundColor:[UIColor greenColor]];
+        [backButton setTitle:@"<<" forState:UIControlStateNormal];
         
     }
     [backButton setHidden:NO];
@@ -146,6 +170,15 @@
     [webView setHidden:YES];
     [backButton setHidden:YES];
     [self.tableView reloadData];
+}
+- (void) fileCache:(PLACFileCache *)cache didFailWithError:(NSError *)error
+{
+    
+}
+
+- (void) fileCache:(PLACFileCache *)cache didLoadFile:(NSData *)fileData withTransform:(NSString *)transformIdentifier fromURL:(NSString *)url
+{
+    [self showPdfWithUrl:url];
 }
 
 @end

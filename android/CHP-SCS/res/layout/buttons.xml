@@ -15,30 +15,20 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/toolbar" >
+            android:background="@color/top_bar_bg" >
 
             <TextView
                 android:id="@+id/docNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/linkButton"
                 android:layout_alignParentLeft="true"
-                android:paddingLeft="16dp"
-                android:singleLine="true"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <ImageButton
-                android:id="@+id/linkButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/selectButton"
-                android:contentDescription="@string/link_control"
-                android:background="@drawable/button"
-                android:src="@drawable/ic_link" />
+                android:paddingLeft="16dp"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/selectButton"
@@ -55,20 +45,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/reflowButton"
-                android:contentDescription="@string/search_document"
-                android:background="@drawable/button"
-                android:src="@drawable/ic_list" />
-
-            <ImageButton
-                android:id="@+id/reflowButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/searchButton"
-                android:contentDescription="@string/search_document"
                 android:background="@drawable/button"
-                android:src="@drawable/ic_reflow" />
+                android:contentDescription="@string/search_document"
+                android:src="@drawable/ic_list" />
 
             <ImageButton
                 android:id="@+id/searchButton"
@@ -86,7 +66,7 @@
             android:id="@+id/topBar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/toolbar" >
+            android:background="@color/top_bar_bg" >
 
             <ImageButton
                 android:id="@+id/cancel"
@@ -100,14 +80,14 @@
 
             <EditText
                 android:id="@+id/searchText"
-                android:background="@drawable/search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/cancel"
                 android:layout_toLeftOf="@+id/searchBack"
-                android:inputType="text"
+                android:layout_toRightOf="@+id/cancel"
+                android:background="@color/top_bar_bg"
                 android:hint="@string/search"
+                android:inputType="text"
                 android:singleLine="true" />
 
             <ImageButton
@@ -136,7 +116,7 @@
             android:id="@+id/topBar3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/toolbar" >
+            android:background="@color/top_bar_bg" >
 
             <ImageButton
                 android:id="@+id/cancelSelectButton"
@@ -191,7 +171,7 @@
             android:paddingRight="16dp"
             android:paddingTop="12dp"
             android:paddingBottom="8dp"
-            android:background="@color/toolbar"
+            android:background="@color/seek_bg"
             />
 
         <TextView
@@ -201,7 +181,8 @@
             android:layout_above="@+id/pageSlider"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/page_num"
+            android:padding="3dp"
+            android:background="@color/top_bar_bg"
             android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         
@@ -212,7 +193,7 @@
         android:layout_above="@+id/pageSlider"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/page_num"
+        android:background="@color/top_bar_bg"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#FFFFFF" />
 

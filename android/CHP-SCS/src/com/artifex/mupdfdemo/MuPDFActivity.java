@@ -451,12 +451,6 @@ public class MuPDFActivity extends Activity
 			}
 		});
 
-		// Activate the reflow button
-		mReflowButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				toggleReflow();
-			}
-		});
 
 		// Activate the select button
 		mSelectButton.setOnClickListener(new View.OnClickListener() {
@@ -485,7 +479,7 @@ public class MuPDFActivity extends Activity
 					copied = pageView.copySelection();
 				mDocView.setSelectionMode(false);
 				mTopBarSwitcher.setDisplayedChild(0);
-				mInfoView.setText(copied?"Copied to clipboard":"No text selected");
+				mInfoView.setText(copied?"Panoya kopyalandı":"Metin seçilmedi");
 
 				int currentApiVersion = android.os.Build.VERSION.SDK_INT;
 				if (currentApiVersion >= android.os.Build.VERSION_CODES.HONEYCOMB) {
@@ -596,20 +590,6 @@ public class MuPDFActivity extends Activity
 			}
 		});
 
-		mLinkButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				if (mLinkHighlight) {
-					mLinkButton.setColorFilter(Color.argb(0xFF, 255, 255, 255));
-					mLinkHighlight = false;
-				} else {
-					// LINK_COLOR tint
-					mLinkButton.setColorFilter(Color.argb(0xFF, 172, 114, 37));
-					mLinkHighlight = true;
-				}
-				// Inform pages of the change.
-				mDocView.setLinksEnabled(mLinkHighlight);
-			}
-		});
 
 		if (core.hasOutline()) {
 			mOutlineButton.setOnClickListener(new View.OnClickListener() {
@@ -640,7 +620,7 @@ public class MuPDFActivity extends Activity
 		RelativeLayout layout = new RelativeLayout(this);
 		layout.addView(mDocView);
 		layout.addView(mButtonsView);
-		layout.setBackgroundResource(R.drawable.tiled_background);
+		layout.setBackgroundResource(R.color.top_bar_bg);
 		//layout.setBackgroundResource(R.color.canvas);
 		setContentView(layout);
 	}
@@ -828,7 +808,6 @@ public class MuPDFActivity extends Activity
 		mPageNumberView = (TextView)mButtonsView.findViewById(R.id.pageNumber);
 		mInfoView = (TextView)mButtonsView.findViewById(R.id.info);
 		mSearchButton = (ImageButton)mButtonsView.findViewById(R.id.searchButton);
-		mReflowButton = (ImageButton)mButtonsView.findViewById(R.id.reflowButton);
 		mSelectButton = (ImageButton)mButtonsView.findViewById(R.id.selectButton);
 		mCancelSelectButton = (ImageButton)mButtonsView.findViewById(R.id.cancelSelectButton);
 		mCopySelectButton = (ImageButton)mButtonsView.findViewById(R.id.copySelectButton);
@@ -839,7 +818,6 @@ public class MuPDFActivity extends Activity
 		mSearchBack = (ImageButton)mButtonsView.findViewById(R.id.searchBack);
 		mSearchFwd = (ImageButton)mButtonsView.findViewById(R.id.searchForward);
 		mSearchText = (EditText)mButtonsView.findViewById(R.id.searchText);
-		mLinkButton = (ImageButton)mButtonsView.findViewById(R.id.linkButton);
 		mTopBarSwitcher.setVisibility(View.INVISIBLE);
 		mPageNumberView.setVisibility(View.INVISIBLE);
 		mInfoView.setVisibility(View.INVISIBLE);

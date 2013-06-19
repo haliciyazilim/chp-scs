@@ -31,6 +31,7 @@
     <color name="text_border_normal">#000000</color>
     <color name="text_border_pressed">#2572AC</color>
     <color name="text_border_focused">#000000</color>
-    <color name="seek_thumb">#2572AC</color>
-    <color name="seek_progress">#FFFFFF</color>
+    <color name="seek_bg">#322e25</color>
+    <color name="seek_thumb">#d94a3d</color>
+    <color name="seek_progress">#a6382e</color>
 </resources>

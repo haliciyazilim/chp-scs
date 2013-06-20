@@ -51,6 +51,7 @@
 		05F4CEDB1769B49200D3EA4F /* SCSSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDA1769B49200D3EA4F /* SCSSlidingViewController.m */; };
 		05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */; };
 		AE0893221770476B003F782D /* PLACFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0893211770476B003F782D /* PLACFileCache.m */; };
+		AE08932517707CDB003F782D /* SCSPDFWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE08932417707CDB003F782D /* SCSPDFWebView.m */; };
 		AEE559D6176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */; };
 		AEE559D9176AF3BD00A019FC /* SCSGenelgelerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D8176AF3BC00A019FC /* SCSGenelgelerViewController.m */; };
 		AEE559DC176AF40800A019FC /* SCSSandikBilgiKartiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559DB176AF40800A019FC /* SCSSandikBilgiKartiViewController.m */; };
@@ -120,7 +121,10 @@
 		05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSMainViewController.m; path = ViewControllers/SCSMainViewController.m; sourceTree = "<group>"; };
 		AE0893201770476B003F782D /* PLACFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLACFileCache.h; sourceTree = "<group>"; };
 		AE0893211770476B003F782D /* PLACFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLACFileCache.m; sourceTree = "<group>"; };
+		AE08932317707CDB003F782D /* SCSPDFWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSPDFWebView.h; sourceTree = "<group>"; };
+		AE08932417707CDB003F782D /* SCSPDFWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSPDFWebView.m; sourceTree = "<group>"; };
 		AE3950D41769E0A900F1EDCC /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
+		AE71068017718CA900F93ED7 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		AEE559D4176AF36E00A019FC /* SCSEgitimDokumanlariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSEgitimDokumanlariViewController.h; path = ViewControllers/SCSEgitimDokumanlariViewController.h; sourceTree = "<group>"; };
 		AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSEgitimDokumanlariViewController.m; path = ViewControllers/SCSEgitimDokumanlariViewController.m; sourceTree = "<group>"; };
 		AEE559D7176AF3BC00A019FC /* SCSGenelgelerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSGenelgelerViewController.h; path = ViewControllers/SCSGenelgelerViewController.h; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				AEE559E4176AFAB100A019FC /* SCSMenuTableViewCell.m */,
 				AEE559F0176B3DF800A019FC /* SCSTablePdfCell.h */,
 				AEE559F1176B3DF800A019FC /* SCSTablePdfCell.m */,
+				AE08932317707CDB003F782D /* SCSPDFWebView.h */,
+				AE08932417707CDB003F782D /* SCSPDFWebView.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3950D41769E0A900F1EDCC /* TypeDefs.h */,
+				AE71068017718CA900F93ED7 /* Config.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -453,6 +460,7 @@
 				AEE559EF176B30FB00A019FC /* SCSTableViewController.m in Sources */,
 				AEE559F2176B3DF800A019FC /* SCSTablePdfCell.m in Sources */,
 				AE0893221770476B003F782D /* PLACFileCache.m in Sources */,
+				AE08932517707CDB003F782D /* SCSPDFWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

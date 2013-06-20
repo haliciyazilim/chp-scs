@@ -2,6 +2,7 @@ package com.halici.chp_scs;
 
 import com.artifex.mupdfdemo.MuPDFActivity;
 import com.halici.chp_scs.adapter.ActionsAdapter;
+import com.halici.chp_scs.fragment.GenelgelerFragment;
 import com.halici.chp_scs.fragment.IletisimFragment;
 import com.halici.chp_scs.fragment.SandikCevresiSorumluKartiFragment;
 
@@ -126,6 +127,15 @@ public class MainActivity extends FragmentActivity {
           fragment = foundFragment;
         } else {
           fragment = new IletisimFragment();
+        }
+      }
+    else if (GenelgelerFragment.ABOUT_URI.equals(uri)) {
+        tag = GenelgelerFragment.TAG;
+        final Fragment foundFragment = fm.findFragmentByTag(tag);
+        if (foundFragment != null) {
+          fragment = foundFragment;
+        } else {
+          fragment = new GenelgelerFragment();
         }
       }
     else {

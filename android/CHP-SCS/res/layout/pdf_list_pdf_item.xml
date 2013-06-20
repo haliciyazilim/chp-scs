@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+<TextView
+    android:id="@+id/pdfItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawablePadding="6dip"
+    android:gravity="center_vertical"
+    android:minHeight="48dip"
+    android:paddingLeft="0dip"
+    android:paddingRight="0dip"
+    android:singleLine="true"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:textColor="@color/action_text"
+    android:shadowColor="#0000004D"
+    android:shadowDx="0"
+    android:shadowDy="1"
+    android:textIsSelectable="false" />
+
+ 
+ </LinearLayout>

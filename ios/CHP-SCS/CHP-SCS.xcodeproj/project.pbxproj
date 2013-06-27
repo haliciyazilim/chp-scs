@@ -26,6 +26,7 @@
 		05368DC6176AF41B00818E59 /* icon_sandiksecmen_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 05368DBA176AF41B00818E59 /* icon_sandiksecmen_default.png */; };
 		05368DC7176AF41B00818E59 /* icon_sandiksecmen_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05368DBB176AF41B00818E59 /* icon_sandiksecmen_default@2x.png */; };
 		05368DC9176B32FC00818E59 /* dummy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05368DC8176B32FC00818E59 /* dummy.jpg */; };
+		05A522CC177C684500794851 /* SCSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A522CB177C684500794851 /* SCSLoginViewController.m */; };
 		05CE054717676144009955B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054617676144009955B8 /* UIKit.framework */; };
 		05CE054917676144009955B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054817676144009955B8 /* Foundation.framework */; };
 		05CE054B17676144009955B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054A17676144009955B8 /* CoreGraphics.framework */; };
@@ -84,6 +85,8 @@
 		05368DBA176AF41B00818E59 /* icon_sandiksecmen_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sandiksecmen_default.png; sourceTree = "<group>"; };
 		05368DBB176AF41B00818E59 /* icon_sandiksecmen_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sandiksecmen_default@2x.png"; sourceTree = "<group>"; };
 		05368DC8176B32FC00818E59 /* dummy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy.jpg; sourceTree = "<group>"; };
+		05A522CA177C684500794851 /* SCSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSLoginViewController.h; path = ViewControllers/SCSLoginViewController.h; sourceTree = "<group>"; };
+		05A522CB177C684500794851 /* SCSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSLoginViewController.m; path = ViewControllers/SCSLoginViewController.m; sourceTree = "<group>"; };
 		05CE054317676144009955B8 /* chp-scs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chp-scs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CE054617676144009955B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05CE054817676144009955B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -237,6 +240,8 @@
 				AEE559DE176AF43F00A019FC /* SCSSandikSecmenListesiViewController.m */,
 				AEE559E0176AF49300A019FC /* SCSIletisimViewController.h */,
 				AEE559E1176AF49300A019FC /* SCSIletisimViewController.m */,
+				05A522CA177C684500794851 /* SCSLoginViewController.h */,
+				05A522CB177C684500794851 /* SCSLoginViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				AEE559F2176B3DF800A019FC /* SCSTablePdfCell.m in Sources */,
 				AE0893221770476B003F782D /* PLACFileCache.m in Sources */,
 				AE08932517707CDB003F782D /* SCSPDFWebView.m in Sources */,
+				05A522CC177C684500794851 /* SCSLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

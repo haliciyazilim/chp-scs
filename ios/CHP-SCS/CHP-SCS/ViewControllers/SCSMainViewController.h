@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SCSViewController.h"
 
+@class SCSManager;
+
 @interface SCSMainViewController : SCSViewController
+
+@property (nonatomic) SCSManager* currentManager;
 
 @end

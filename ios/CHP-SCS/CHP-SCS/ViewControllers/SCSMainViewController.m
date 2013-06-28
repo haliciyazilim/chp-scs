@@ -9,6 +9,7 @@
 #import "SCSMainViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TypeDefs.h"
+#import "SCSManager.h"
 
 @interface SCSMainViewController ()
 
@@ -219,21 +220,36 @@
     [self.view addSubview:secondOfficerPhoneHeader];
     [self.view addSubview:secondOfficerPhoneLabel];
     [self.view addSubview:subSeperator4];
-    
+}
+- (void) viewWillAppear:(BOOL)animated {
+    _currentManager = [SCSManager getCurrentManager];
     [self configureViews];
 }
 - (void) configureViews {
+//    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
+//    [yearLabel setText:@"2013"];
+//    [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
+//    [nameLabel setText:@"Ebuzer Egemen Dursun"];
+//    [chestNoLabel setText:@"1258"];
+//    [chestProvinceLabel setText:@"Kahramanmaraş"];
+//    [chestDistrictLabel setText:@"Gönen"];
+//    [homeTownLabel setText:@"Alaca Mescit Mahallesi"];
+//    [chestAreaLabel setText:@"Süleyman Demirel İ.Ö.O"];
+//    [secondOfficerLabel setText:@"Harun Soydemir"];
+//    [secondOfficerPhoneLabel setText:@"532 493 13 09"];
+    
     [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
     [yearLabel setText:@"2013"];
     [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
-    [nameLabel setText:@"Ebuzer Egemen Dursun"];
-    [chestNoLabel setText:@"1258"];
-    [chestProvinceLabel setText:@"Kahramanmaraş"];
-    [chestDistrictLabel setText:@"Gönen"];
-    [homeTownLabel setText:@"Alaca Mescit Mahallesi"];
-    [chestAreaLabel setText:@"Süleyman Demirel İ.Ö.O"];
-    [secondOfficerLabel setText:@"Harun Soydemir"];
-    [secondOfficerPhoneLabel setText:@"532 493 13 09"];
+    [nameLabel setText:[_currentManager nameSurname]];
+    [chestNoLabel setText:[_currentManager chestNo]];
+    [chestProvinceLabel setText:[_currentManager chestProvince]];
+    [chestDistrictLabel setText:[_currentManager chestDistrict]];
+    [homeTownLabel setText:[_currentManager neighborhood]];
+    [chestAreaLabel setText:[_currentManager chestArea]];
+    [secondOfficerLabel setText:[_currentManager otherManagerNameSurname]];
+    [secondOfficerPhoneLabel setText:[_currentManager otherManagerPhone]];
+
 }
 - (void)didReceiveMemoryWarning
 {

@@ -22,10 +22,18 @@
 @property NSString* otherManagerPhone;
 @property NSString* photoUrl;
 
+@property NSArray* egitimDocuments;
+@property NSArray* genelgeDocuments;
+@property NSDictionary* communicationInfos;
+@property NSDictionary* voterList;
+
 + (SCSManager*) SCSManagerWithDictionary:(NSDictionary*)dictionary;
 
-+ (SCSManager*) getCurrentManager;
++ (SCSManager*) currentManager;
 
 - (id) initWithDictionary:(NSDictionary*)dictionary;
+
+- (void) getFullVoterListWithCompletionBlock:(CompletionBlock)completionBlock
+                               andErrorBlock:(ErrorBlock)errorBlock;
 
 @end

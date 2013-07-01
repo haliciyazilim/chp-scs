@@ -7,6 +7,7 @@
 //
 
 #import "APIManager.h"
+#import "SCSManager.h"
 
 @implementation APIManager
 
@@ -153,6 +154,26 @@ static APIManager *sharedInstance = nil;
 
 #pragma mark - Login
 
+- (MKNetworkOperation *)loginV2WithUsername:(NSString *)username
+                                andPassword:(NSString *)password
+                               onCompletion:(CompletionBlock)completionBlock
+                                    onError:(ErrorBlock)errorBlock
+{
+    if ([username characterAtIndex:0] == '0') {
+        username = [username substringFromIndex:1];
+    }
+    
+    return [self createNetworkOperationForOperation:@"SCS_Login"
+                                      andParameters:@{@"telNo" : username,
+                                                        @"Sifre" : password}
+                                       onCompletion:^(NSDictionary *responseDictionary) {
+                                           
+                                       }
+                                            onError:^(NSError *error) {
+                                            }
+            ];
+}
+
 - (MKNetworkOperation *)loginWithUsername:(NSString *)username
                               andPassword:(NSString *)password
                              onCompletion:(SCSCardBlock)cardBlock
@@ -179,5 +200,69 @@ static APIManager *sharedInstance = nil;
                         }];
 }
 
+#pragma mark - Getting images
+
+- (MKNetworkOperation *)getImageWithURLString:(NSString *)urlString
+                                 onCompletion:(ImageBlock)completionBlock
+                                      onError:(ErrorBlock)errorBlock {
+    MKNetworkOperation *op = [self operationWithURLString:urlString];
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        completionBlock([completedOperation responseImage]);
+    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        errorBlock(error);
+    }];
+    
+    [self enqueueOperation:op];
+    
+    return op;
+}
+
+#pragma mark - Documents
+
+- (MKNetworkOperation *)getDocumentsWithDocumentType:(int)docType
+                                  andCompletionBlock:(DocumentsCompletionBlock)completionBlock
+                                             onError:(ErrorBlock)errorBlock {
+    return [self createNetworkOperationForOperation:@"SCS_GenelgeEgitimDocGetir"
+                                      andParameters:@{@"DocType" : [NSNumber numberWithInt:docType]}
+                                   onCompletion:^(NSDictionary *responseDictionary) {
+                               if ([responseDictionary[@"hataKodu"] intValue] == 0) {
+                                   completionBlock(responseDictionary[@"result"][@"GenelgeList"]);
+                               } else {
+                                   errorBlock([NSError errorWithDomain:@"LoginError"
+                                                                  code:-110
+                                                              userInfo:@{NSLocalizedDescriptionKey : @"Hatalı kullanıcı adı veya şifre girdiniz. Lütfen tekrar deneyin."}]);
+                               }
+                           }
+                                onError:^(NSError *error) {
+                                    errorBlock(error);
+                                }];
+}
+
+#pragma mark - Communication
+
+- (MKNetworkOperation *)getCommunicationInfosWithUsername:(NSString *)username
+                                              andPassword:(NSString *)password
+                                             onCompletion:(CompletionBlock)completionBlock
+                                                  onError:(ErrorBlock)errorBlock {
+    if ([username characterAtIndex:0] == '0') {
+        username = [username substringFromIndex:1];
+    }
+    
+    return [self createNetworkOperationForOperation:@"SCS_Iletisim"
+                      andParameters:@{@"telNo" : username,
+                                        @"Sifre" : password  }
+                       onCompletion:^(NSDictionary *responseDictionary) {
+                           if ([responseDictionary[@"result"][@"LoginDurum"] boolValue] == true) {
+                               completionBlock(responseDictionary[@"result"]);
+                           } else {
+                               errorBlock([NSError errorWithDomain:@"LoginError"
+                                                              code:-110
+                                                          userInfo:@{NSLocalizedDescriptionKey : @"Hatalı kullanıcı adı veya şifre girdiniz. Lütfen tekrar deneyin."}]);
+                           }
+                       }
+                            onError:^(NSError *error) {
+                                errorBlock(error);
+                            }];
+}
 
 @end

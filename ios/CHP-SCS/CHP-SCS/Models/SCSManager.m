@@ -17,7 +17,7 @@ static SCSManager* currentManager = nil;
     return [[SCSManager alloc] initWithDictionary:dictionary];
 }
 
-+ (SCSManager*) getCurrentManager
++ (SCSManager*) currentManager
 {
     return currentManager;
 }
@@ -25,19 +25,23 @@ static SCSManager* currentManager = nil;
 - (id) initWithDictionary:(NSDictionary*)dictionary
 {
     if (self = [super init]) {
-        _tckNo = [dictionary objectForKey:@"TCKN"];
-        _nameSurname = [dictionary objectForKey:@"AdSoyad"];
-        _chestNo = [dictionary objectForKey:@"SandikNo"];
-        _chestProvince = [dictionary objectForKey:@"SandikIli"];
-        _chestDistrict = [dictionary objectForKey:@"SandikIlcesi"];
-        _neighborhood = [dictionary objectForKey:@"MahalleMuhtarligi"];
-        _chestArea = [dictionary objectForKey:@"SandikAlani"];
-        _otherManagerNameSurname = [dictionary objectForKey:@"DigerGorevliAdi"];
-        _otherManagerPhone = [dictionary objectForKey:@"DigerGorevliTelefonu"];
-        _photoUrl = [dictionary objectForKey:@"GorevliFotoUrl"];
+        _tckNo = [dictionary objectForKey:CARD_TCK_NO];
+        _nameSurname = [dictionary objectForKey:CARD_NAME_SURNAME];
+        _chestNo = [dictionary objectForKey:CARD_CHEST_NO];
+        _chestProvince = [dictionary objectForKey:CARD_CHEST_PROVINCE];
+        _chestDistrict = [dictionary objectForKey:CARD_CHEST_DISTRICT];
+        _neighborhood = [dictionary objectForKey:CARD_NEIGHBORHOOD];
+        _chestArea = [dictionary objectForKey:CARD_CHEST_AREA];
+        _otherManagerNameSurname = [dictionary objectForKey:CARD_OTHER_MANAGER_NAME_SURNAME];
+        _otherManagerPhone = [dictionary objectForKey:CARD_OTHER_MANAGER_PHONE];
+        _photoUrl = [dictionary objectForKey:CARD_PHOTO_URL];
     }
     currentManager = self;
     return self;
 }
-
+- (void) getFullVoterListWithCompletionBlock:(CompletionBlock)completionBlock
+                               andErrorBlock:(ErrorBlock)errorBlock
+{
+    
+}
 @end

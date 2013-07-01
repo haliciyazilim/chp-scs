@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SCSLoginViewController : UIViewController <UITextFieldDelegate>
-- (IBAction)checkLogin:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+@property UITextField* usernameField;
+@property UITextField* passwordField;
+@property UIButton* loginButton;
 
 @end

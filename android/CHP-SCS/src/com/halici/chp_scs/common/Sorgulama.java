@@ -30,10 +30,15 @@ public class Sorgulama {
 	// kullanılan metot
 	final static String METHOD_NAME_LOGIN="SCS_Login";
 	final static String METHOD_NAME_DOC_GETIR="SCS_GenelgeEgitimDocGetir";
+	final static String METHOD_NAME_SECMEN_LISTESI_GETIR="SCS_SandikSecmenListesi";
+	final static String METHOD_NAME_ILETISIM_GETIR="SCS_Iletisim";
+	
 			 
 	// soap_action
 	final static String SOAP_ACTION_LOGIN="http://tempuri.org/SCS_login";
 	final static String SOAP_ACTION_DOC_GETIR="http://tempuri.org/SCS_GenelgeEgitimDocGetir";
+	final static String SOAP_ACTION_SECMEN_LISTESI_GETIR="http://tempuri.org/SCS_SandikSecmenListesi";
+	final static String SOAP_ACTION_ILETISIM_GETIR="http://tempuri.org/SCS_Iletisim";
 			 
 	// webservise ait url tanimlaması
 	final static String URL = "http://bilisim.chp.org.tr/MobilService.asmx";
@@ -145,4 +150,111 @@ public class Sorgulama {
 		return sonuc;
 	}
 
+	public String secmenListesiGetir(){
+		String sonuc = null;
+		// soap nesnesi
+		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME_SECMEN_LISTESI_GETIR);
+		
+		// requeste bilgi ekleniyor.
+		request.addProperty("telNo", this.telNo);
+		request.addProperty("Sifre",this.sifre);
+		
+		//Web servisin versiyonunu bildiriyoruz.
+		SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
+					
+		//don.net ile hazırlandığı için
+		soapEnvelope.dotNet = true;
+					
+		//requesti zarfa koyuoyoruz.
+		soapEnvelope.setOutputSoapObject(request);
+					
+		//transfer değeri oluşturuyoruz
+		HttpTransportSE aht = new HttpTransportSE(URL);
+		aht.debug=true;
+					
+		try {
+			// Ve son olarak isteğimizi gönderiyoruz.
+			aht.call(SOAP_ACTION_SECMEN_LISTESI_GETIR, soapEnvelope);
+			aht.setXmlVersionTag("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+			aht.debug=true;
+		
+		} 
+		catch (Exception e) {
+			Log.i("hata",e.toString());
+				e.printStackTrace();
+		} 
+		
+		try {
+			// Cevap olarak basit bir veri tipi beklediğimiz için,
+			// cevabı SoapPrimitive nesnesi olarak alıyoruz.
+			SoapPrimitive sonucSoap = (SoapPrimitive) soapEnvelope.getResponse();
+			sonuc=sonucSoap.toString();
+					
+				
+			System.out.println("Gelen Veri: ");
+			System.out.println(sonuc);
+		} 
+		catch (Exception e) {
+			System.out.println("Hata: "+e.toString());
+			e.printStackTrace();
+		}
+		
+		return sonuc;
+	}
+
+	public String iletisimGetir(){
+		String sonuc = null;
+		// soap nesnesi
+		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME_ILETISIM_GETIR);
+					
+		// requeste bilgi ekleniyor.
+		request.addProperty("telNo", this.telNo);
+		request.addProperty("Sifre",this.sifre);
+					
+		//Web servisin versiyonunu bildiriyoruz.
+		SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
+					
+		//don.net ile hazırlandığı için
+		soapEnvelope.dotNet = true;
+					
+		//requesti zarfa koyuoyoruz.
+		soapEnvelope.setOutputSoapObject(request);
+					
+		//transfer değeri oluşturuyoruz
+		HttpTransportSE aht = new HttpTransportSE(URL);
+		aht.debug=true;
+					
+		try {
+			System.out.println("try içindeiym.");
+			
+			// Ve son olarak isteğimizi gönderiyoruz.
+			aht.call(SOAP_ACTION_ILETISIM_GETIR, soapEnvelope);
+			aht.setXmlVersionTag("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+			aht.debug=true;
+					
+			System.out.println("try sonu");
+		} 
+		catch (Exception e) {
+			Log.i("hata",e.toString());
+				e.printStackTrace();
+		} 
+		
+		try {
+			// Cevap olarak basit bir veri tipi beklediğimiz için,
+			// cevabı SoapPrimitive nesnesi olarak alıyoruz.
+			SoapPrimitive sonucSoap = (SoapPrimitive) soapEnvelope.getResponse();
+			sonuc=sonucSoap.toString();
+					
+				
+			System.out.println("Gelen Veri: ");
+			System.out.println(sonuc);
+		} 
+		catch (Exception e) {
+			System.out.println("Hata: "+e.toString());
+			e.printStackTrace();
+		}
+		
+		return sonuc;
+	}
+	
 }

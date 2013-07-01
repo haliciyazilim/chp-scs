@@ -22,7 +22,7 @@
         android:focusableInTouchMode="false" />
 
     <TextView
-        android:id="@+id/pdfCategorySubtitle"
+        android:id="@+id/iletisimSandikNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.68"

@@ -1,21 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/holo_orange_dark" >
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/pdfCategorySubtitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="97dp"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:onClick="showPDF" />
+        <TextView
+            android:id="@+id/iletisimSandiNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-</LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/divider_large_size"
+            android:background="@color/list_divider" />
+
+        <TextView
+            android:id="@+id/ilceBaskaniHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ilceBaskani" />
+
+        <LinearLayout
+            android:id="@+id/ilceBaskani"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/ilceBaskaniName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/ilceBaskaniTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/divider_large_size"
+            android:background="@color/list_divider" />
+
+        <LinearLayout
+            android:id="@+id/ilceBaskanligi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/ilceBaskanligiHaeder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ilceBaskanligi" />
+
+            <TextView
+                android:id="@+id/ilceBaskanligiTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/divider_large_size"
+            android:background="@color/list_divider" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ilceBilisiSorumlusu" />
+
+        <LinearLayout
+            android:id="@+id/ilceBilisimSorumlusu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/ilceBilisimSorumlusuName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/ilceBilisimSorumlusuTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/divider_large_size"
+            android:background="@color/list_divider" />
+
+        <LinearLayout
+            android:id="@+id/bitem_ePosta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/bitem_ePostaHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bitemEposta" />
+
+            <TextView
+                android:id="@+id/bitem_ePostaMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/divider_large_size"
+            android:background="@color/list_divider" />
+
+        <LinearLayout
+            android:id="@+id/bitemTelefon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/bitemTelefonHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bitemTel" />
+
+            <TextView
+                android:id="@+id/bitemTelefonPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </LinearLayout>
+        
+
+    </LinearLayout>
+
+</RelativeLayout>

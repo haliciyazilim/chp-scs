@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -31,9 +32,7 @@ public class Login extends Activity {
 	SharedPreferences shPreferences;
 	SharedPreferences.Editor shPrefEditor;
 	
-	private static final String NAME="name";
-	private static final String PASSWORD="password";
-	private static final String SEED="secure";
+	
 	
 	private boolean loginDurumu;
 	private String userName;
@@ -46,12 +45,28 @@ public class Login extends Activity {
 		
 		setContentView(R.layout.login);
 		
+		new ExternalFont(this);
+		Typeface fontM=ExternalFont.getFontM();
+		Typeface fontL=ExternalFont.getFontL();
+		Typeface fontT=ExternalFont.getFontT();
+		
 		eTuserName=(EditText)findViewById(R.id.editUserName);
+		eTuserName.setTypeface(fontM);
+
 		eTpassword=(EditText)findViewById(R.id.editPassword);
+		eTuserName.setTypeface(fontM);
+		
 		btnSign=(Button)findViewById(R.id.btnSubmit);
 		shPreferences=getSharedPreferences("data", MODE_PRIVATE);
 		
+		
+		
+		
+		
+		
 		getSavedData();
+		
+		
 		
 		
 		btnSign.setOnClickListener(new View.OnClickListener() {
@@ -72,11 +87,11 @@ public class Login extends Activity {
 		
 		
 		try{
-			String nameToSave=Crypto.encrypt(SEED, name);
-			String passwordToSave=Crypto.encrypt(SEED, pass);
+			String nameToSave=Crypto.encrypt(Util.SH_SEED, name);
+			String passwordToSave=Crypto.encrypt(Util.SH_SEED, pass);
 			
-			shPrefEditor.putString(NAME, nameToSave).commit();
-			shPrefEditor.putString(PASSWORD, passwordToSave).commit();
+			shPrefEditor.putString(Util.SH_NAME, nameToSave).commit();
+			shPrefEditor.putString(Util.SH_PASSWORD, passwordToSave).commit();
 		}
 		catch(Exception e){
 			System.out.println("Saved Data Decrypt: "+e);
@@ -87,8 +102,8 @@ public class Login extends Activity {
 	private void getSavedData(){
 		try{
 		
-		String savedName= Crypto.decrypt(SEED, shPreferences.getString(NAME, ""));
-		String savedPassword=Crypto.decrypt(SEED, shPreferences.getString(PASSWORD, ""));
+		String savedName= Crypto.decrypt(Util.SH_SEED, shPreferences.getString(Util.SH_NAME, ""));
+		String savedPassword=Crypto.decrypt(Util.SH_SEED, shPreferences.getString(Util.SH_PASSWORD, ""));
 		
 		eTuserName.setText(savedName);
 		eTpassword.setText(savedPassword);

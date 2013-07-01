@@ -7,6 +7,7 @@ import com.halici.chp_scs.common.Util;
 import com.halici.chp_scs.fragment.DokumanlarFragment;
 import com.halici.chp_scs.fragment.IletisimFragment;
 import com.halici.chp_scs.fragment.SandikCevresiSorumluKartiFragment;
+import com.halici.chp_scs.fragment.SandikSecmenListesiFragment;
 
 import shared.ui.actionscontentview.ActionsContentView;
 import android.content.Intent;
@@ -135,6 +136,18 @@ public class MainActivity extends FragmentActivity {
       }
       
       
+    }
+    else  if (SandikSecmenListesiFragment.ABOUT_URI.equals(uri)) {
+    	tag = SandikSecmenListesiFragment.TAG;
+        final Fragment foundFragment = fm.findFragmentByTag(tag);
+        if (foundFragment != null) {
+        	fragment = foundFragment;
+        } else {
+        	fragment = new SandikSecmenListesiFragment();
+        	
+        }
+        
+        
     }
     else if (IletisimFragment.ABOUT_URI.equals(uri)) {
         tag = IletisimFragment.TAG;

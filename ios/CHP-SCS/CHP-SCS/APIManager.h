@@ -58,6 +58,11 @@ typedef void (^DocumentsCompletionBlock) (NSArray *responseArray);
                              onCompletion:(SCSCardBlock)cardBlock
                                   onError:(ErrorBlock)errorBlock;
 
+- (MKNetworkOperation *)loginV2WithUsername:(NSString *)username
+                              andPassword:(NSString *)password
+                             onCompletion:(CompletionBlock)completionBlock
+                                  onError:(ErrorBlock)errorBlock;
+
 - (MKNetworkOperation *)getImageWithURLString:(NSString *)urlString
                                  onCompletion:(ImageBlock)completionBlock
                                       onError:(ErrorBlock)errorBlock;

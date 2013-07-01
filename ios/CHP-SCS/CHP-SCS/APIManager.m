@@ -154,6 +154,26 @@ static APIManager *sharedInstance = nil;
 
 #pragma mark - Login
 
+- (MKNetworkOperation *)loginV2WithUsername:(NSString *)username
+                                andPassword:(NSString *)password
+                               onCompletion:(CompletionBlock)completionBlock
+                                    onError:(ErrorBlock)errorBlock
+{
+    if ([username characterAtIndex:0] == '0') {
+        username = [username substringFromIndex:1];
+    }
+    
+    return [self createNetworkOperationForOperation:@"SCS_Login"
+                                      andParameters:@{@"telNo" : username,
+                                                        @"Sifre" : password}
+                                       onCompletion:^(NSDictionary *responseDictionary) {
+                                           
+                                       }
+                                            onError:^(NSError *error) {
+                                            }
+            ];
+}
+
 - (MKNetworkOperation *)loginWithUsername:(NSString *)username
                               andPassword:(NSString *)password
                              onCompletion:(SCSCardBlock)cardBlock

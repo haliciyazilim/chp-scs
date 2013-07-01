@@ -222,7 +222,7 @@
     [self.view addSubview:subSeperator4];
 }
 - (void) viewWillAppear:(BOOL)animated {
-    _currentManager = [SCSManager getCurrentManager];
+    _currentManager = [SCSManager currentManager];
     [self configureViews];
 }
 - (void) configureViews {

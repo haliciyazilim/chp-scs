@@ -1,6 +1,8 @@
 package com.artifex.mupdfdemo;
 
 import com.halici.chp_scs.R;
+import com.halici.chp_scs.fragment.DokumanlarFragment;
+
 import java.util.concurrent.Executor;
 import java.io.InputStream;
 import java.io.FileInputStream;
@@ -247,7 +249,9 @@ public class MuPDFActivity extends Activity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		mFileName="/mnt/sdcard/Download/matematik_1.pdf";
+		
+		
+		mFileName=getIntent().getStringExtra(DokumanlarFragment.PDF_FILE);
 		try {
 			core=new MuPDFCore(mFileName);
 		} catch (Exception e1) {

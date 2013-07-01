@@ -6,6 +6,11 @@
     <string name="about_details">Selam Gençler</string>
     <string name="about_play">Play in sandbox</string>
     <string name="about_tutorial">View tutorial page</string>
+    
+    <!-- Login strings -->
+    <string name="userNameHint">Telefon No/T.C. Kimlik No Giriniz</string>
+    <string name="passwordHint">Lütfen Şifrenizi Giriniz.</string>
+    <string name="submit">Sorgula</string>
    
     <!-- Setting strings -->
     <string name="pref_spacing">Spacing settings</string>

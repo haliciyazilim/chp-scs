@@ -82,10 +82,10 @@
     
     <string-array name="actions_links">
         <item>view://secmen_bilgi_karti</item>
-        <item>view://secmen_bilgi_karti</item>
-        <item>view://secmen_bilgi_karti</item>
-        <item>view://secmen_bilgi_karti</item>
-        <item>view://secmen_bilgi_karti</item>
+        <item>view://dokumanlar</item>
+        <item>view://dokumanlar</item>
+        <item>view://sandik_bilgi_karti</item>
+        <item>view://sandik_secmen_listesi</item>
         <item>view://iletisim</item>
         
     </string-array>

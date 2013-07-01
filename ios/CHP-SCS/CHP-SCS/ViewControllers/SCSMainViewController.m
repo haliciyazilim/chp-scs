@@ -9,6 +9,7 @@
 #import "SCSMainViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TypeDefs.h"
+#import "SCSManager.h"
 
 @interface SCSMainViewController ()
 
@@ -20,6 +21,13 @@
     UILabel* yearLabel;
     UILabel* headerLabel;
     UILabel* nameLabel;
+    UILabel* chestNoLabel;
+    UILabel* chestProvinceLabel;
+    UILabel* chestDistrictLabel;
+    UILabel* homeTownLabel;
+    UILabel* chestAreaLabel;
+    UILabel* secondOfficerLabel;
+    UILabel* secondOfficerPhoneLabel;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,7 +66,13 @@
     CGFloat nameWidth = 150.0;
     CGFloat nameHeight = 60.0;
     
-    CGFloat chestNoY = 210.0;
+    CGFloat chestNoY = 215.0;
+    
+    CGFloat homeTownY = chestNoY+78.0;
+    
+    CGFloat chestAreaY = homeTownY+66.0;
+    
+    CGFloat cardPersonImageY = chestAreaY+66.0;
     
     UIImageView* cardBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"card_bg.png"]];
     [cardBackground setFrame:CGRectMake(0.0, topBarHeight, frame.size.width, cardHeight)];
@@ -90,11 +104,96 @@
     [nameLabel setTextColor:CARD_NAME_TEXT_COLOR];
     [nameLabel setNumberOfLines:2];
     
-    UILabel* chestNoHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, chestNoY, 100.0, 20.0)];
+    UILabel* chestNoHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, chestNoY-4.0, 60.0, 14.0)];
     [chestNoHeader setBackgroundColor:[UIColor clearColor]];
     [chestNoHeader setFont:MAIN_CONTENT_SUBHEADER_TEXT_FONT];
     [chestNoHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
     [chestNoHeader setText:@"Sandık No"];
+    
+    chestNoLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset, chestNoY+10.0, 120.0, 40.0)];
+    [chestNoLabel setBackgroundColor:[UIColor clearColor]];
+    [chestNoLabel setFont:CARD_CHEST_NO_TEXT_FONT];
+    [chestNoLabel setTextColor:CARD_CHEST_NO_TEXT_COLOR];
+    
+    UILabel* chestProvinceHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+130.0, chestNoY-4.0, 100.0, 14.0)];
+    [chestProvinceHeader setBackgroundColor:[UIColor clearColor]];
+    [chestProvinceHeader setFont:MAIN_CONTENT_SUBHEADER_TEXT_FONT];
+    [chestProvinceHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
+    [chestProvinceHeader setText:@"Sandık İli, İlçesi"];
+    
+    chestProvinceLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+130.0, chestNoY+10.0, 140.0, 22.0)];
+    [chestProvinceLabel setBackgroundColor:[UIColor clearColor]];
+    [chestProvinceLabel setFont:CARD_PROVINCE_TEXT_FONT];
+    [chestProvinceLabel setTextColor:CARD_PROVINCE_TEXT_COLOR];
+    
+    chestDistrictLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+130.0, chestNoY+32.0, 140.0, 16.0)];
+    [chestDistrictLabel setBackgroundColor:[UIColor clearColor]];
+    [chestDistrictLabel setFont:CARD_DISTRICT_TEXT_FONT];
+    [chestDistrictLabel setTextColor:CARD_DISTRICT_TEXT_COLOR];
+    
+    UIView* subSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, chestNoY+65.0, 280.0, 1.0)];
+    [subSeperator1 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
+    
+    UILabel* homeTownHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, homeTownY, 100.0, 14.0)];
+    [homeTownHeader setBackgroundColor:[UIColor clearColor]];
+    [homeTownHeader setFont:MAIN_CONTENT_SUBHEADER_TEXT_FONT];
+    [homeTownHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
+    [homeTownHeader setText:@"Mahalle Muhtarlığı"];
+    
+    homeTownLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, homeTownY+14.0, 220.0, 26.0)];
+    [homeTownLabel setBackgroundColor:[UIColor clearColor]];
+    [homeTownLabel setFont:CARD_OTHER_CONTENT_TEXT_FONT];
+    [homeTownLabel setTextColor:CARD_OTHER_CONTENT_TEXT_COLOR];
+    
+    UIView* subSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, homeTownY+53.0, 280.0, 1.0)];
+    [subSeperator2 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
+    
+    UILabel* chestAreaHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, chestAreaY, 100.0, 14.0)];
+    [chestAreaHeader setBackgroundColor:[UIColor clearColor]];
+    [chestAreaHeader setFont:MAIN_CONTENT_SUBHEADER_TEXT_FONT];
+    [chestAreaHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
+    [chestAreaHeader setText:@"Sandık Alanı"];
+    
+    chestAreaLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, chestAreaY+14.0, 220.0, 26.0)];
+    [chestAreaLabel setBackgroundColor:[UIColor clearColor]];
+    [chestAreaLabel setFont:CARD_OTHER_CONTENT_TEXT_FONT];
+    [chestAreaLabel setTextColor:CARD_OTHER_CONTENT_TEXT_COLOR];
+    
+    UIView* subSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, chestAreaY+53.0, 280.0, 1.0)];
+    [subSeperator3 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
+    
+    UIImage* cardPersonImage = [UIImage imageNamed:@"card_icon_person.png"];
+    UIImageView* cardPersonView = [[UIImageView alloc] initWithImage:cardPersonImage];
+    [cardPersonView setFrame:CGRectMake(xOffset, cardPersonImageY, cardPersonImage.size.width, cardPersonImage.size.height)];
+    
+    UILabel* secondOfficerHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+28.0, cardPersonImageY, 100.0, 10.0)];
+    [secondOfficerHeader setBackgroundColor:[UIColor clearColor]];
+    [secondOfficerHeader setFont:CARD_SECOND_OFFICER_TEXT_FONT];
+    [secondOfficerHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
+    [secondOfficerHeader setText:@"2. Sandık Görevlisi"];
+    
+    secondOfficerLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+28.0, cardPersonImageY+10.0, 110.0, 10.0)];
+    [secondOfficerLabel setBackgroundColor:[UIColor clearColor]];
+    [secondOfficerLabel setFont:CARD_SECOND_OFFICER_TEXT_FONT];
+    [secondOfficerLabel setTextColor:CARD_SECOND_OFFICER_TEXT_COLOR];
+    
+    UIImage* cardPhoneImage = [UIImage imageNamed:@"card_icon_phone.png"];
+    UIImageView* cardPhoneView = [[UIImageView alloc] initWithImage:cardPhoneImage];
+    [cardPhoneView setFrame:CGRectMake(xOffset+152.0, cardPersonImageY, cardPhoneImage.size.width, cardPhoneImage.size.height)];
+    
+    UILabel* secondOfficerPhoneHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+170.0, cardPersonImageY, 120.0, 10.0)];
+    [secondOfficerPhoneHeader setBackgroundColor:[UIColor clearColor]];
+    [secondOfficerPhoneHeader setFont:CARD_SECOND_OFFICER_TEXT_FONT];
+    [secondOfficerPhoneHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
+    [secondOfficerPhoneHeader setText:@"Sandık Görevlisi Telefon"];
+    
+    secondOfficerPhoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+170.0, cardPersonImageY+10.0, 110.0, 10.0)];
+    [secondOfficerPhoneLabel setBackgroundColor:[UIColor clearColor]];
+    [secondOfficerPhoneLabel setFont:CARD_SECOND_OFFICER_TEXT_FONT];
+    [secondOfficerPhoneLabel setTextColor:CARD_SECOND_OFFICER_TEXT_COLOR];
+    
+    UIView* subSeperator4 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, cardPersonImageY+33.0, 280.0, 1.0)];
+    [subSeperator4 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
     
     [self.view addSubview:cardBackground];
     [self.view addSubview:officerImageView];
@@ -103,14 +202,54 @@
     [self.view addSubview:cardSeperator];
     [self.view addSubview:nameLabel];
     [self.view addSubview:chestNoHeader];
-    
+    [self.view addSubview:chestNoLabel];
+    [self.view addSubview:chestProvinceHeader];
+    [self.view addSubview:chestProvinceLabel];
+    [self.view addSubview:chestDistrictLabel];
+    [self.view addSubview:subSeperator1];
+    [self.view addSubview:homeTownHeader];
+    [self.view addSubview:homeTownLabel];
+    [self.view addSubview:subSeperator2];
+    [self.view addSubview:chestAreaHeader];
+    [self.view addSubview:chestAreaLabel];
+    [self.view addSubview:subSeperator3];
+    [self.view addSubview:cardPersonView];
+    [self.view addSubview:secondOfficerHeader];
+    [self.view addSubview:secondOfficerLabel];
+    [self.view addSubview:cardPhoneView];
+    [self.view addSubview:secondOfficerPhoneHeader];
+    [self.view addSubview:secondOfficerPhoneLabel];
+    [self.view addSubview:subSeperator4];
+}
+- (void) viewWillAppear:(BOOL)animated {
+    _currentManager = [SCSManager getCurrentManager];
     [self configureViews];
 }
 - (void) configureViews {
+//    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
+//    [yearLabel setText:@"2013"];
+//    [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
+//    [nameLabel setText:@"Ebuzer Egemen Dursun"];
+//    [chestNoLabel setText:@"1258"];
+//    [chestProvinceLabel setText:@"Kahramanmaraş"];
+//    [chestDistrictLabel setText:@"Gönen"];
+//    [homeTownLabel setText:@"Alaca Mescit Mahallesi"];
+//    [chestAreaLabel setText:@"Süleyman Demirel İ.Ö.O"];
+//    [secondOfficerLabel setText:@"Harun Soydemir"];
+//    [secondOfficerPhoneLabel setText:@"532 493 13 09"];
+    
     [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
     [yearLabel setText:@"2013"];
     [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
-    [nameLabel setText:@"Ebuzer Egemen Dursun"];
+    [nameLabel setText:[_currentManager nameSurname]];
+    [chestNoLabel setText:[_currentManager chestNo]];
+    [chestProvinceLabel setText:[_currentManager chestProvince]];
+    [chestDistrictLabel setText:[_currentManager chestDistrict]];
+    [homeTownLabel setText:[_currentManager neighborhood]];
+    [chestAreaLabel setText:[_currentManager chestArea]];
+    [secondOfficerLabel setText:[_currentManager otherManagerNameSurname]];
+    [secondOfficerPhoneLabel setText:[_currentManager otherManagerPhone]];
+
 }
 - (void)didReceiveMemoryWarning
 {

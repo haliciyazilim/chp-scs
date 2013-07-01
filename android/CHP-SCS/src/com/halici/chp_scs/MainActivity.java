@@ -2,6 +2,9 @@ package com.halici.chp_scs;
 
 import com.artifex.mupdfdemo.MuPDFActivity;
 import com.halici.chp_scs.adapter.ActionsAdapter;
+import com.halici.chp_scs.common.SandikCevresiSorumluBilgileri;
+import com.halici.chp_scs.common.Util;
+import com.halici.chp_scs.fragment.DokumanlarFragment;
 import com.halici.chp_scs.fragment.IletisimFragment;
 import com.halici.chp_scs.fragment.SandikCevresiSorumluKartiFragment;
 
@@ -29,13 +32,17 @@ public class MainActivity extends FragmentActivity {
   private Uri currentUri = SandikCevresiSorumluKartiFragment.ABOUT_URI;
   private String currentContentFragmentTag = null;
 
+  SandikCevresiSorumluBilgileri sandikCevresiSorumluBilgileri;
+  
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-
     setContentView(R.layout.main);
 
+    sandikCevresiSorumluBilgileri=(SandikCevresiSorumluBilgileri)getIntent().getSerializableExtra(Util.SANDIK_CEVRESI_SORUMLU_BILGILERI);
+    
+   
     viewActionsContentView = (ActionsContentView) findViewById(R.id.actionsContentView);
     viewActionsContentView.setSwipingType(ActionsContentView.SWIPING_ALL);
 
@@ -53,7 +60,12 @@ public class MainActivity extends FragmentActivity {
           startActivity(new Intent(getBaseContext(), EffectsActivity.class));
           return;
         }
-        
+        if(position==1){
+        	DokumanlarFragment.docType=Util.EGITIM_DOKUMANLARI;
+        }
+        else if(position==2){
+        	DokumanlarFragment.docType=Util.GENELGELER;
+        }
         updateContent(uri);
         viewActionsContentView.showContent();
       }
@@ -117,7 +129,12 @@ public class MainActivity extends FragmentActivity {
         fragment = foundFragment;
       } else {
         fragment = new SandikCevresiSorumluKartiFragment();
+        Bundle bundle=new Bundle();
+        bundle.putSerializable(Util.SANDIK_CEVRESI_SORUMLU_BILGILERI, sandikCevresiSorumluBilgileri);
+        fragment.setArguments(bundle);
       }
+      
+      
     }
     else if (IletisimFragment.ABOUT_URI.equals(uri)) {
         tag = IletisimFragment.TAG;
@@ -127,6 +144,15 @@ public class MainActivity extends FragmentActivity {
         } else {
           fragment = new IletisimFragment();
         }
+      }
+    else if (DokumanlarFragment.ABOUT_URI.equals(uri)) {
+        tag = DokumanlarFragment.TAG;
+        final Fragment foundFragment = fm.findFragmentByTag(tag);
+//        if (foundFragment != null) {
+//          fragment = foundFragment;
+//        } else {
+          fragment = new DokumanlarFragment();
+//        }
       }
     else {
       return;

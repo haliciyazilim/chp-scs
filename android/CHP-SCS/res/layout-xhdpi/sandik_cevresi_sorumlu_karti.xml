@@ -69,6 +69,7 @@
    		        android:layout_height="wrap_content"
    		        android:layout_alignLeft="@+id/tvSorumluKartiSurName"
    		        android:layout_alignParentBottom="true"
+   		        android:layout_alignParentRight="true"
    		        android:paddingBottom="40dp"
    		        android:text="Hağan Ali"
    		        android:textColor="@color/sorumlu_karti_name"
@@ -81,7 +82,6 @@
    		        android:layout_marginRight="@dimen/margin_views"
    		        android:layout_toRightOf="@+id/imgSorumluKartiFoto"
    		        android:background="@color/foto_border" />
-
    		</RelativeLayout>
 
    		<RelativeLayout

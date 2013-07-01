@@ -63,5 +63,20 @@
 #define PDF_TABLE_CELL_SUBTITLE_FONT [UIFont fontWithName:@"Swis721 Ld BT" size:18.0]
 #define PDF_TABLE_CELL_FILENAME_FONT [UIFont fontWithName:@"Swis721 Ld BT" size:14.0]
 
+#define LOGIN_SCREEN_TITLE_COLOR [UIColor colorWithWhite:1.0 alpha:1.0]
+#define LOGIN_SCREEN_TITLE_FONT [UIFont fontWithName:@"Swis721 Th BT" size:22.0]
+
+#define LOGIN_SCREEN_TEXT_COLOR [UIColor colorWithRed:50.0/255.0 green:46.0/255.0 blue:37.0/255.0 alpha:1.0]
+#define LOGIN_SCREEN_TEXT_FONT [UIFont fontWithName:@"Swis721 Md BT" size:18.0]
+
+#define SCREEN_SIZE [[UIScreen mainScreen] bounds].size
+#define LOGIN_SCREEN_TEXT_FIELDS_SIZE CGSizeMake(244.0, 44.0)
+#define LOGIN_SCREEN_BUTTON_SIZE CGSizeMake(89.0, 44.0)
+#define LOGIN_SCREEN_TEXT_FIELDS_COLOR [UIColor colorWithRed:223.0/255.0 green:200.0/255.0 blue:187.0/255.0 alpha:1.0]
+#define LOGIN_SCREEN_BUTTON_COLOR [UIColor colorWithRed:217.0/255.0 green:74.0/255.0 blue:61.0/255.0 alpha:1.0]
+#define LOGIN_SCREEN_BUTTON_HIGHLIGHTED_COLOR [UIColor colorWithRed:50.0/255.0 green:46.0/255.0 blue:37.0/255.0 alpha:1.0]
+#define LOGIN_SCREEN_BUTTON_TEXT_COLOR [UIColor colorWithWhite:1.0 alpha:1.0]
+
+
 
 #endif

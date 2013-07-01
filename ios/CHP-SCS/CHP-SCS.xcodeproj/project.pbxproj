@@ -202,8 +202,6 @@
 		05CE053A17676144009955B8 = {
 			isa = PBXGroup;
 			children = (
-				052D8F8E177DA46A003E9DDC /* SystemConfiguration.framework */,
-				052D8F8C177DA438003E9DDC /* Security.framework */,
 				05CE054C17676144009955B8 /* CHP-SCS */,
 				05CE054517676144009955B8 /* Frameworks */,
 				05CE054417676144009955B8 /* Products */,
@@ -221,6 +219,8 @@
 		05CE054517676144009955B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				052D8F8E177DA46A003E9DDC /* SystemConfiguration.framework */,
+				052D8F8C177DA438003E9DDC /* Security.framework */,
 				05CE054617676144009955B8 /* UIKit.framework */,
 				05CE054817676144009955B8 /* Foundation.framework */,
 				05CE054A17676144009955B8 /* CoreGraphics.framework */,

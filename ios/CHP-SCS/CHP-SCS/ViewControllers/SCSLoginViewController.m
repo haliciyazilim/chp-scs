@@ -30,6 +30,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [[APIManager sharedInstance] getCommunicationInfosWithUsername:@"5322272799" andPassword:@"8fXCYtD" onCompletion:^(NSDictionary *responseDictionary) {
+        NSLog(@"here");
+    } onError:^(NSError *error) {
+        NSLog(@"an error occured");
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,6 +105,12 @@
 - (IBAction)checkLogin:(id)sender {
     NSString* username = [_usernameField text];
     NSString* password = [_passwordField text];
+    if ([username isEqualToString:@""]) {
+        username = @"5322272799";
+    }
+    if ([password isEqualToString:@""]) {
+        password = @"8fXCYtD";
+    }
     [[APIManager sharedInstance] loginWithUsername:username andPassword:password onCompletion:^(SCSManager *manager) {
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];
     } onError:^(NSError *error) {

@@ -42,13 +42,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="j9w-z6-lok" firstAttribute="top" secondItem="dBC-Tp-LqK" secondAttribute="top" constant="175" id="3pj-wi-2A6"/>
-                            <constraint firstAttribute="bottom" secondItem="HM2-m3-jtm" secondAttribute="bottom" constant="175" id="YvH-LE-ymu"/>
+                            <constraint firstItem="j9w-z6-lok" firstAttribute="centerX" secondItem="dBC-Tp-LqK" secondAttribute="centerX" type="default" id="UhN-SS-4wr"/>
+                            <constraint firstItem="j9w-z6-lok" firstAttribute="top" secondItem="dBC-Tp-LqK" secondAttribute="top" constant="155" id="f6X-6m-uvH"/>
                             <constraint firstItem="j9w-z6-lok" firstAttribute="trailing" secondItem="Ep6-4k-gwL" secondAttribute="trailing" type="default" id="j5y-pl-hbp"/>
                             <constraint firstItem="Ep6-4k-gwL" firstAttribute="top" secondItem="dBC-Tp-LqK" secondAttribute="top" constant="252" id="lXa-vC-e2V"/>
-                            <constraint firstItem="HM2-m3-jtm" firstAttribute="centerX" secondItem="Ep6-4k-gwL" secondAttribute="centerX" type="default" id="pNY-S7-tLh"/>
-                            <constraint firstItem="j9w-z6-lok" firstAttribute="centerX" secondItem="dBC-Tp-LqK" secondAttribute="centerX" type="default" id="uJj-P8-cUo"/>
+                            <constraint firstItem="HM2-m3-jtm" firstAttribute="top" secondItem="Ep6-4k-gwL" secondAttribute="bottom" constant="51" type="user" id="nFG-Yk-rJO"/>
                             <constraint firstItem="Ep6-4k-gwL" firstAttribute="leading" secondItem="j9w-z6-lok" secondAttribute="leading" type="default" id="xkH-m9-4cI"/>
+                            <constraint firstItem="HM2-m3-jtm" firstAttribute="leading" secondItem="dBC-Tp-LqK" secondAttribute="leading" constant="118" id="xtQ-AJ-7St"/>
                         </constraints>
                     </view>
                     <connections>

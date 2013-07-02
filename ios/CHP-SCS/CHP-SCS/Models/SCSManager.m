@@ -17,7 +17,7 @@ static SCSManager* currentManager = nil;
     return [[SCSManager alloc] initWithDictionary:dictionary];
 }
 
-+ (SCSManager*) getCurrentManager
++ (SCSManager*) currentManager
 {
     return currentManager;
 }
@@ -39,5 +39,9 @@ static SCSManager* currentManager = nil;
     currentManager = self;
     return self;
 }
-
+- (void) getFullVoterListWithCompletionBlock:(CompletionBlock)completionBlock
+                               andErrorBlock:(ErrorBlock)errorBlock
+{
+    
+}
 @end

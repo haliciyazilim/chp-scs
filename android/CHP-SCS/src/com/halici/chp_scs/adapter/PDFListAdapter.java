@@ -78,7 +78,7 @@ public class PDFListAdapter extends BaseAdapter {
             	System.out.println("İtem is DOC");
             	
             	TextView categoryView = (TextView) view.findViewById(R.id.pdfCategoryItem);
-         		TextView subTitleView=(TextView) view.findViewById(R.id.pdfCategorySubtitle);
+         		TextView subTitleView=(TextView) view.findViewById(R.id.iletisimSandikNo);
             	
             	categoryView.setText(((Document)item).getHeader());
             	subTitleView.setText(((Document)item).getComment());

@@ -34,7 +34,7 @@
     <string name="action_egitim_dokumanlari">Eğitim Dokümanları</string>
     <string name="action_genelgeler">Genelgeler</string>
     <string name="action_sandik_bilgi_karti">Sandık Bilgi Kartı</string>
-    <string name="action_sandik_secmen_listesi">Sandık Seçmen Kartı</string>
+    <string name="action_sandik_secmen_listesi">Sandık Seçmen Listesi</string>
     <string name="action_iletisim">İletişim</string>
     
     <!--  Sandık Çevresi Sorumlu Kartı -->
@@ -81,5 +81,10 @@
     <string name="search">Arama</string>
     <string name="copy">Copy</string>
     <string name="strike_out">Çiz</string>
+    <string name="ilceBaskani">İlçe Başkanı</string>
+    <string name="ilceBilisiSorumlusu">İlçe Bilişim Sorumlusu</string>
+    <string name="bitemEposta">CHP - BİTEM E-Posta</string>
+    <string name="bitemTel">CHP - BİTEM E-Posta</string>
+    <string name="ilceBaskanligi">İlçe Başkanlığı</string>
 
 </resources>

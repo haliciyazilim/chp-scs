@@ -18,5 +18,14 @@ public class Util {
 	
 	public static final int EGITIM_DOKUMANLARI=1;
 	public static final int GENELGELER=2;
+	
+	// SharedPreferences
+	
+	public static final String SH_NAME="name";
+	public static final String SH_PASSWORD="password";
+	public static final String SH_SEED="secure";
+	
+	// Sandik SecmenListesi
+	public static final String SiraNo="SiraNo";
 
 }

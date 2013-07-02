@@ -225,6 +225,7 @@
     _currentManager = [SCSManager getCurrentManager];
     [self configureViews];
 }
+
 - (void) configureViews {
 //    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
 //    [yearLabel setText:@"2013"];

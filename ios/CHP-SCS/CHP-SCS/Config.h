@@ -10,7 +10,7 @@
 #define CHP_SCS_Config_h
 
 // font names macros
-#define LIGHT_FONT_NAME @"Swis 721 Lt BT"
+#define LIGHT_FONT_NAME @"Swis721 Lt BT"
 #define MEDIUM_FONT_NAME @"Swis721 Md BT"
 #define THIN_FONT_NAME @"Swis721 Th BT"
 
@@ -58,10 +58,13 @@
 
 #define CARD_OFFICER_IMAGE_BORDER_COLOR [UIColor colorWithRed:233.0/255.0 green:217.0/255.0 blue:208.0/255.0 alpha:1.0]
 
-//PDF Table Cell
-#define PDF_TABLE_CELL_TITLE_FONT [UIFont fontWithName:@"Swis721 Md BT" size:18.0]
-#define PDF_TABLE_CELL_SUBTITLE_FONT [UIFont fontWithName:@"Swis721 Ld BT" size:18.0]
-#define PDF_TABLE_CELL_FILENAME_FONT [UIFont fontWithName:@"Swis721 Ld BT" size:14.0]
+//PDF Table Cell 
+#define PDF_TABLE_CELL_TITLE_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:16.0]
+#define PDF_TABLE_CELL_SUBTITLE_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:14.0]
+#define PDF_TABLE_CELL_FILENAME_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:15.0]
+
+#define PDF_TABLE_CELL_SUBTITLE_TEXT_FONT [UIColor colorWithRed:158.0/255.0 green:157.0/255.0 blue:153.0/255.0 alpha:1.0]
+#define PDF_TABLE_CELL_SEPERATOR_COLOR [UIColor colorWithRed:65.0/255.0 green:61.0/255.0 blue:50.0/255.0 alpha:1.0]
 
 
 #endif

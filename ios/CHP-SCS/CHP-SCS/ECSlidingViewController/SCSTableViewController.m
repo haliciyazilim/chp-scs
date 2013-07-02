@@ -11,13 +11,11 @@
 #import "SCSMenuViewController.h"
 #import "TypeDefs.h"
 #import "SCSPDFWebView.h"
+#import "APIManager.h"
 
-#define TITLE @"title"
-#define SUBTITLE @"subtitle"
-#define FILES @"FILES"
-#define URL @"url"
-#define FILE_NAME @"file_name"
+
 #define PLACFileCacheTransformIdentifier @"PDF_FILE"
+
 @interface SCSTableViewController ()
 
 @end
@@ -43,42 +41,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     [self.tableView setFrame:CGRectMake(0.0, 44.0, self.view.frame.size.width, self.view.frame.size.height-44.0)];
     UIView* view = [UIView new];
     [view setBackgroundColor:MAIN_CONTENT_BACKGROUND_COLOR];
     [self.tableView setBackgroundView:view];
+    [self.tableView setSeparatorColor:PDF_TABLE_CELL_SEPERATOR_COLOR];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_TITLE];
     [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_SUBTITLE];
     [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_FILE];
     [self.view insertSubview:self.tableView belowSubview:self.topBar];
+    
     data = @[
              @{
-                 TITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
-                 SUBTITLE:@"Scme ve scilme hakki",
-                 FILES:@[
+                 DOCUMENTS_DOCUMENT_TITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
+                 DOCUMENTS_DOCUMENT_DESCRIPTION:@"Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki",
+                 DOCUMENTS_DOCUMENT_FILES:@[
                          @{
-                             FILE_NAME:@"Dokumani indir",
-                             URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+                             DOCUMENTS_FILE_NAME:@"Dokumani indir",
+                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
                              }
                     ]
                  },
              @{
-                 TITLE:@"Sandik cevresi sorumlulari hakkinda",
-                 FILES:@[
+                 DOCUMENTS_DOCUMENT_TITLE:@"Sandik cevresi sorumlulari hakkinda",
+                 DOCUMENTS_DOCUMENT_FILES:@[
                          @{
-                             FILE_NAME:@"Genelgeyi indir",
-                             URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+                             DOCUMENTS_FILE_NAME:@"Genelgeyi indir",
+                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
                              },
                          @{
-                             FILE_NAME:@"Ek 1",
-                             URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+                             DOCUMENTS_FILE_NAME:@"Ek 1",
+                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
                              },
                          @{
-                             FILE_NAME:@"Ek 1",
-                             URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+                             DOCUMENTS_FILE_NAME:@"Ek 1",
+                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
                              },
                          ]
                  }
@@ -106,36 +106,83 @@
 {
 // Return the number of rows in the section.
     int rowCount = 1;
-    if([[data objectAtIndex:section] objectForKey:SUBTITLE]!= nil)
+    if([[data objectAtIndex:section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil)
         rowCount++;
-    rowCount += [[[data objectAtIndex:section] objectForKey:FILES] count];
+    rowCount += [[[data objectAtIndex:section] objectForKey:DOCUMENTS_DOCUMENT_FILES] count];
     return  rowCount;
+}
+
+- (NSString*) cellIdentifierForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    if(indexPath.row == 0){
+        return SCSPDFCELL_TITLE;
+    }
+    else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil){
+        return SCSPDFCELL_SUBTITLE;
+    }
+    else{
+        return SCSPDFCELL_FILE;
+    }
+}
+
+- (NSString*) textForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    NSString* text;
+    if(indexPath.row == 0){
+        text = [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_TITLE];
+    }
+    else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil){
+        text = [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION];
+    }
+    else{
+        int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil ? 1 : 0);
+        text = [[[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_FILES] objectAtIndex:index] objectForKey:DOCUMENTS_FILE_NAME];
+    }
+    return text;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if(indexPath.row == 0){
-        cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_TITLE forIndexPath:indexPath];
-        [cell.textLabel setText:[[data objectAtIndex:indexPath.section] objectForKey:TITLE]];
-    }
-    else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil){
-        cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_SUBTITLE forIndexPath:indexPath];
-        [cell.textLabel setText:[[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]];
-    }
-    else{
-        cell = [tableView dequeueReusableCellWithIdentifier:SCSPDFCELL_FILE forIndexPath:indexPath];
-        int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil ? 1 : 0);
-        [cell.textLabel setText:[[[[data objectAtIndex:indexPath.section] objectForKey:FILES] objectAtIndex:index] objectForKey:FILE_NAME]];
-    }
+    NSString* text;
+    cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifierForRowAtIndexPath:indexPath] forIndexPath:indexPath];
+    text = [self textForRowAtIndexPath:indexPath];
     cell.frame = CGRectMake(0.0, cell.frame.origin.y, self.tableView.frame.size.width, cell.frame.size.height);
+    [cell.textLabel setText:text];
+    [cell.textLabel setNumberOfLines:0];
+    
     return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* text = [self textForRowAtIndexPath:indexPath];
+    NSString* identifier = [self cellIdentifierForRowAtIndexPath:indexPath];
+    UIFont* font;
+
+    if([identifier isEqualToString:SCSPDFCELL_FILE]){
+        font = PDF_TABLE_CELL_FILENAME_FONT;
+    }
+    else if([identifier isEqualToString:SCSPDFCELL_TITLE]){
+        font = PDF_TABLE_CELL_TITLE_FONT;
+    }
+    else if([identifier isEqualToString:SCSPDFCELL_SUBTITLE]){
+        font = PDF_TABLE_CELL_SUBTITLE_FONT;
+    }
+
+    CGSize size= [text sizeWithFont:font constrainedToSize:CGSizeMake(300.0, 500.0) lineBreakMode:NSLineBreakByWordWrapping];
+    size.height += 20.0;
+    if(size.height < 44.0)
+        size.height = 44.0;
+    return size.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:SUBTITLE]!= nil ? 1 : 0);
-    [webView showPdfWithUrl:[[[[data objectAtIndex:indexPath.section] objectForKey:FILES] objectAtIndex:index] objectForKey:URL]];
+    int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil ? 1 : 0);
+    [webView showPdfWithUrl:[[[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_FILES] objectAtIndex:index] objectForKey:DOCUMENTS_FILE_URL]];
 }
 
 @end

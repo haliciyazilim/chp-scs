@@ -65,6 +65,8 @@
 		05F4CEDE1769B4A400D3EA4F /* SCSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4CEDD1769B4A400D3EA4F /* SCSMainViewController.m */; };
 		AE0893221770476B003F782D /* PLACFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0893211770476B003F782D /* PLACFileCache.m */; };
 		AE08932517707CDB003F782D /* SCSPDFWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE08932417707CDB003F782D /* SCSPDFWebView.m */; };
+		AE9E087A1781B660006AFDDE /* icon_doc.png in Resources */ = {isa = PBXBuildFile; fileRef = AE9E08781781B660006AFDDE /* icon_doc.png */; };
+		AE9E087B1781B660006AFDDE /* icon_doc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE9E08791781B660006AFDDE /* icon_doc@2x.png */; };
 		AEE559D6176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */; };
 		AEE559D9176AF3BD00A019FC /* SCSGenelgelerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D8176AF3BC00A019FC /* SCSGenelgelerViewController.m */; };
 		AEE559DC176AF40800A019FC /* SCSSandikBilgiKartiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559DB176AF40800A019FC /* SCSSandikBilgiKartiViewController.m */; };
@@ -163,6 +165,8 @@
 		AE08932417707CDB003F782D /* SCSPDFWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSPDFWebView.m; sourceTree = "<group>"; };
 		AE3950D41769E0A900F1EDCC /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
 		AE71068017718CA900F93ED7 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		AE9E08781781B660006AFDDE /* icon_doc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_doc.png; sourceTree = "<group>"; };
+		AE9E08791781B660006AFDDE /* icon_doc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_doc@2x.png"; sourceTree = "<group>"; };
 		AEE559D4176AF36E00A019FC /* SCSEgitimDokumanlariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSEgitimDokumanlariViewController.h; path = ViewControllers/SCSEgitimDokumanlariViewController.h; sourceTree = "<group>"; };
 		AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSEgitimDokumanlariViewController.m; path = ViewControllers/SCSEgitimDokumanlariViewController.m; sourceTree = "<group>"; };
 		AEE559D7176AF3BC00A019FC /* SCSGenelgelerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSGenelgelerViewController.h; path = ViewControllers/SCSGenelgelerViewController.h; sourceTree = "<group>"; };
@@ -429,11 +433,21 @@
 		AE3950D51769E76600F1EDCC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AE9E08771781B660006AFDDE /* pdf table */,
 				05E354EC1769EEE800EC44F3 /* card */,
 				05E354F01769EEE800EC44F3 /* menu */,
 				05E354F71769EEE800EC44F3 /* topbar */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		AE9E08771781B660006AFDDE /* pdf table */ = {
+			isa = PBXGroup;
+			children = (
+				AE9E08781781B660006AFDDE /* icon_doc.png */,
+				AE9E08791781B660006AFDDE /* icon_doc@2x.png */,
+			);
+			path = "pdf table";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +535,8 @@
 				AEE559E8176B091000A019FC /* menu_header.png in Resources */,
 				AEE559E9176B091000A019FC /* menu_header@2x.png in Resources */,
 				05368DC9176B32FC00818E59 /* dummy.jpg in Resources */,
+				AE9E087A1781B660006AFDDE /* icon_doc.png in Resources */,
+				AE9E087B1781B660006AFDDE /* icon_doc@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,4 +15,6 @@
 
 @interface SCSTablePdfCell : UITableViewCell
 
+//- (void) setText:(NSString*)string;
+
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Halıcı. All rights reserved.
 //
 
+
 // card dictionary macros
 #define CARD_TCK_NO                      @"TCKN"
 #define CARD_NAME_SURNAME                @"AdSoyad"
@@ -21,9 +22,12 @@
 // documents dictionary macros
 #define DOCUMENTS_DOCUMENT_TITLE          @"Baslik"
 #define DOCUMENTS_DOCUMENT_DESCRIPTION    @"Aciklama"
-#define DOCUMENTS_DOCUMENT_CONTENT        @"DosyaIcerik"
+#define DOCUMENTS_DOCUMENT_FILES          @"DosyaIcerik"
 #define DOCUMENTS_FILE_NAME               @"DosyaAdi"
 #define DOCUMENTS_FILE_URL                @"DosyaLink"
+//Document type
+#define DOCUMENTS_TYPE_EGITIM               1
+#define DOCUMENTS_TYPE_GENELGE              2
 
 // communication dictionary macros
 #define COMMUNICATION_INFOS_CHP_BITEM_EMAIL                             @"CHPBitemEposta"

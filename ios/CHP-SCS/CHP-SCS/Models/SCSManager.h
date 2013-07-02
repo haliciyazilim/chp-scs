@@ -38,6 +38,15 @@
 #define COMMUNICATION_INFOS_DISTRICT_INFORMATICS_MANAGER_PHONE          @"IlceBilisimSorumlusuTelefonu"
 #define COMMUNICATION_INFOS_CHEST_NO                                    @"SandikNo"
 
+// voter list macros
+#define VOTER_LIST_PROVINCE @"IlAdi"
+#define VOTER_LIST_DISTRICT @"IlceAdi"
+#define VOTER_LIST_RECORD_COUNT @"KayitSayisi"
+#define VOTER_LIST_NEIGHBORHOOD @"Mahalle"
+#define VOTER_LIST_CHEST_AREA @"SandikAlani"
+#define VOTER_LIST_CHEST_NUMBER @"SandikNo"
+#define VOTER_LIST_VOTERS @"Secmenler"
+
 // sub dictionaries macros
 #define CARD_DICTIONARY @"SandikCevresiSorumlusuKarti"
 #define EGITIM_DOCUMENTS_DICTIONARY @"EgitimDokumanlari"

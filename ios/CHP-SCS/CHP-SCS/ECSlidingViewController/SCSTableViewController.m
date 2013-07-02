@@ -11,7 +11,8 @@
 #import "SCSMenuViewController.h"
 #import "TypeDefs.h"
 #import "SCSPDFWebView.h"
-#import "APIManager.h"
+//#import "APIManager.h"
+#import "SCSManager.h"
 
 
 #define PLACFileCacheTransformIdentifier @"PDF_FILE"

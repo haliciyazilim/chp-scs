@@ -25,23 +25,25 @@ static SCSManager* currentManager = nil;
 - (id) initWithDictionary:(NSDictionary*)dictionary
 {
     if (self = [super init]) {
-        _tckNo = [dictionary objectForKey:CARD_TCK_NO];
-        _nameSurname = [dictionary objectForKey:CARD_NAME_SURNAME];
-        _chestNo = [dictionary objectForKey:CARD_CHEST_NO];
-        _chestProvince = [dictionary objectForKey:CARD_CHEST_PROVINCE];
-        _chestDistrict = [dictionary objectForKey:CARD_CHEST_DISTRICT];
-        _neighborhood = [dictionary objectForKey:CARD_NEIGHBORHOOD];
-        _chestArea = [dictionary objectForKey:CARD_CHEST_AREA];
-        _otherManagerNameSurname = [dictionary objectForKey:CARD_OTHER_MANAGER_NAME_SURNAME];
-        _otherManagerPhone = [dictionary objectForKey:CARD_OTHER_MANAGER_PHONE];
-        _photoUrl = [dictionary objectForKey:CARD_PHOTO_URL];
+        NSDictionary* cardDictionary = [[dictionary objectForKey:CARD_DICTIONARY] objectAtIndex:0];
+        _tckNo = [cardDictionary objectForKey:CARD_TCK_NO];
+        _nameSurname = [cardDictionary objectForKey:CARD_NAME_SURNAME];
+        _chestNo = [cardDictionary objectForKey:CARD_CHEST_NO];
+        _chestProvince = [cardDictionary objectForKey:CARD_CHEST_PROVINCE];
+        _chestDistrict = [cardDictionary objectForKey:CARD_CHEST_DISTRICT];
+        _neighborhood = [cardDictionary objectForKey:CARD_NEIGHBORHOOD];
+        _chestArea = [cardDictionary objectForKey:CARD_CHEST_AREA];
+        _otherManagerNameSurname = [cardDictionary objectForKey:CARD_OTHER_MANAGER_NAME_SURNAME];
+        _otherManagerPhone = [cardDictionary objectForKey:CARD_OTHER_MANAGER_PHONE];
+        _photoUrl = [cardDictionary objectForKey:CARD_PHOTO_URL];
+        
+        _egitimDocuments = (NSArray*)[[[dictionary objectForKey:EGITIM_DOCUMENTS_DICTIONARY] objectAtIndex:0] objectForKey:DOCUMENTS_LIST];
+        _genelgeDocuments = (NSArray*)[[[dictionary objectForKey:GENELGE_DOCUMENTS_DICTIONARY] objectAtIndex:0] objectForKey:DOCUMENTS_LIST];
+        _communicationInfos = (NSDictionary*)[[dictionary objectForKey:COMMUNICATION_DICTIONARY] objectAtIndex:0];
+        _voterList = (NSDictionary*)[[dictionary objectForKey:VOTER_LIST_DICTIONARY] objectAtIndex:0];
+        
     }
     currentManager = self;
     return self;
-}
-- (void) getFullVoterListWithCompletionBlock:(CompletionBlock)completionBlock
-                               andErrorBlock:(ErrorBlock)errorBlock
-{
-    
 }
 @end

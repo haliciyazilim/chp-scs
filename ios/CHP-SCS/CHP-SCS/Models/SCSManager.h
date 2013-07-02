@@ -61,10 +61,10 @@
 @property NSString* otherManagerPhone;
 @property NSString* photoUrl;
 
-@property NSArray* egitimDocuments;
-@property NSArray* genelgeDocuments;
-@property NSDictionary* communicationInfos;
-@property NSDictionary* voterList;
+@property NSMutableArray* egitimDocuments;
+@property NSMutableArray* genelgeDocuments;
+@property NSMutableDictionary* communicationInfos;
+@property NSMutableDictionary* voterList;
 
 + (SCSManager*) SCSManagerWithDictionary:(NSDictionary*)dictionary;
 

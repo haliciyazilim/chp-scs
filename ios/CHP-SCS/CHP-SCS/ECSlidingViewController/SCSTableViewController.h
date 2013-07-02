@@ -14,4 +14,6 @@
 
 @property (readonly,nonatomic) UITableView* tableView;
 
+- (NSArray*) getData;
+
 @end

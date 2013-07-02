@@ -55,41 +55,55 @@
     [self.tableView registerClass:[SCSTablePdfCell class] forCellReuseIdentifier:SCSPDFCELL_FILE];
     [self.view insertSubview:self.tableView belowSubview:self.topBar];
     
-    data = @[
-             @{
-                 DOCUMENTS_DOCUMENT_TITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
-                 DOCUMENTS_DOCUMENT_DESCRIPTION:@"Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki",
-                 DOCUMENTS_DOCUMENT_FILES:@[
-                         @{
-                             DOCUMENTS_FILE_NAME:@"Dokumani indir",
-                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
-                             }
-                    ]
-                 },
-             @{
-                 DOCUMENTS_DOCUMENT_TITLE:@"Sandik cevresi sorumlulari hakkinda",
-                 DOCUMENTS_DOCUMENT_FILES:@[
-                         @{
-                             DOCUMENTS_FILE_NAME:@"Genelgeyi indir",
-                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
-                             },
-                         @{
-                             DOCUMENTS_FILE_NAME:@"Ek 1",
-                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
-                             },
-                         @{
-                             DOCUMENTS_FILE_NAME:@"Ek 1",
-                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
-                             },
-                         ]
-                 }
-         ];
+//    data = @[
+//             @{
+//                 DOCUMENTS_DOCUMENT_TITLE:@"Secime yonelik sandik cevresi orgutlenmesi",
+//                 DOCUMENTS_DOCUMENT_DESCRIPTION:@"Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki Scme ve scilme hakki",
+//                 DOCUMENTS_DOCUMENT_FILES:@[
+//                         @{
+//                             DOCUMENTS_FILE_NAME:@"Dokumani indir",
+//                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+//                             }
+//                    ]
+//                 },
+//             @{
+//                 DOCUMENTS_DOCUMENT_TITLE:@"Sandik cevresi sorumlulari hakkinda",
+//                 DOCUMENTS_DOCUMENT_FILES:@[
+//                         @{
+//                             DOCUMENTS_FILE_NAME:@"Genelgeyi indir",
+//                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+//                             },
+//                         @{
+//                             DOCUMENTS_FILE_NAME:@"Ek 1",
+//                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+//                             },
+//                         @{
+//                             DOCUMENTS_FILE_NAME:@"Ek 1",
+//                             DOCUMENTS_FILE_URL:@"http://www.irs.gov/pub/irs-pdf/fw4.pdf"
+//                             },
+//                         ]
+//                 }
+//         ];
+    data = [self getData];
     webView = [[SCSPDFWebView alloc] initWithViewController:self];
     __weak SCSTableViewController* viewController = self;
     [webView setCloseCallback:^{
         [viewController.tableView reloadData];
     }];
 }
+
+- (NSArray *)getData
+{
+    return nil;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -107,7 +121,7 @@
 {
 // Return the number of rows in the section.
     int rowCount = 1;
-    if([[data objectAtIndex:section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil)
+    if([[[data objectAtIndex:section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION] class] != [NSNull class])
         rowCount++;
     rowCount += [[[data objectAtIndex:section] objectForKey:DOCUMENTS_DOCUMENT_FILES] count];
     return  rowCount;
@@ -118,7 +132,7 @@
     if(indexPath.row == 0){
         return SCSPDFCELL_TITLE;
     }
-    else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil){
+    else if(indexPath.row == 1 && [[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION] class]!= [NSNull class]){
         return SCSPDFCELL_SUBTITLE;
     }
     else{
@@ -132,11 +146,11 @@
     if(indexPath.row == 0){
         text = [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_TITLE];
     }
-    else if(indexPath.row == 1 && [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil){
+    else if(indexPath.row == 1 && [[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION] class]!= [NSNull class]){
         text = [[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION];
     }
     else{
-        int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil ? 1 : 0);
+        int index = indexPath.row -1 - ([[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION] class]!= [NSNull class] ? 1 : 0);
         text = [[[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_FILES] objectAtIndex:index] objectForKey:DOCUMENTS_FILE_NAME];
     }
     return text;
@@ -182,7 +196,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int index = indexPath.row -1 - ([[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION]!= nil ? 1 : 0);
+    int index = indexPath.row -1 - ([[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_DESCRIPTION] class]!= [NSNull class] ? 1 : 0);
     [webView showPdfWithUrl:[[[[data objectAtIndex:indexPath.section] objectForKey:DOCUMENTS_DOCUMENT_FILES] objectAtIndex:index] objectForKey:DOCUMENTS_FILE_URL]];
 }
 

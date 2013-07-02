@@ -59,8 +59,8 @@
 #define CARD_OFFICER_IMAGE_BORDER_COLOR [UIColor colorWithRed:233.0/255.0 green:217.0/255.0 blue:208.0/255.0 alpha:1.0]
 
 //PDF Table Cell 
-#define PDF_TABLE_CELL_TITLE_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:16.0]
-#define PDF_TABLE_CELL_SUBTITLE_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:14.0]
+#define PDF_TABLE_CELL_TITLE_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:18.0]
+#define PDF_TABLE_CELL_SUBTITLE_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:12.0]
 #define PDF_TABLE_CELL_FILENAME_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:15.0]
 
 #define PDF_TABLE_CELL_SUBTITLE_TEXT_FONT [UIColor colorWithRed:158.0/255.0 green:157.0/255.0 blue:153.0/255.0 alpha:1.0]

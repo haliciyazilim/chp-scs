@@ -37,13 +37,14 @@ static SCSManager* currentManager = nil;
         _otherManagerPhone = [cardDictionary objectForKey:CARD_OTHER_MANAGER_PHONE];
         _photoUrl = [cardDictionary objectForKey:CARD_PHOTO_URL];
         
-        _egitimDocuments = (NSArray*)[[[dictionary objectForKey:EGITIM_DOCUMENTS_DICTIONARY] objectAtIndex:0] objectForKey:DOCUMENTS_LIST];
-        _genelgeDocuments = (NSArray*)[[[dictionary objectForKey:GENELGE_DOCUMENTS_DICTIONARY] objectAtIndex:0] objectForKey:DOCUMENTS_LIST];
-        _communicationInfos = (NSDictionary*)[[dictionary objectForKey:COMMUNICATION_DICTIONARY] objectAtIndex:0];
-        _voterList = (NSDictionary*)[[dictionary objectForKey:VOTER_LIST_DICTIONARY] objectAtIndex:0];
+        _egitimDocuments = (NSMutableArray*)[[[dictionary objectForKey:EGITIM_DOCUMENTS_DICTIONARY] objectAtIndex:0] objectForKey:DOCUMENTS_LIST];
+        _genelgeDocuments = (NSMutableArray*)[[[dictionary objectForKey:GENELGE_DOCUMENTS_DICTIONARY] objectAtIndex:0] objectForKey:DOCUMENTS_LIST];
+        _communicationInfos = (NSMutableDictionary*)[[dictionary objectForKey:COMMUNICATION_DICTIONARY] objectAtIndex:0];
+        _voterList = (NSMutableDictionary*)[[dictionary objectForKey:VOTER_LIST_DICTIONARY] objectAtIndex:0];
         
     }
     currentManager = self;
     return self;
 }
+
 @end

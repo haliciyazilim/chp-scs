@@ -73,7 +73,7 @@
 {
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [backgroundView setBackgroundColor:MENU_BACKGROUND_COLOR];
+    [backgroundView setBackgroundColor:[UIColor clearColor]];
     [self setUserInteractionEnabled:NO];
     [self.textLabel setFont:PDF_TABLE_CELL_SUBTITLE_FONT];
     [self.textLabel setTextColor:PDF_TABLE_CELL_SUBTITLE_TEXT_FONT];

@@ -83,6 +83,8 @@
     officerImageView.layer.borderWidth = 2.0;
     officerImageView.layer.borderColor = [CARD_OFFICER_IMAGE_BORDER_COLOR CGColor];
     [officerImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [officerImageView setClipsToBounds:YES];
+    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
     
     yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+imageWidth+innerSpace, topBarHeight+yOffset, yearWidth, yearHeight)];
     [yearLabel setBackgroundColor:[UIColor clearColor]];
@@ -234,14 +236,14 @@
 
 - (void) configureViews {
     
-    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
     
-    [[APIManager sharedInstance] getImageWithURLString:[self.currentManager photoUrl] onCompletion:^(UIImage *resultImage) {
-        [officerImageView setImage:resultImage];
-    } onError:^(NSError *error) {
-        ;
-    }];
-    
+    if ([self.currentManager photoUrl] != nil && ![[self.currentManager photoUrl] isEqualToString:@""]) {
+        [[APIManager sharedInstance] getImageWithURLString:[self.currentManager photoUrl] onCompletion:^(UIImage *resultImage) {
+            [officerImageView setImage:resultImage];
+        } onError:^(NSError *error) {
+            ;
+        }];
+    }
     
     [yearLabel setText:@"2013"];
     [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
@@ -253,12 +255,12 @@
     [chestAreaLabel setText:[_currentManager chestArea]];
     [secondOfficerLabel setText:[_currentManager otherManagerNameSurname]];
     [secondOfficerPhoneLabel setText:[_currentManager otherManagerPhone]];
-
-    [secondOfficerPhoneView setUserInteractionEnabled:YES];
     
-    [secondOfficerPhoneView setBackgroundImage:[UIImage imageNamed:@"phone_highlighted.png"] forState:UIControlStateHighlighted];
-    
-    [secondOfficerPhoneView addTarget:self action:@selector(callManager) forControlEvents:UIControlEventTouchUpInside];
+    if ([[SCSManager currentManager] otherManagerPhone] != nil && ![[[SCSManager currentManager] otherManagerPhone] isEqualToString:@""]) {
+        [secondOfficerPhoneView setUserInteractionEnabled:YES];
+        [secondOfficerPhoneView setBackgroundImage:[UIImage imageNamed:@"phone_highlighted.png"] forState:UIControlStateHighlighted];
+        [secondOfficerPhoneView addTarget:self action:@selector(callManager) forControlEvents:UIControlEventTouchUpInside];
+    }
 
 }
 - (void) callManager {

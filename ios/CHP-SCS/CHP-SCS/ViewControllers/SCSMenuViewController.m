@@ -23,7 +23,9 @@
 @end
 
 @implementation SCSMenuViewController
-
+{
+    NSIndexPath* lastSelectedIndexPath;
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -36,14 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-//    self.menu = [NSArray arrayWithObjects:@"SCSMain", @"SCSSecond", nil];
     
     [self.tableView registerClass:[SCSMenuTableViewCell class] forCellReuseIdentifier:@"MenuCell"];
     
@@ -99,6 +93,14 @@
 {
     return [UIView new];
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    if(lastSelectedIndexPath == nil){
+        lastSelectedIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    }
+    [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
 
 - (void) initHeader
 {
@@ -134,19 +136,15 @@
     static NSString *CellIdentifier = @"MenuCell";
     SCSMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[SCSMenuTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+//    if (!cell) {
+//        cell = [[SCSMenuTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+//    }
     if(indexPath.row != 0){
         cell.cellTitle.text = [[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE];
         [cell.cellIcon setImage:[UIImage imageNamed:[[self.menu objectAtIndex:indexPath.row] objectForKey:IMAGE]]];
         
     }
-    else {
-        cell.selectedBackgroundView = nil;
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    }
-    // Configure the cell...
+    
     
     return cell;
 }
@@ -157,7 +155,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row != 0){
-        
+        lastSelectedIndexPath = indexPath;
         NSString *identifier = [[self.menu objectAtIndex:indexPath.row] objectForKey:IDENTIFIER];
         
         SCSViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];

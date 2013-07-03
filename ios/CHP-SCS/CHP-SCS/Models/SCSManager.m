@@ -25,7 +25,7 @@ static SCSManager* currentManager = nil;
 - (id) initWithDictionary:(NSDictionary*)dictionary
 {
     if (self = [super init]) {
-        // create cardDictionary oo
+        // create cardDictionary
         NSDictionary* cardDictionary = [[dictionary objectForKey:CARD_DICTIONARY] objectAtIndex:0];
         _tckNo = [cardDictionary objectForKey:CARD_TCK_NO];
         _nameSurname = [cardDictionary objectForKey:CARD_NAME_SURNAME];

@@ -242,10 +242,10 @@
     NSString* username = [self.usernameField text];
     NSString* password = [self.passwordField text];
     if (username == nil || [username isEqualToString:@""]) {
-        username = @"5322272799";
+        username = @"5313007170";
     }
     if (password == nil || [password isEqualToString:@""]) {
-        password = @"8fXCYtD";
+        password = @"XG7DUVD";
     }
     [[APIManager sharedInstance] loginWithUsername:username andPassword:password onCompletion:^(SCSManager *manager) {
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];

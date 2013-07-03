@@ -36,6 +36,8 @@
 		054268911781A8E30058DC05 /* login_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0542688C1781A8E30058DC05 /* login_logo@2x.png */; };
 		054268931781AEA60058DC05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054268921781AEA60058DC05 /* QuartzCore.framework */; };
 		05A522CC177C684500794851 /* SCSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A522CB177C684500794851 /* SCSLoginViewController.m */; };
+		05CBBE54178455E300163EDF /* phone_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE52178455E300163EDF /* phone_highlighted.png */; };
+		05CBBE55178455E300163EDF /* phone_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE53178455E300163EDF /* phone_highlighted@2x.png */; };
 		05CE054717676144009955B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054617676144009955B8 /* UIKit.framework */; };
 		05CE054917676144009955B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054817676144009955B8 /* Foundation.framework */; };
 		05CE054B17676144009955B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054A17676144009955B8 /* CoreGraphics.framework */; };
@@ -123,6 +125,8 @@
 		054268921781AEA60058DC05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		05A522CA177C684500794851 /* SCSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSLoginViewController.h; path = ViewControllers/SCSLoginViewController.h; sourceTree = "<group>"; };
 		05A522CB177C684500794851 /* SCSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSLoginViewController.m; path = ViewControllers/SCSLoginViewController.m; sourceTree = "<group>"; };
+		05CBBE52178455E300163EDF /* phone_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone_highlighted.png; sourceTree = "<group>"; };
+		05CBBE53178455E300163EDF /* phone_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone_highlighted@2x.png"; sourceTree = "<group>"; };
 		05CE054317676144009955B8 /* chp-scs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chp-scs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CE054617676144009955B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05CE054817676144009955B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -350,6 +354,8 @@
 		05E354EC1769EEE800EC44F3 /* card */ = {
 			isa = PBXGroup;
 			children = (
+				05CBBE52178455E300163EDF /* phone_highlighted.png */,
+				05CBBE53178455E300163EDF /* phone_highlighted@2x.png */,
 				05368DC8176B32FC00818E59 /* dummy.jpg */,
 				05368DA4176AF41000818E59 /* card_bg.png */,
 				05368DA5176AF41000818E59 /* card_bg@2x.png */,
@@ -601,6 +607,8 @@
 				AE40FDEE178315EB00B4918D /* pdf_webview_mail_btn@2x.jpg in Resources */,
 				AE40FDEF178315EB00B4918D /* pdf_webview_print_btn.jpg in Resources */,
 				AE40FDF0178315EB00B4918D /* pdf_webview_print_btn@2x.jpg in Resources */,
+				05CBBE54178455E300163EDF /* phone_highlighted.png in Resources */,
+				05CBBE55178455E300163EDF /* phone_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -235,6 +235,14 @@
 - (void) configureViews {
     
     [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
+    
+    [[APIManager sharedInstance] getImageWithURLString:[self.currentManager photoUrl] onCompletion:^(UIImage *resultImage) {
+        [officerImageView setImage:resultImage];
+    } onError:^(NSError *error) {
+        ;
+    }];
+    
+    
     [yearLabel setText:@"2013"];
     [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
     [nameLabel setText:[_currentManager nameSurname]];
@@ -247,6 +255,8 @@
     [secondOfficerPhoneLabel setText:[_currentManager otherManagerPhone]];
 
     [secondOfficerPhoneView setUserInteractionEnabled:YES];
+    
+    [secondOfficerPhoneView setBackgroundImage:[UIImage imageNamed:@"phone_highlighted.png"] forState:UIControlStateHighlighted];
     
     [secondOfficerPhoneView addTarget:self action:@selector(callManager) forControlEvents:UIControlEventTouchUpInside];
 

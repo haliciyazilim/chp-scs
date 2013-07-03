@@ -41,9 +41,11 @@
     [self.backButton setFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
     [self.backButton addTarget:self action:@selector(hideWebView) forControlEvents:UIControlEventTouchUpInside];
     [self.viewController.view addSubview:self.backButton];
-    [self.backButton setBackgroundColor:[UIColor greenColor]];
-    [self.backButton setTitle:@"X" forState:UIControlStateNormal];
+//    [self.backButton setBackgroundColor:[UIColor greenColor]];
+//    [self.backButton setTitle:@"X" forState:UIControlStateNormal];
+    [self.backButton setImage:[UIImage imageNamed:@"pdf_webview_close_btn.jpg"] forState:UIControlStateNormal];
     [self.backButton setHidden:YES];
+    
 }
 
 - (void) initPrintButton
@@ -52,8 +54,9 @@
     [self.printButton setFrame:CGRectMake(self.viewController.view.frame.size.width-49.0, 0.0, 44.0, 44.0)];
     [self.printButton addTarget:self action:@selector(printPdf) forControlEvents:UIControlEventTouchUpInside];
     [self.viewController.view addSubview:self.printButton];
-    [self.printButton setBackgroundColor:[UIColor blueColor]];
-    [self.printButton setTitle:@"P" forState:UIControlStateNormal];
+//    [self.printButton setBackgroundColor:[UIColor blueColor]];
+//    [self.printButton setTitle:@"P" forState:UIControlStateNormal];
+    [self.printButton setImage:[UIImage imageNamed:@"pdf_webview_print_btn.jpg"] forState:UIControlStateNormal];
     [self.printButton.layer setCornerRadius:10.0];
     [self.printButton setHidden:YES];
 }

@@ -54,6 +54,10 @@
 #define DOCUMENTS_LIST @"GenelgeList"
 #define COMMUNICATION_DICTIONARY @"Iletisim"
 #define VOTER_LIST_DICTIONARY @"SandikSecmenListesi"
+#define CHEST_INFORMATION_CARD_DICTIONARY @"SandikBilgiKarti"
+
+// chest information card
+#define CHEST_INFORMATION_CARD_URL @"sandikkartilink"
 
 #import "APIManager.h"
 
@@ -74,6 +78,8 @@
 @property NSMutableArray* genelgeDocuments;
 @property NSMutableDictionary* communicationInfos;
 @property NSMutableDictionary* voterList;
+
+@property NSString* chestInformationCardUrl;
 
 + (SCSManager*) SCSManagerWithDictionary:(NSDictionary*)dictionary;
 

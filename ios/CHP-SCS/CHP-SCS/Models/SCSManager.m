@@ -43,6 +43,8 @@ static SCSManager* currentManager = nil;
         _communicationInfos = (NSMutableDictionary*)[dictionary objectForKey:COMMUNICATION_DICTIONARY];
         _voterList = (NSMutableDictionary*)[dictionary objectForKey:VOTER_LIST_DICTIONARY];
         
+        _chestInformationCardUrl = [[dictionary objectForKey:CHEST_INFORMATION_CARD_DICTIONARY] objectForKey:CHEST_INFORMATION_CARD_URL];
+        
     }
     currentManager = self;
     return self;

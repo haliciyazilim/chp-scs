@@ -7,6 +7,7 @@
 //
 
 #import "SCSEgitimDokumanlariViewController.h"
+#import "SCSManager.h"
 
 @interface SCSEgitimDokumanlariViewController ()
 
@@ -33,6 +34,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSArray *)getData
+{
+    return [[SCSManager currentManager] egitimDocuments];
 }
 
 @end

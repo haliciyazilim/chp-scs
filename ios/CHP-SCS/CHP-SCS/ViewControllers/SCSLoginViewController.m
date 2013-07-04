@@ -12,13 +12,20 @@
 #import "SCSSlidingViewController.h"
 #import "Config.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RNEncryptor.h"
+#import "RNDecryptor.h"
+#import "NSData+Base64.h"
 
 @interface SCSLoginViewController ()
 
 @end
 
 @implementation SCSLoginViewController
-
+{
+    NSString* currentUsername;
+    NSString* currentPassword;
+    UIActivityIndicatorView* activityIndicator;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -131,11 +138,30 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.usernameField];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.passwordField];
     
-//    if (self.currentTckNo != nil) {
-//        [self.tckNoTextField setText:self.currentTckNo];
-//        self.tckNoTextField.clearButtonMode = UITextFieldViewModeAlways;
-//    }
-//    isLoginFalse = NO;
+    NSData* encryptedUsername = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_USERNAME];
+    NSData* encryptedPassword = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_PASSWORD];
+    
+    if (encryptedUsername != nil && encryptedPassword != nil) {
+        NSError* error;
+        NSError* error2;
+        
+        NSData* decryptedUsername = [RNDecryptor decryptData:encryptedUsername withPassword:ENCRYPTION_KEY error:&error];
+        NSData* decryptedPassword = [RNDecryptor decryptData:encryptedPassword withPassword:ENCRYPTION_KEY error:&error2];
+        
+        currentUsername = [NSKeyedUnarchiver unarchiveObjectWithData:decryptedUsername];
+        currentPassword = [NSKeyedUnarchiver unarchiveObjectWithData:decryptedPassword];
+    }
+    else {
+        currentUsername = nil;
+        currentPassword = nil;
+    }
+    
+    if (currentUsername != nil && currentPassword != nil) {
+        [self.usernameField setText:currentUsername];
+        [self.passwordField setText:currentPassword];
+        self.usernameField.clearButtonMode = UITextFieldViewModeAlways;
+        self.passwordField.clearButtonMode = UITextFieldViewModeAlways;
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -209,7 +235,7 @@
     [UIView animateWithDuration:animationDuration
                      animations:^{
                          CGRect frame = self.view.frame;
-                         frame.origin.y = -80.0;
+                         frame.origin.y = -110.0;
                          [self.view setFrame:frame];
                      }];
 }
@@ -239,18 +265,54 @@
                      }];
 }
 - (void)checkLogin {
-    NSString* username = [self.usernameField text];
-    NSString* password = [self.passwordField text];
-    if (username == nil || [username isEqualToString:@""]) {
-        username = @"5322272799";
+    
+    long long int myText = [self.usernameField.text longLongValue];
+    NSString *username = [NSString stringWithFormat:@"%llu",myText];
+    if ([username length] == 11 || [username length] == 10){
+        
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        CGRect frame = self.loginButton.frame;
+        [activityIndicator setFrame:CGRectMake(frame.origin.x-36.0, frame.origin.y+8.0, 26.0, 26.0)];
+        [self.view addSubview:activityIndicator];
+        [activityIndicator startAnimating];
+        [self.view setUserInteractionEnabled:NO];
+        
+        NSString* aPassword = self.passwordField.text;
+        
+        [[APIManager sharedInstance] loginWithUsername:username andPassword:aPassword onCompletion:^(SCSManager *manager) {
+            
+            NSData* user = [NSKeyedArchiver archivedDataWithRootObject:username];
+            NSData* pass = [NSKeyedArchiver archivedDataWithRootObject:aPassword];
+            NSError* error2;
+            NSError* error;
+            NSData* encryptedUsername = [RNEncryptor encryptData:user withSettings:kRNCryptorAES256Settings password:ENCRYPTION_KEY error:&error];
+            NSData* encryptedPassword = [RNEncryptor encryptData:pass withSettings:kRNCryptorAES256Settings password:ENCRYPTION_KEY error:&error2];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:encryptedUsername forKey:USER_DEFAULTS_KEY_USERNAME];
+            [[NSUserDefaults standardUserDefaults] setObject:encryptedPassword forKey:USER_DEFAULTS_KEY_PASSWORD];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            currentUsername = username;
+            currentPassword = aPassword;
+            
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+            activityIndicator = nil;
+            [self.view setUserInteractionEnabled:YES];
+            
+            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+        } onError:^(NSError *error) {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+            activityIndicator = nil;
+            [self.view setUserInteractionEnabled:YES];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Hata" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
+            [alertView show];
+        }];
     }
-    if (password == nil || [password isEqualToString:@""]) {
-        password = @"8fXCYtD";
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Hata" message:@"Lütfen telefon numaranızı giriniz." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
+        [alertView show];
     }
-    [[APIManager sharedInstance] loginWithUsername:username andPassword:password onCompletion:^(SCSManager *manager) {
-        [self performSegueWithIdentifier:@"LoginSegue" sender:self];
-    } onError:^(NSError *error) {
-        NSLog(@"an error occured");
-    }];
+    
 }
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "SCSViewController.h"
+#import "SCSTableViewController.h"
 
-@interface SCSGenelgelerViewController : SCSViewController
+@interface SCSGenelgelerViewController : SCSTableViewController
 
 @end

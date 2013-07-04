@@ -15,7 +15,6 @@
 @interface SCSPDFWebView : UIWebView <PLACFileCacheDelegate>
 
 @property UIButton* backButton;
-@property UIButton* printButton;
 @property SCSViewController* viewController;
 
 - (id) initWithViewController:(SCSViewController*)viewController;

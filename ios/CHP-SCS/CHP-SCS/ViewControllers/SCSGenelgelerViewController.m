@@ -7,7 +7,7 @@
 //
 
 #import "SCSGenelgelerViewController.h"
-
+#import "SCSManager.h"
 @interface SCSGenelgelerViewController ()
 
 @end
@@ -35,4 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSArray *)getData
+{
+    return [[SCSManager currentManager] genelgeDocuments];
+}
 @end

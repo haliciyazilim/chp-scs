@@ -7,6 +7,7 @@
 //
 
 #import "SCSPDFWebView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation SCSPDFWebView
 {
@@ -25,7 +26,7 @@
         [self setScalesPageToFit:YES];
         [viewController.view insertSubview:self belowSubview:viewController.topBar];
         [self initBackButton];
-        [self initPrintButton];
+
         [[[PLACFileCache alloc] initWithDirectory:
           [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"pdf"] maxSize:100*1024*1024] setDelegate:self];
         [self setHidden:YES];
@@ -40,32 +41,19 @@
     [self.backButton setFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
     [self.backButton addTarget:self action:@selector(hideWebView) forControlEvents:UIControlEventTouchUpInside];
     [self.viewController.view addSubview:self.backButton];
-    [self.backButton setBackgroundColor:[UIColor greenColor]];
-    [self.backButton setTitle:@"X" forState:UIControlStateNormal];
+//    [self.backButton setBackgroundColor:[UIColor greenColor]];
+//    [self.backButton setTitle:@"X" forState:UIControlStateNormal];
+    [self.backButton setImage:[UIImage imageNamed:@"pdf_webview_close_btn.jpg"] forState:UIControlStateNormal];
     [self.backButton setHidden:YES];
-}
-
-- (void) initPrintButton
-{
-    self.printButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.printButton setFrame:CGRectMake(self.viewController.view.frame.size.width-49.0, 0.0, 44.0, 44.0)];
-    [self.printButton addTarget:self action:@selector(printPdf) forControlEvents:UIControlEventTouchUpInside];
-    [self.viewController.view addSubview:self.printButton];
-    [self.printButton setBackgroundColor:[UIColor blueColor]];
-    [self.printButton setTitle:@"P" forState:UIControlStateNormal];
-    [self.printButton setHidden:YES];
-}
-
-- (void) printPdf
-{
     
 }
 
+
 - (void) showPdfWithUrl:(NSString*)url
 {
+    NSLog(@"url: %@",url);
     [self setHidden:NO];
     [self.backButton setHidden:NO];
-    [self.printButton setHidden:NO];
     self.transform = CGAffineTransformMakeTranslation(0.0, self.frame.size.height);
     [self setWebViewUrl:url];
     
@@ -73,12 +61,12 @@
         self.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
     }];
     self.backButton.transform = CGAffineTransformMakeTranslation(0.0, -self.backButton.frame.size.height);
-    [self.printButton setAlpha:0.0];
+
     [UIView animateWithDuration:0.3 animations:^{
         self.backButton.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
     }];
-    [UIView animateWithDuration:0.3 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.printButton.alpha = 1.0;
+
+    [UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^{
     } completion:^(BOOL finished) {
         
     }];
@@ -105,6 +93,7 @@
     }
 }
 
+
 - (void) hideWebView
 {
     [UIView animateWithDuration:0.5 animations:^{
@@ -115,10 +104,8 @@
     }];
     [UIView animateWithDuration:0.3 animations:^{
         self.backButton.transform = CGAffineTransformMakeTranslation(0.0, -self.backButton.frame.size.height);
-        self.printButton.alpha = 0.0;
     } completion:^(BOOL finished) {
         [self.backButton setHidden:YES];
-        [self.printButton setHidden:YES];
     }];
 }
 
@@ -129,7 +116,7 @@
 
 - (void) fileCache:(PLACFileCache *)cache didFailWithError:(NSError *)error
 {
-    
+    NSLog(@"PLACCache error: %@",error);
 }
 
 - (void) fileCache:(PLACFileCache *)cache didLoadFile:(NSData *)fileData withTransform:(NSString *)transformIdentifier fromURL:(NSString *)url

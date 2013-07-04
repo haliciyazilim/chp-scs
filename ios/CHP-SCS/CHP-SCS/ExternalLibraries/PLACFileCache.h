@@ -23,6 +23,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "APIManager.h"
 
 @class PLACFileCache;
 

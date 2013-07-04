@@ -138,42 +138,77 @@ static PLACFileCache * sharedFileCache;
   return [self manageURL:url withTransform:transformIdentifier delegate:self.delegate];
 }
 
+- (BOOL) checkFileModified:(NSString*)url
+{
+    NSURL *fileUrl = [NSURL URLWithString:url];
+    NSDate *fileDate;
+    NSError* error;
+
+    [fileUrl getResourceValue:&fileDate forKey:NSURLContentModificationDateKey error:&error];
+    if (!error)
+    {
+        NSLog(@"%@",fileDate);
+        //here you should be able to read valid date from fileDate variable
+    }
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://partiiciegitim.chp.org.tr/dosyalar/mevzuat/sandik-baski.pdf"]];
+    [request setHTTPMethod:@"HEAD"];
+    NSHTTPURLResponse* response;
+    [NSURLConnection sendSynchronousRequest:request
+                          returningResponse:&response error:&error];
+    
+    NSDate* remote = [NSDate dateFromRFC1123:(NSString *)[[response allHeaderFields] objectForKey:@"Last-Modified"]];
+    NSDate *locale  = [[[NSFileManager defaultManager] attributesOfItemAtPath:[self filePathForUrl:url] error:nil] fileModificationDate];
+    
+    if([locale compare:remote] == NSOrderedAscending){
+        return YES;
+    }
+    return NO;
+
+}
+
 - (NSData *) manageURL:(NSString *)url withTransform:(id)transformIdentifier delegate:(id<PLACFileCacheDelegate>)manageDelegate {  
-  NSData * returnData;
-  NSString * filename = [self encodeURL:url];
-  if ([[NSFileManager defaultManager] fileExistsAtPath:[self.cacheDirectory stringByAppendingPathComponent:filename]]) {
-    [[self.cacheInfo objectForKey:@"cachedFiles"] removeObject:filename];
-    [[self.cacheInfo objectForKey:@"cachedFiles"] addObject:filename];
-    returnData = [NSData dataWithContentsOfFile:[self.cacheDirectory stringByAppendingPathComponent:filename]];
-  } else {
-    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:20.0];
-    
-    [self.requestQueue addOperationWithBlock:^{
-      NSURLResponse * response;
-      NSError * error;
-      NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-      if (error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-          [manageDelegate fileCache:self didFailWithError:error];
-        });
-      } else {
-        NSData * (^transformBlock)(NSData *,NSString *);
-        transformBlock = [self.transforms objectForKey:transformIdentifier];
-        if (transformBlock) {
-          responseData = transformBlock(responseData,[self.cacheDirectory stringByAppendingPathComponent:filename]);
+    NSData * returnData;
+    NSString * filename = [self encodeURL:url];
+    BOOL shouldDownload = NO;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self.cacheDirectory stringByAppendingPathComponent:filename]]) {
+        if([self checkFileModified:url] == NO){
+            [[self.cacheInfo objectForKey:@"cachedFiles"] removeObject:filename];
+            [[self.cacheInfo objectForKey:@"cachedFiles"] addObject:filename];
+            returnData = [NSData dataWithContentsOfFile:[self.cacheDirectory stringByAppendingPathComponent:filename]];
+        } else {
+            shouldDownload = YES;
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-          [manageDelegate fileCache:self didLoadFile:responseData withTransform:transformIdentifier fromURL:url];
-        });
-      }
-      [responseData writeToFile:[self.cacheDirectory stringByAppendingPathComponent:filename] atomically:YES];
-      [self.cacheInfo setValue:[NSNumber numberWithInt:[responseData length] + [[self.cacheInfo valueForKey:@"currentSize"] intValue]] forKey:@"currentSize"];
-      [self sweepCache];
-    }];
+    }
     
-    returnData = nil;
-  }
-  return returnData;
+    if(shouldDownload)
+    {
+        NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:20.0];
+        [self.requestQueue addOperationWithBlock:^{
+            NSURLResponse * response;
+            NSError * error;
+            NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [manageDelegate fileCache:self didFailWithError:error];
+                });
+            } else {
+                NSData * (^transformBlock)(NSData *,NSString *);
+                transformBlock = [self.transforms objectForKey:transformIdentifier];
+                if (transformBlock) {
+                    responseData = transformBlock(responseData,[self.cacheDirectory stringByAppendingPathComponent:filename]);
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [manageDelegate fileCache:self didLoadFile:responseData withTransform:transformIdentifier fromURL:url];
+                });
+            }
+            [responseData writeToFile:[self.cacheDirectory stringByAppendingPathComponent:filename] atomically:YES];
+            [self.cacheInfo setValue:[NSNumber numberWithInt:[responseData length] + [[self.cacheInfo valueForKey:@"currentSize"] intValue]] forKey:@"currentSize"];
+            [self sweepCache];
+        }];
+        
+        returnData = nil;
+    }
+    return returnData;
 }
 
 - (NSString*) filePathForUrl:(NSString*)url

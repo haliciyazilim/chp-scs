@@ -8,6 +8,8 @@
 
 #import "SCSViewController.h"
 
-@interface SCSSandikSecmenListesiViewController : SCSViewController
+@interface SCSSandikSecmenListesiViewController : SCSViewController <UITableViewDataSource,UITableViewDelegate>
+
+@property (readonly) UITableView* tableView;
 
 @end

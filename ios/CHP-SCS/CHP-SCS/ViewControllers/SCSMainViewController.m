@@ -28,6 +28,7 @@
     UILabel* chestAreaLabel;
     UILabel* secondOfficerLabel;
     UILabel* secondOfficerPhoneLabel;
+    UIButton* secondOfficerPhoneView;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -82,6 +83,8 @@
     officerImageView.layer.borderWidth = 2.0;
     officerImageView.layer.borderColor = [CARD_OFFICER_IMAGE_BORDER_COLOR CGColor];
     [officerImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [officerImageView setClipsToBounds:YES];
+    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
     
     yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+imageWidth+innerSpace, topBarHeight+yOffset, yearWidth, yearHeight)];
     [yearLabel setBackgroundColor:[UIColor clearColor]];
@@ -181,13 +184,17 @@
     UIImageView* cardPhoneView = [[UIImageView alloc] initWithImage:cardPhoneImage];
     [cardPhoneView setFrame:CGRectMake(xOffset+152.0, cardPersonImageY, cardPhoneImage.size.width, cardPhoneImage.size.height)];
     
-    UILabel* secondOfficerPhoneHeader = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+170.0, cardPersonImageY, 120.0, 10.0)];
+    secondOfficerPhoneView = [UIButton buttonWithType:UIButtonTypeCustom];
+    [secondOfficerPhoneView setFrame:CGRectMake(xOffset+150.0, cardPersonImageY-10.0, 140.0, 40.0)];
+    [secondOfficerPhoneView setBackgroundColor:[UIColor clearColor]];
+    
+    UILabel* secondOfficerPhoneHeader = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 10.0, 120.0, 10.0)];
     [secondOfficerPhoneHeader setBackgroundColor:[UIColor clearColor]];
     [secondOfficerPhoneHeader setFont:CARD_SECOND_OFFICER_TEXT_FONT];
     [secondOfficerPhoneHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
     [secondOfficerPhoneHeader setText:@"Sandık Görevlisi Telefon"];
     
-    secondOfficerPhoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+170.0, cardPersonImageY+10.0, 110.0, 10.0)];
+    secondOfficerPhoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 20.0, 110.0, 10.0)];
     [secondOfficerPhoneLabel setBackgroundColor:[UIColor clearColor]];
     [secondOfficerPhoneLabel setFont:CARD_SECOND_OFFICER_TEXT_FONT];
     [secondOfficerPhoneLabel setTextColor:CARD_SECOND_OFFICER_TEXT_COLOR];
@@ -217,28 +224,27 @@
     [self.view addSubview:secondOfficerHeader];
     [self.view addSubview:secondOfficerLabel];
     [self.view addSubview:cardPhoneView];
-    [self.view addSubview:secondOfficerPhoneHeader];
-    [self.view addSubview:secondOfficerPhoneLabel];
+    [secondOfficerPhoneView addSubview:secondOfficerPhoneHeader];
+    [secondOfficerPhoneView addSubview:secondOfficerPhoneLabel];
+    [self.view addSubview:secondOfficerPhoneView];
     [self.view addSubview:subSeperator4];
 }
 - (void) viewWillAppear:(BOOL)animated {
     _currentManager = [SCSManager currentManager];
     [self configureViews];
 }
+
 - (void) configureViews {
-//    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
-//    [yearLabel setText:@"2013"];
-//    [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
-//    [nameLabel setText:@"Ebuzer Egemen Dursun"];
-//    [chestNoLabel setText:@"1258"];
-//    [chestProvinceLabel setText:@"Kahramanmaraş"];
-//    [chestDistrictLabel setText:@"Gönen"];
-//    [homeTownLabel setText:@"Alaca Mescit Mahallesi"];
-//    [chestAreaLabel setText:@"Süleyman Demirel İ.Ö.O"];
-//    [secondOfficerLabel setText:@"Harun Soydemir"];
-//    [secondOfficerPhoneLabel setText:@"532 493 13 09"];
     
-    [officerImageView setImage:[UIImage imageNamed:@"dummy.jpg"]];
+    
+    if ([self.currentManager photoUrl] != nil && ![[self.currentManager photoUrl] isEqualToString:@""]) {
+        [[APIManager sharedInstance] getImageWithURLString:[self.currentManager photoUrl] onCompletion:^(UIImage *resultImage) {
+            [officerImageView setImage:resultImage];
+        } onError:^(NSError *error) {
+            ;
+        }];
+    }
+    
     [yearLabel setText:@"2013"];
     [headerLabel setText:@"SANDIK ÇEVRESİ SORUMLUSU KARTI"];
     [nameLabel setText:[_currentManager nameSurname]];
@@ -249,7 +255,22 @@
     [chestAreaLabel setText:[_currentManager chestArea]];
     [secondOfficerLabel setText:[_currentManager otherManagerNameSurname]];
     [secondOfficerPhoneLabel setText:[_currentManager otherManagerPhone]];
+    
+    if ([[SCSManager currentManager] otherManagerPhone] != nil && ![[[SCSManager currentManager] otherManagerPhone] isEqualToString:@""]) {
+        [secondOfficerPhoneView setUserInteractionEnabled:YES];
+        [secondOfficerPhoneView setBackgroundImage:[UIImage imageNamed:@"phone_highlighted.png"] forState:UIControlStateHighlighted];
+        [secondOfficerPhoneView addTarget:self action:@selector(callManager) forControlEvents:UIControlEventTouchUpInside];
+    }
 
+}
+- (void) callManager {
+    NSMutableString* phoneNumber = [NSMutableString stringWithString:[[SCSManager currentManager] otherManagerPhone]];
+    NSArray* arr1 = [phoneNumber componentsSeparatedByString:@" "];
+    phoneNumber = [NSMutableString stringWithString:[arr1 componentsJoinedByString:@""]];
+    NSArray* arr = [phoneNumber componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"()"]];
+    phoneNumber = [NSMutableString stringWithString:[arr componentsJoinedByString:@""]];
+    NSString *phoneUrl = [NSString stringWithFormat:@"tel:+90%@",phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneUrl]];
 }
 - (void)didReceiveMemoryWarning
 {

@@ -6,7 +6,61 @@
 //  Copyright (c) 2013 Halici. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+// card dictionary macros
+#define CARD_TCK_NO                      @"TCKN"
+#define CARD_NAME_SURNAME                @"AdSoyad"
+#define CARD_CHEST_NO                    @"SandikNo"
+#define CARD_CHEST_PROVINCE              @"SandikIli"
+#define CARD_CHEST_DISTRICT              @"SandikIlcesi"
+#define CARD_NEIGHBORHOOD                @"MahalleMuhtarligi"
+#define CARD_CHEST_AREA                  @"SandikAlani"
+#define CARD_OTHER_MANAGER_NAME_SURNAME  @"DigerGorevliAdi"
+#define CARD_OTHER_MANAGER_PHONE         @"DigerGorevliTelefonu"
+#define CARD_PHOTO_URL                   @"GorevliFotoUrl"
+
+// documents dictionary macros
+#define DOCUMENTS_DOCUMENT_TITLE          @"Baslik"
+#define DOCUMENTS_DOCUMENT_DESCRIPTION    @"Aciklama"
+#define DOCUMENTS_DOCUMENT_FILES          @"DosyaIcerik"
+#define DOCUMENTS_FILE_NAME               @"DosyaAdi"
+#define DOCUMENTS_FILE_URL                @"DosyaLink"
+//Document type
+#define DOCUMENTS_TYPE_EGITIM               1
+#define DOCUMENTS_TYPE_GENELGE              2
+
+// communication dictionary macros
+#define COMMUNICATION_INFOS_CHP_BITEM_EMAIL                             @"CHPBitemEposta"
+#define COMMUNICATION_INFOS_CHP_BITEM_PHONE                             @"CHPBitemTelefon"
+#define COMMUNICATION_INFOS_DISTRICT_MANAGER_NAME_SURNAME               @"IlceBaskani"
+#define COMMUNICATION_INFOS_DISTRICT_MANAGER_PHONE                      @"IlceBaskaniTelefonu"
+#define COMMUNICATION_INFOS_DISTRICT_HEADSHIP_PHONE                     @"IlceBaskanligiTelefonu"
+#define COMMUNICATION_INFOS_DISTRICT_INFORMATICS_MANAGER_NAME_SURNAME   @"IlceBilisimSorumlusu"
+#define COMMUNICATION_INFOS_DISTRICT_INFORMATICS_MANAGER_PHONE          @"IlceBilisimSorumlusuTelefonu"
+#define COMMUNICATION_INFOS_CHEST_NO                                    @"SandikNo"
+
+// voter list macros
+#define VOTER_LIST_PROVINCE @"IlAdi"
+#define VOTER_LIST_DISTRICT @"IlceAdi"
+#define VOTER_LIST_RECORD_COUNT @"KayitSayisi"
+#define VOTER_LIST_NEIGHBORHOOD @"Mahalle"
+#define VOTER_LIST_CHEST_AREA @"SandikAlani"
+#define VOTER_LIST_CHEST_NUMBER @"SandikNo"
+#define VOTER_LIST_VOTERS @"Secmenler"
+#define VOTER_LIST_VOTER_NAME @"AdSoyad"
+#define VOTER_LIST_VOTER_NUMBER @"SiraNo"
+
+// sub dictionaries macros
+#define CARD_DICTIONARY @"SandikCevresiSorumlusuKarti"
+#define EGITIM_DOCUMENTS_DICTIONARY @"EgitimDokumanlari"
+#define GENELGE_DOCUMENTS_DICTIONARY @"Genelgeler"
+#define DOCUMENTS_LIST @"GenelgeList"
+#define COMMUNICATION_DICTIONARY @"Iletisim"
+#define VOTER_LIST_DICTIONARY @"SandikSecmenListesi"
+#define CHEST_INFORMATION_CARD_DICTIONARY @"SandikBilgiKarti"
+
+// chest information card
+#define CHEST_INFORMATION_CARD_URL @"sandikkartilink"
+
 #import "APIManager.h"
 
 @interface SCSManager : NSObject
@@ -22,18 +76,17 @@
 @property NSString* otherManagerPhone;
 @property NSString* photoUrl;
 
-@property NSArray* egitimDocuments;
-@property NSArray* genelgeDocuments;
-@property NSDictionary* communicationInfos;
-@property NSDictionary* voterList;
+@property NSMutableArray* egitimDocuments;
+@property NSMutableArray* genelgeDocuments;
+@property NSMutableDictionary* communicationInfos;
+@property NSMutableDictionary* voterList;
+
+@property NSString* chestInformationCardUrl;
 
 + (SCSManager*) SCSManagerWithDictionary:(NSDictionary*)dictionary;
 
 + (SCSManager*) currentManager;
 
 - (id) initWithDictionary:(NSDictionary*)dictionary;
-
-- (void) getFullVoterListWithCompletionBlock:(CompletionBlock)completionBlock
-                               andErrorBlock:(ErrorBlock)errorBlock;
 
 @end

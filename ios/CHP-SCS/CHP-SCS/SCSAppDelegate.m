@@ -7,11 +7,48 @@
 //
 
 #import "SCSAppDelegate.h"
+#import "APIManager.h"
 
 @implementation SCSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    NSURL *fileUrl = [NSURL URLWithString:@"http://partiiciegitim.chp.org.tr/dosyalar/mevzuat/sandik-baski.pdf"];
+//    NSDate *fileDate;
+//    NSError* error;
+//    
+//    [fileUrl getResourceValue:&fileDate forKey:NSURLContentModificationDateKey error:&error];
+//    if (!error)
+//    {
+//        NSLog(@"%@",fileDate);
+//        //here you should be able to read valid date from fileDate variable
+//    }
+//    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://partiiciegitim.chp.org.tr/dosyalar/mevzuat/sandik-baski.pdf"]];
+//    [request setHTTPMethod:@"HEAD"];
+//    NSHTTPURLResponse* response;
+//    [NSURLConnection sendSynchronousRequest:request
+//                          returningResponse:&response error:&error];
+//    
+//    long long dataLength = [response expectedContentLength];
+//    NSDate* lastModified = [NSDate dateFromRFC1123:(NSString *)[[response allHeaderFields] objectForKey:@"Last-Modified"]];
+//    NSDate* now = [NSDate date];
+//    if([now compare:lastModified] == NSOrderedAscending){
+//        NSLog(@"Ascending");
+//    }
+//    else if([now compare:lastModified] == NSOrderedDescending){
+//        NSLog(@"Descending");
+//    }
+//    else {
+//        NSLog(@"Same");
+//    }
+//    NSLog(@"%lld",dataLength);
+    
+//    NSLog(@"%@",[request allHTTPHeaderFields]);
+//    [[APIManager sharedInstance] getDocumentsWithDocumentType:DOCUMENTS_TYPE_EGITIM andCompletionBlock:^(NSArray *responseArray) {
+//        NSLog(@"%@",responseArray);
+//    } onError:^(NSError *error) {
+//        
+//    }];
     
     if([[UIScreen mainScreen] bounds].size.height == 568){
         _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg-568h.jpg"]];

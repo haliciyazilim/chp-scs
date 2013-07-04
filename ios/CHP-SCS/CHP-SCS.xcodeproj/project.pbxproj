@@ -87,6 +87,7 @@
 		AE40FDEE178315EB00B4918D /* pdf_webview_mail_btn@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE40FDE8178315EB00B4918D /* pdf_webview_mail_btn@2x.jpg */; };
 		AE40FDEF178315EB00B4918D /* pdf_webview_print_btn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE40FDE9178315EB00B4918D /* pdf_webview_print_btn.jpg */; };
 		AE40FDF0178315EB00B4918D /* pdf_webview_print_btn@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE40FDEA178315EB00B4918D /* pdf_webview_print_btn@2x.jpg */; };
+		AE97091817855EDE00CBDB5E /* SCSSecmenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE97091717855EDE00CBDB5E /* SCSSecmenCell.m */; };
 		AE9E087A1781B660006AFDDE /* icon_doc.png in Resources */ = {isa = PBXBuildFile; fileRef = AE9E08781781B660006AFDDE /* icon_doc.png */; };
 		AE9E087B1781B660006AFDDE /* icon_doc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE9E08791781B660006AFDDE /* icon_doc@2x.png */; };
 		AEE559D6176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE559D5176AF36F00A019FC /* SCSEgitimDokumanlariViewController.m */; };
@@ -218,6 +219,8 @@
 		AE40FDE9178315EB00B4918D /* pdf_webview_print_btn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pdf_webview_print_btn.jpg; sourceTree = "<group>"; };
 		AE40FDEA178315EB00B4918D /* pdf_webview_print_btn@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pdf_webview_print_btn@2x.jpg"; sourceTree = "<group>"; };
 		AE71068017718CA900F93ED7 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		AE97091617855EDE00CBDB5E /* SCSSecmenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSSecmenCell.h; sourceTree = "<group>"; };
+		AE97091717855EDE00CBDB5E /* SCSSecmenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSSecmenCell.m; sourceTree = "<group>"; };
 		AE9E08781781B660006AFDDE /* icon_doc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_doc.png; sourceTree = "<group>"; };
 		AE9E08791781B660006AFDDE /* icon_doc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_doc@2x.png"; sourceTree = "<group>"; };
 		AEE559D4176AF36E00A019FC /* SCSEgitimDokumanlariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSEgitimDokumanlariViewController.h; path = ViewControllers/SCSEgitimDokumanlariViewController.h; sourceTree = "<group>"; };
@@ -396,6 +399,8 @@
 				AE08932417707CDB003F782D /* SCSPDFWebView.m */,
 				052D8F89177D9BF9003E9DDC /* SCSManager.h */,
 				052D8F8A177D9BF9003E9DDC /* SCSManager.m */,
+				AE97091617855EDE00CBDB5E /* SCSSecmenCell.h */,
+				AE97091717855EDE00CBDB5E /* SCSSecmenCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 				05CBBE6D17845C9900163EDF /* RNOpenSSLCryptor.m in Sources */,
 				05CBBE6E17845C9900163EDF /* RNOpenSSLDecryptor.m in Sources */,
 				05CBBE6F17845C9900163EDF /* RNOpenSSLEncryptor.m in Sources */,
+				AE97091817855EDE00CBDB5E /* SCSSecmenCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

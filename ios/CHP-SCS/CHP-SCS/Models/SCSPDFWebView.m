@@ -68,6 +68,7 @@
 
 - (void) showPdfWithUrl:(NSString*)url
 {
+    NSLog(@"url: %@",url);
     [self setHidden:NO];
     [self.backButton setHidden:NO];
     [self.printButton setHidden:NO];
@@ -136,7 +137,7 @@
 
 - (void) fileCache:(PLACFileCache *)cache didFailWithError:(NSError *)error
 {
-    
+    NSLog(@"PLACCache error: %@",error);
 }
 
 - (void) fileCache:(PLACFileCache *)cache didLoadFile:(NSData *)fileData withTransform:(NSString *)transformIdentifier fromURL:(NSString *)url

@@ -7,6 +7,7 @@
 //
 
 #import "SCSSecmenCell.h"
+#import "Config.h"
 
 @implementation SCSSecmenCell
 
@@ -21,7 +22,13 @@
         [self addSubview:self.secmenNameLabel];
         [self.secmenNameLabel setBackgroundColor:[UIColor clearColor]];
         [self.secmenNumberLabel setBackgroundColor:[UIColor clearColor]];
+        [self.secmenNameLabel setTextColor:TOP_BAR_TEXT_COLOR];
+        [self.secmenNumberLabel setTextColor:TOP_BAR_TEXT_COLOR];
+        [self.secmenNameLabel setFont:SECMEN_CELL_FONT];
+        [self.secmenNumberLabel setFont:SECMEN_CELL_FONT];
+        [self.secmenNumberLabel setTextAlignment:NSTextAlignmentRight];
         [self setFrame:self.frame];
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     return self;
 }
@@ -29,8 +36,8 @@
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    self.secmenNumberLabel.frame = CGRectMake(0.0, 0.0, frame.size.width*0.25, frame.size.height);
-    self.secmenNameLabel.frame = CGRectMake(frame.size.width*0.25, 0.0, frame.size.width*0.75, frame.size.height);
+    self.secmenNumberLabel.frame = CGRectMake(0.0, 0.0, frame.size.width*0.15, frame.size.height);
+    self.secmenNameLabel.frame = CGRectMake(frame.size.width*0.20, 0.0, frame.size.width*0.80, frame.size.height);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

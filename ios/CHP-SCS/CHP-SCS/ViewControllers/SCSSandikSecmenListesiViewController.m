@@ -9,7 +9,7 @@
 #import "SCSSandikSecmenListesiViewController.h"
 #import "SCSSecmenCell.h"
 #import "SCSManager.h"
-
+#import "Config.h"
 @interface SCSSandikSecmenListesiViewController ()
 
 @end
@@ -42,10 +42,12 @@
     [self.tableView registerClass:[SCSSecmenCell class] forCellReuseIdentifier:@"SecmenCell"];
     [self.view addSubview:self.tableView];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
-//    [self.tableView setTableHeaderView:[UIView new]];
-//    [self.tableView.tableHeaderView setBackgroundColor:[UIColor yellowColor]];
-//    [self.tableView.tableHeaderView setFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 44.0)];
-	// Do any additional setup after loading the view.
+    [self.tableView setSeparatorColor:PDF_TABLE_CELL_SEPERATOR_COLOR];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 30.0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -78,7 +80,8 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, tableView.bounds.size.width - 10, 18)];
     if(section == 0)
-        label.text = [NSString stringWithFormat:@"Sandık No:      Seçmen Sayısı: "];
+        label.text = [NSString stringWithFormat:@"Sandık No:%@      Seçmen Sayısı:%d ",
+                      [[[SCSManager currentManager] voterList] objectForKey:VOTER_LIST_CHEST_NUMBER], [data count]];
     else if(section == 1)
         label.text = @"Sira No                    Secmen Adi";
     label.font = [UIFont fontWithName:@"Futura" size:14];
@@ -98,5 +101,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end

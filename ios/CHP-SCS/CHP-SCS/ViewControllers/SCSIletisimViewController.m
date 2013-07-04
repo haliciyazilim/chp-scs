@@ -60,15 +60,15 @@
     CGFloat managerNameY = headerOffsetY+headerHeight*2;
     CGFloat managerPhoneY = managerNameY+30.0;
     
-    CGFloat districtHeadshipY = managerPhoneY+50.0;
+    CGFloat districtHeadshipY = managerPhoneY+40.0;
     
     CGFloat headshipPhoneY = districtHeadshipY+30.0;
     
-    CGFloat districtInformaticsY = headshipPhoneY+50.0;
+    CGFloat districtInformaticsY = headshipPhoneY+40.0;
     CGFloat districtInformaticsNameY = districtInformaticsY+30.0;
     CGFloat districtInformaticsPhoneY = districtInformaticsNameY+30.0;
     
-    CGFloat bitemY = districtInformaticsPhoneY+50.0;
+    CGFloat bitemY = districtInformaticsPhoneY+40.0;
     CGFloat bitemEmailY = bitemY+30.0;
     CGFloat bitemPhoneY = bitemEmailY+30.0;
     
@@ -112,7 +112,7 @@
     [managerPhoneButton setFrame:CGRectMake(0.0, managerPhoneY, SCREEN_SIZE.width, 30.0)];
     [managerPhoneButton setBackgroundColor:[UIColor clearColor]];
     
-    UIView* subSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(10.0, managerPhoneY+40.0, SCREEN_SIZE.width-20.0, 1.0)];
+    UIView* subSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(10.0, managerPhoneY+35.0, SCREEN_SIZE.width-20.0, 1.0)];
     [subSeperator1 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
     
     UILabel* districtHeadship = [[UILabel alloc] initWithFrame:CGRectMake(44.0, districtHeadshipY, SCREEN_SIZE.width-88.0, 30.0)];
@@ -136,7 +136,7 @@
     [headshipPhoneButton setFrame:CGRectMake(0.0, headshipPhoneY, SCREEN_SIZE.width, 30.0)];
     [headshipPhoneButton setBackgroundColor:[UIColor clearColor]];
     
-    UIView* subSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(10.0, headshipPhoneY+40.0, SCREEN_SIZE.width-20.0, 1.0)];
+    UIView* subSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(10.0, headshipPhoneY+35.0, SCREEN_SIZE.width-20.0, 1.0)];
     [subSeperator2 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
     
     UILabel* districtInformatics = [[UILabel alloc] initWithFrame:CGRectMake(44.0, districtInformaticsY, SCREEN_SIZE.width-88.0, 30.0)];
@@ -170,7 +170,7 @@
     [districtInformaticsManagerPhoneButton setFrame:CGRectMake(0.0, districtInformaticsPhoneY, SCREEN_SIZE.width, 30.0)];
     [districtInformaticsManagerPhoneButton setBackgroundColor:[UIColor clearColor]];
 
-    UIView* subSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(10.0, districtInformaticsPhoneY+40.0, SCREEN_SIZE.width-20.0, 1.0)];
+    UIView* subSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(10.0, districtInformaticsPhoneY+35.0, SCREEN_SIZE.width-20.0, 1.0)];
     [subSeperator3 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
     
     UILabel* bitem = [[UILabel alloc] initWithFrame:CGRectMake(44.0, bitemY, SCREEN_SIZE.width-88.0, 30.0)];
@@ -210,6 +210,9 @@
     [bitemPhoneButton setFrame:CGRectMake(0.0, bitemPhoneY, SCREEN_SIZE.width, 30.0)];
     [bitemPhoneButton setBackgroundColor:[UIColor clearColor]];
     
+    UIView* subSeperator4 = [[UIView alloc] initWithFrame:CGRectMake(10.0, bitemPhoneY+35.0, SCREEN_SIZE.width-20.0, 1.0)];
+    [subSeperator4 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
+    
     [self.view addSubview:headerLabel];
     [self.view addSubview:districtHeader];
     [self.view addSubview:nameView1];
@@ -237,6 +240,7 @@
     [bitemPhoneButton addSubview:phoneView4];
     [bitemPhoneButton addSubview:bitemPhoneLabel];
     [self.view addSubview:bitemPhoneButton];
+    [self.view addSubview:subSeperator4];
     
     [self configureViews];
 }
@@ -335,6 +339,7 @@
         MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
         controller.mailComposeDelegate = self;
         [controller setToRecipients:@[bitemEmailStr]];
+        [controller setSubject:@"CHP-SCS mobil uygulaması"];
         
         if (controller) [self presentViewController:controller
                                            animated:YES

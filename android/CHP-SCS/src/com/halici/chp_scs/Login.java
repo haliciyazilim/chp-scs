@@ -7,7 +7,10 @@ import org.json.JSONObject;
 
 import com.halici.chp_scs.common.BaglantiKontrolu;
 import com.halici.chp_scs.common.Crypto;
+import com.halici.chp_scs.common.DocumentList;
+import com.halici.chp_scs.common.Iletisim;
 import com.halici.chp_scs.common.SandikCevresiSorumluBilgileri;
+import com.halici.chp_scs.common.SandikSecmenListesi;
 import com.halici.chp_scs.common.Sorgulama;
 import com.halici.chp_scs.common.Util;
 
@@ -176,13 +179,35 @@ public class Login extends Activity {
 				JSONObject json= new JSONObject(sonuc);
 				loginDurumu=json.getBoolean("LoginDurumu");
 				
+				String sandikCevresiSorumluBilgileri=json.getString(Util.SANDIK_CEVRESI_SORUMLU_KARTI); 
+				String sandikSecmenListesi=json.getString(Util.SANDIK_SECMEN_LISTESI); 
+				String egitimDokumanlari=json.getString(Util.EGITIM_DOKUMANLARI); 
+				String genelgeler=json.getString(Util.GENELGELER); 
+				String iletisimString=json.getString(Util.ILETISIM); 
+				
+				JSONObject sandikBilgiKarti=json.getJSONObject(Util.SANDIK_BILGI_KARTI);
+				String sandikBilgiKartiLink=sandikBilgiKarti.getString(Util.SANDIK_BILGI_KARTI_LINK);
+				
+				
+				
 				if (loginDurumu){
 					saveData(userName, password);
 					
-					SandikCevresiSorumluBilgileri bilgiler= new SandikCevresiSorumluBilgileri(json.toString());
+					SandikCevresiSorumluBilgileri sorumluBilgileri= new SandikCevresiSorumluBilgileri(sandikCevresiSorumluBilgileri);
+					SandikSecmenListesi secmenListesi=new SandikSecmenListesi(sandikSecmenListesi);
+					DocumentList egitimDoc=new DocumentList(Util.EGITIM_DOKUMANLARI_TYPE, egitimDokumanlari);
+					DocumentList genelgeDoc=new DocumentList(Util.GENELGELER_TYPE, genelgeler);
+					Iletisim iletisim=new Iletisim(iletisimString);
+					
 					
 					Intent intent=new Intent(Login.this, MainActivity.class);
-					intent.putExtra(Util.SANDIK_CEVRESI_SORUMLU_BILGILERI, bilgiler);
+					intent.putExtra(Util.SANDIK_CEVRESI_SORUMLU_KARTI, sorumluBilgileri);
+					intent.putExtra(Util.SANDIK_SECMEN_LISTESI, secmenListesi);
+					intent.putExtra(Util.EGITIM_DOKUMANLARI, egitimDoc);
+					intent.putExtra(Util.GENELGELER, genelgeDoc);
+					intent.putExtra(Util.ILETISIM, iletisim);
+					intent.putExtra(Util.SANDIK_BILGI_KARTI, sandikBilgiKartiLink);
+					
 					startActivity(intent);
 					
 				}

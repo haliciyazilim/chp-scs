@@ -48,7 +48,7 @@ public class SandikCevresiSorumluKartiFragment extends Fragment {
 
     final View v = inflater.inflate(R.layout.sandik_cevresi_sorumlu_karti, container, false);
 
-    scsSorumluBilgileri=(SandikCevresiSorumluBilgileri)getArguments().getSerializable(Util.SANDIK_CEVRESI_SORUMLU_BILGILERI);
+    scsSorumluBilgileri=(SandikCevresiSorumluBilgileri)getArguments().getSerializable(Util.SANDIK_CEVRESI_SORUMLU_KARTI);
     
     photo=(ImageView)v.findViewById(R.id.imgSorumluKartiFoto);
     new ResimIndirme().execute();
@@ -149,8 +149,8 @@ public class SandikCevresiSorumluKartiFragment extends Fragment {
 	  BitmapDrawable gelenResim;
 		@Override
 		protected Void doInBackground(String... sUrl) {
-
-			gelenResim=Resim.resimGetir(scsSorumluBilgileri.getGorecliFotoUrl());
+			System.out.println("GorevliFoto URL: "+scsSorumluBilgileri.getGorevliFotoUrl());
+			gelenResim=Resim.resimGetir(scsSorumluBilgileri.getGorevliFotoUrl());
 
 			
 			return null;

@@ -43,8 +43,11 @@ public class SandikSecmenListesiFragment extends ListFragment {
 		
 		final View v = inflater.inflate(R.layout.pdf_list, container, false);
 		
-		new Servis().execute();
-
+		liste=(SandikSecmenListesi)getArguments().getSerializable(Util.SANDIK_SECMEN_LISTESI);
+		
+		SecmenListesiAdapter adapter=new SecmenListesiAdapter(getActivity(),liste);
+		setListAdapter(adapter);
+		
 		return v;
 		
 	}

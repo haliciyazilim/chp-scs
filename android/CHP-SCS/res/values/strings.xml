@@ -8,6 +8,7 @@
     <string name="about_tutorial">View tutorial page</string>
     
     <!-- Login strings -->
+    <string name="loginHeader">Sandık Çevresi Sorumluları Bilgi Sistemi</string>
     <string name="userNameHint">Telefon No/T.C. Kimlik No Giriniz</string>
     <string name="passwordHint">Lütfen Şifrenizi Giriniz.</string>
     <string name="submit">Sorgula</string>

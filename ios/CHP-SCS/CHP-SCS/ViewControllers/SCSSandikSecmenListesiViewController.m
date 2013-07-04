@@ -67,7 +67,9 @@
     SCSSecmenCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"SecmenCell"];
     NSDictionary* dict = [data objectAtIndex:indexPath.row];
-    [cell.secmenNameLabel setText:[dict objectForKey:VOTER_LIST_VOTER_NAME]];
+    NSString* name = [dict objectForKey:VOTER_LIST_VOTER_NAME];
+
+    [cell.secmenNameLabel setText:[name capitalizedStringWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"tr"]]];
     [cell.secmenNumberLabel setText:[NSString stringWithFormat:@"%@",[dict objectForKey:VOTER_LIST_VOTER_NUMBER]]];
     return  cell;
 

@@ -46,6 +46,11 @@
 		05CBBE6D17845C9900163EDF /* RNOpenSSLCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CBBE6417845C9900163EDF /* RNOpenSSLCryptor.m */; };
 		05CBBE6E17845C9900163EDF /* RNOpenSSLDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CBBE6617845C9900163EDF /* RNOpenSSLDecryptor.m */; };
 		05CBBE6F17845C9900163EDF /* RNOpenSSLEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CBBE6817845C9900163EDF /* RNOpenSSLEncryptor.m */; };
+		05CBBE7217859B2F00163EDF /* card_icon_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE7017859B2F00163EDF /* card_icon_mail.png */; };
+		05CBBE7317859B2F00163EDF /* card_icon_mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE7117859B2F00163EDF /* card_icon_mail@2x.png */; };
+		05CBBE771785A10600163EDF /* communication_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE751785A10600163EDF /* communication_highlighted.png */; };
+		05CBBE781785A10600163EDF /* communication_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE761785A10600163EDF /* communication_highlighted@2x.png */; };
+		05CBBE7A1785B05D00163EDF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CBBE791785B05D00163EDF /* MessageUI.framework */; };
 		05CE054717676144009955B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054617676144009955B8 /* UIKit.framework */; };
 		05CE054917676144009955B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054817676144009955B8 /* Foundation.framework */; };
 		05CE054B17676144009955B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE054A17676144009955B8 /* CoreGraphics.framework */; };
@@ -153,6 +158,11 @@
 		05CBBE6617845C9900163EDF /* RNOpenSSLDecryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLDecryptor.m; sourceTree = "<group>"; };
 		05CBBE6717845C9900163EDF /* RNOpenSSLEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOpenSSLEncryptor.h; sourceTree = "<group>"; };
 		05CBBE6817845C9900163EDF /* RNOpenSSLEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOpenSSLEncryptor.m; sourceTree = "<group>"; };
+		05CBBE7017859B2F00163EDF /* card_icon_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_icon_mail.png; sourceTree = "<group>"; };
+		05CBBE7117859B2F00163EDF /* card_icon_mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_icon_mail@2x.png"; sourceTree = "<group>"; };
+		05CBBE751785A10600163EDF /* communication_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = communication_highlighted.png; sourceTree = "<group>"; };
+		05CBBE761785A10600163EDF /* communication_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "communication_highlighted@2x.png"; sourceTree = "<group>"; };
+		05CBBE791785B05D00163EDF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		05CE054317676144009955B8 /* chp-scs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chp-scs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CE054617676144009955B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05CE054817676144009955B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -248,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CBBE7A1785B05D00163EDF /* MessageUI.framework in Frameworks */,
 				054268931781AEA60058DC05 /* QuartzCore.framework in Frameworks */,
 				052D8F8F177DA46A003E9DDC /* SystemConfiguration.framework in Frameworks */,
 				052D8F8D177DA438003E9DDC /* Security.framework in Frameworks */,
@@ -295,10 +306,18 @@
 			path = RNCryptor;
 			sourceTree = "<group>";
 		};
+		05CBBE741785A10600163EDF /* communication */ = {
+			isa = PBXGroup;
+			children = (
+				05CBBE751785A10600163EDF /* communication_highlighted.png */,
+				05CBBE761785A10600163EDF /* communication_highlighted@2x.png */,
+			);
+			path = communication;
+			sourceTree = "<group>";
+		};
 		05CE053A17676144009955B8 = {
 			isa = PBXGroup;
 			children = (
-				054268921781AEA60058DC05 /* QuartzCore.framework */,
 				05CE054C17676144009955B8 /* CHP-SCS */,
 				05CE054517676144009955B8 /* Frameworks */,
 				05CE054417676144009955B8 /* Products */,
@@ -316,6 +335,8 @@
 		05CE054517676144009955B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05CBBE791785B05D00163EDF /* MessageUI.framework */,
+				054268921781AEA60058DC05 /* QuartzCore.framework */,
 				052D8F8E177DA46A003E9DDC /* SystemConfiguration.framework */,
 				052D8F8C177DA438003E9DDC /* Security.framework */,
 				05CE054617676144009955B8 /* UIKit.framework */,
@@ -418,6 +439,8 @@
 				05368DA7176AF41000818E59 /* card_icon_person@2x.png */,
 				05368DA8176AF41000818E59 /* card_icon_phone.png */,
 				05368DA9176AF41000818E59 /* card_icon_phone@2x.png */,
+				05CBBE7017859B2F00163EDF /* card_icon_mail.png */,
+				05CBBE7117859B2F00163EDF /* card_icon_mail@2x.png */,
 			);
 			path = card;
 			sourceTree = "<group>";
@@ -532,6 +555,7 @@
 		AE3950D51769E76600F1EDCC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				05CBBE741785A10600163EDF /* communication */,
 				AE40FDE4178315EB00B4918D /* pdf webview */,
 				AE9E08771781B660006AFDDE /* pdf table */,
 				054268871781A8E30058DC05 /* login */,
@@ -665,6 +689,10 @@
 				05CBBE54178455E300163EDF /* phone_highlighted.png in Resources */,
 				05CBBE55178455E300163EDF /* phone_highlighted@2x.png in Resources */,
 				05CBBE571784597900163EDF /* dummy@2x.jpg in Resources */,
+				05CBBE7217859B2F00163EDF /* card_icon_mail.png in Resources */,
+				05CBBE7317859B2F00163EDF /* card_icon_mail@2x.png in Resources */,
+				05CBBE771785A10600163EDF /* communication_highlighted.png in Resources */,
+				05CBBE781785A10600163EDF /* communication_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

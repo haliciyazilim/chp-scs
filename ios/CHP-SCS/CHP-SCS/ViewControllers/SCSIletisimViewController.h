@@ -7,7 +7,8 @@
 //
 
 #import "SCSViewController.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface SCSIletisimViewController : SCSViewController
+@interface SCSIletisimViewController : SCSViewController <MFMailComposeViewControllerDelegate>
 
 @end

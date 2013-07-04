@@ -235,7 +235,7 @@
     [UIView animateWithDuration:animationDuration
                      animations:^{
                          CGRect frame = self.view.frame;
-                         frame.origin.y = -80.0;
+                         frame.origin.y = -110.0;
                          [self.view setFrame:frame];
                      }];
 }
@@ -271,10 +271,11 @@
     if ([username length] == 11 || [username length] == 10){
         
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityIndicator setFrame:CGRectMake(0.0, 8.0, 26.0, 26.0)];
-        [self.loginButton addSubview:activityIndicator];
+        CGRect frame = self.loginButton.frame;
+        [activityIndicator setFrame:CGRectMake(frame.origin.x-36.0, frame.origin.y+8.0, 26.0, 26.0)];
+        [self.view addSubview:activityIndicator];
         [activityIndicator startAnimating];
-        [self.loginButton setUserInteractionEnabled:NO];
+        [self.view setUserInteractionEnabled:NO];
         
         NSString* aPassword = self.passwordField.text;
         
@@ -296,14 +297,14 @@
             [activityIndicator stopAnimating];
             [activityIndicator removeFromSuperview];
             activityIndicator = nil;
-            [self.loginButton setUserInteractionEnabled:YES];
+            [self.view setUserInteractionEnabled:YES];
             
             [self performSegueWithIdentifier:@"LoginSegue" sender:self];
         } onError:^(NSError *error) {
             [activityIndicator stopAnimating];
             [activityIndicator removeFromSuperview];
             activityIndicator = nil;
-            [self.loginButton setUserInteractionEnabled:YES];
+            [self.view setUserInteractionEnabled:YES];
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Hata" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
             [alertView show];
         }];

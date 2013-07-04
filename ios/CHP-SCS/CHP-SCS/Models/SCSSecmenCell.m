@@ -24,8 +24,8 @@
         [self.secmenNumberLabel setBackgroundColor:[UIColor clearColor]];
         [self.secmenNameLabel setTextColor:TOP_BAR_TEXT_COLOR];
         [self.secmenNumberLabel setTextColor:TOP_BAR_TEXT_COLOR];
-        [self.secmenNameLabel setFont:SECMEN_CELL_FONT];
-        [self.secmenNumberLabel setFont:SECMEN_CELL_FONT];
+        [self.secmenNameLabel setFont:SECMEN_CELL_NAME_FONT];
+        [self.secmenNumberLabel setFont:SECMEN_CELL_NUMBER_FONT];
         [self.secmenNumberLabel setTextAlignment:NSTextAlignmentRight];
         [self setFrame:self.frame];
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];

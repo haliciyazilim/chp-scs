@@ -29,7 +29,9 @@
     _webView = [[UIWebView alloc] init];
     self.webView.frame = CGRectMake(0.0, self.topBar.frame.size.height, self.view.frame.size.width,self.view.frame.size.height - self.topBar.frame.size.height);
     [self.view addSubview:self.webView];
-//    self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[SCSManager currentManager]]]]
+    NSURL* url = [NSURL URLWithString:[[SCSManager currentManager] chestInformationCardUrl]];
+    NSLog(@"url: %@",url);
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 	// Do any additional setup after loading the view.
 }
 

@@ -10,4 +10,6 @@
 
 @interface SCSSandikBilgiKartiViewController : SCSViewController
 
+@property (readonly) UIWebView* webView;
+
 @end

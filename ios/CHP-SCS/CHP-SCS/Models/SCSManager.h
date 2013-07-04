@@ -46,6 +46,8 @@
 #define VOTER_LIST_CHEST_AREA @"SandikAlani"
 #define VOTER_LIST_CHEST_NUMBER @"SandikNo"
 #define VOTER_LIST_VOTERS @"Secmenler"
+#define VOTER_LIST_VOTER_NAME @"AdSoyad"
+#define VOTER_LIST_VOTER_NUMBER @"SiraNo"
 
 // sub dictionaries macros
 #define CARD_DICTIONARY @"SandikCevresiSorumlusuKarti"

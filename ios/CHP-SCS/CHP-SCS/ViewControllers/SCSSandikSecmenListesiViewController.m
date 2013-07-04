@@ -78,13 +78,19 @@
     
     [headerView setBackgroundColor:[UIColor colorWithRed:0.420 green:0.227 blue:0.227 alpha:0.85]];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, tableView.bounds.size.width - 10, 18)];
-    if(section == 0)
-        label.text = [NSString stringWithFormat:@"Sandık No:%@      Seçmen Sayısı:%d ",
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width, 30)];
+    if(section == 0){
+        
+        label.text = [NSString stringWithFormat:@"Sandık No: %@           Seçmen Sayısı: %d ",
                       [[[SCSManager currentManager] voterList] objectForKey:VOTER_LIST_CHEST_NUMBER], [data count]];
-    else if(section == 1)
-        label.text = @"Sira No                    Secmen Adi";
-    label.font = [UIFont fontWithName:@"Futura" size:14];
+        [headerView setBackgroundColor:[TOP_BAR_BACKGROUND_COLOR colorWithAlphaComponent:0.7]];
+
+    }
+    else if(section == 1){
+        label.text = @"Sıra No    Seçmen Adı";
+        [headerView setBackgroundColor:[MENU_BACKGROUND_COLOR colorWithAlphaComponent:0.7]];
+    }
+    label.font = SECMEN_CELL_NUMBER_FONT;
     label.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.75];
     label.backgroundColor = [UIColor clearColor];
     [headerView addSubview:label];

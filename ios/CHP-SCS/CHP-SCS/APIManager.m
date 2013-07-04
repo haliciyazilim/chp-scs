@@ -128,7 +128,13 @@ static APIManager *sharedInstance = nil;
     NSRange range1 = [response rangeOfString:[NSString stringWithFormat:@"<%@Result>", operation]];
     NSRange range2 = [response rangeOfString:[NSString stringWithFormat:@"</%@Result>", operation]];
     NSRange range = {NSMaxRange(range1), range2.location-range1.location-range2.length+1};
-    NSData *responseJSON = [[response substringWithRange:range] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *responseString = [response substringWithRange:range];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"&apos;" withString:@"'"];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    NSData *responseJSON = [responseString dataUsingEncoding:NSUTF8StringEncoding];
     
     id responseObject = [NSJSONSerialization JSONObjectWithData:responseJSON options:0 error:nil];
     

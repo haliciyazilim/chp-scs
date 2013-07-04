@@ -80,7 +80,8 @@
 #define LOGIN_SCREEN_BUTTON_HIGHLIGHTED_COLOR [UIColor colorWithRed:50.0/255.0 green:46.0/255.0 blue:37.0/255.0 alpha:1.0]
 #define LOGIN_SCREEN_BUTTON_TEXT_COLOR [UIColor colorWithWhite:1.0 alpha:1.0]
 
-#define SECMEN_CELL_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:12.0]
+#define SECMEN_CELL_NAME_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:12.0]
+#define SECMEN_CELL_NUMBER_FONT [UIFont fontWithName:@"Swis721 Md BT" size:12.0]
 
 #define COMMUNICATION_HEADER_FONT [UIFont fontWithName:@"Swis721 Md BT" size:16.0]
 #define COMMUNICATION_TEXT_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:16.0]

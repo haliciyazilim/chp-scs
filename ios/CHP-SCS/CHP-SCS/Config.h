@@ -82,4 +82,7 @@
 
 #define SECMEN_CELL_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:12.0]
 
+#define COMMUNICATION_HEADER_FONT [UIFont fontWithName:@"Swis721 Md BT" size:16.0]
+#define COMMUNICATION_TEXT_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:16.0]
+
 #endif

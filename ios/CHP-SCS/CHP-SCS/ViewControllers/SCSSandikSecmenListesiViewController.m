@@ -47,7 +47,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30.0;
+    return 32.0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,14 +76,14 @@
 }
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 36.0)];
     
     [headerView setBackgroundColor:[UIColor colorWithRed:0.420 green:0.227 blue:0.227 alpha:0.85]];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width, 36.0)];
     if(section == 0){
         
-        label.text = [NSString stringWithFormat:@"Sandık No: %@           Seçmen Sayısı: %d ",
+        label.text = [NSString stringWithFormat:@"Sandık No: %@       Seçmen Sayısı: %d ",
                       [[[SCSManager currentManager] voterList] objectForKey:VOTER_LIST_CHEST_NUMBER], [data count]];
         [headerView setBackgroundColor:[TOP_BAR_BACKGROUND_COLOR colorWithAlphaComponent:0.7]];
 
@@ -102,7 +102,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 32;
+    return 36.0;
 }
 - (void)didReceiveMemoryWarning
 {

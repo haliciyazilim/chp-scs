@@ -43,6 +43,16 @@
     
     [self.tableView setScrollEnabled:NO];
     
+    UILabel* description = [UILabel new];
+    description.frame = CGRectMake(10.0, self.view.frame.size.height-75, self.view.frame.size.width-64.0, 100);
+    description.backgroundColor = [UIColor clearColor];
+    description.textColor =[[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    description.font = MENU_DESCRIPTION_TEXT_FONT;
+    description.numberOfLines = 0;
+    description.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:description];
+    description.text = @"Dökümanları print etmek için web sitemizi ziyaret ediniz";
+    
     
     self.menu = @[
                   @{

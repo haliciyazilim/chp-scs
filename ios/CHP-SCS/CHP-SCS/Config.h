@@ -24,6 +24,8 @@
 #define MENU_SEPERATOR_COLOR [UIColor colorWithRed:35.0/255.0 green:32.0/255.0 blue:26.0/255.0 alpha:1.0]
 #define MENU_TEXT_COLOR [UIColor colorWithRed:130.0/255.0 green:123.0/255.0 blue:118.0/255.0 alpha:1.0]
 #define MENU_TEXT_FONT [UIFont fontWithName:@"Swis721 Md BT" size:18.0]
+#define MENU_DESCRIPTION_TEXT_FONT [UIFont fontWithName:@"Swis721 Lt BT" size:12.0]
+
 
 // main content related macros
 #define MAIN_CONTENT_BACKGROUND_COLOR [UIColor colorWithRed:80.0/255.0 green:76.0/255.0 blue:64.0/255.0 alpha:1.0]

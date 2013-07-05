@@ -35,6 +35,10 @@
 		054268901781A8E30058DC05 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0542688B1781A8E30058DC05 /* login_logo.png */; };
 		054268911781A8E30058DC05 /* login_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0542688C1781A8E30058DC05 /* login_logo@2x.png */; };
 		054268931781AEA60058DC05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054268921781AEA60058DC05 /* QuartzCore.framework */; };
+		058BFA641786E14D0087B6CD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 058BFA601786E14D0087B6CD /* Icon-Small.png */; };
+		058BFA651786E14D0087B6CD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 058BFA611786E14D0087B6CD /* Icon-Small@2x.png */; };
+		058BFA661786E14D0087B6CD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 058BFA621786E14D0087B6CD /* Icon.png */; };
+		058BFA671786E14D0087B6CD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 058BFA631786E14D0087B6CD /* Icon@2x.png */; };
 		05A522CC177C684500794851 /* SCSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A522CB177C684500794851 /* SCSLoginViewController.m */; };
 		05CBBE54178455E300163EDF /* phone_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE52178455E300163EDF /* phone_highlighted.png */; };
 		05CBBE55178455E300163EDF /* phone_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CBBE53178455E300163EDF /* phone_highlighted@2x.png */; };
@@ -137,6 +141,10 @@
 		0542688B1781A8E30058DC05 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		0542688C1781A8E30058DC05 /* login_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_logo@2x.png"; sourceTree = "<group>"; };
 		054268921781AEA60058DC05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		058BFA601786E14D0087B6CD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		058BFA611786E14D0087B6CD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		058BFA621786E14D0087B6CD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		058BFA631786E14D0087B6CD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		05A522CA177C684500794851 /* SCSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSLoginViewController.h; path = ViewControllers/SCSLoginViewController.h; sourceTree = "<group>"; };
 		05A522CB177C684500794851 /* SCSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSLoginViewController.m; path = ViewControllers/SCSLoginViewController.m; sourceTree = "<group>"; };
 		05CBBE52178455E300163EDF /* phone_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone_highlighted.png; sourceTree = "<group>"; };
@@ -379,6 +387,10 @@
 				05CE055817676144009955B8 /* Default.png */,
 				05CE055A17676144009955B8 /* Default@2x.png */,
 				05CE055C17676144009955B8 /* Default-568h@2x.png */,
+				058BFA601786E14D0087B6CD /* Icon-Small.png */,
+				058BFA611786E14D0087B6CD /* Icon-Small@2x.png */,
+				058BFA621786E14D0087B6CD /* Icon.png */,
+				058BFA631786E14D0087B6CD /* Icon@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -693,6 +705,10 @@
 				05CBBE7317859B2F00163EDF /* card_icon_mail@2x.png in Resources */,
 				05CBBE771785A10600163EDF /* communication_highlighted.png in Resources */,
 				05CBBE781785A10600163EDF /* communication_highlighted@2x.png in Resources */,
+				058BFA641786E14D0087B6CD /* Icon-Small.png in Resources */,
+				058BFA651786E14D0087B6CD /* Icon-Small@2x.png in Resources */,
+				058BFA661786E14D0087B6CD /* Icon.png in Resources */,
+				058BFA671786E14D0087B6CD /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

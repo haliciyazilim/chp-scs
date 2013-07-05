@@ -85,12 +85,42 @@ public class IletisimFragment extends Fragment{
 		tvIlceBaskani.setText(iletisimBilgileri.getIlceBaskani());
 		tvIlceBaskani.setTypeface(fontL);
 		tvIlceBaskaniTel.setText(iletisimBilgileri.getIlceBaskaniTel());
+		tvIlceBaskaniTel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+Util.convertPhoneNumber(iletisimBilgileri.getIlceBaskaniTel()))); 
+				 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			     getActivity().startActivity(callIntent);
+				
+			}
+		});
 		tvIlceBaskaniTel.setTypeface(fontL);
 		tvIlceBaskanligiTel.setText(iletisimBilgileri.getIlceBaskanligiTel());
+		tvIlceBaskanligiTel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+Util.convertPhoneNumber(iletisimBilgileri.getIlceBaskanligiTel()))); 
+				 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			     getActivity().startActivity(callIntent);
+				
+			}
+		});
 		tvIlceBaskanligiTel.setTypeface(fontL);
 		tvBilsimSorumlusu.setText(iletisimBilgileri.getIlceBilisimSorumlusu());
 		tvBilsimSorumlusu.setTypeface(fontL);
 		tvBilsimSorumlusuTel.setText(iletisimBilgileri.getIlceBilisimSorumlusuTel());
+		tvBilsimSorumlusuTel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+Util.convertPhoneNumber(iletisimBilgileri.getIlceBilisimSorumlusuTel()))); 
+				 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			     getActivity().startActivity(callIntent);
+				
+			}
+		});
 		tvBilsimSorumlusuTel.setTypeface(fontL);
 		tvBitemEPosta.setText(iletisimBilgileri.getBitemEPosta());
 		tvBitemEPosta.setTypeface(fontL);
@@ -110,13 +140,25 @@ public class IletisimFragment extends Fragment{
 			    try {
 			    	getActivity().startActivity(mailIntent);
 			    } catch (android.content.ActivityNotFoundException ex) {
-			        Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+			        Toast.makeText(getActivity(), "E-Posta gönderebileceğiniz bir uygulama bulunmamaktadır.", Toast.LENGTH_SHORT).show();
 			    }
 				
 			}
 		});
 		tvBitemTel.setText(iletisimBilgileri.getBitemTel());
 		tvBitemTel.setTypeface(fontL);
+		tvBitemTel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+Util.convertPhoneNumber(iletisimBilgileri.getBitemTel()))); 
+				 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			     getActivity().startActivity(callIntent);
+				
+			}
+		});
+		
+		
 		
 		return v;
 	}
@@ -136,4 +178,6 @@ public class IletisimFragment extends Fragment{
 		}
 		
 	}
+	
+	
 }

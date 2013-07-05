@@ -4,11 +4,13 @@ package com.halici.chp_scs.adapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.halici.chp_scs.ExternalFont;
 import com.halici.chp_scs.R;
 import com.halici.chp_scs.common.Document;
 import com.halici.chp_scs.common.DocumentList;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +27,16 @@ public class PDFListAdapter extends BaseAdapter {
 	
 	private LayoutInflater mInflater;
 	
+	Typeface fontM;
+	Typeface fontL;
+	
 	public PDFListAdapter(Context context, DocumentList documentsList) {
         this.list=documentsList.getDocuments();
         this.wholeList = new ArrayList<Object>();
+        
+        new ExternalFont(context);
+    	fontM=ExternalFont.getFontM();
+    	fontL=ExternalFont.getFontL();
         
         mInflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         
@@ -81,8 +90,10 @@ public class PDFListAdapter extends BaseAdapter {
             	TextView categoryView = (TextView) view.findViewById(R.id.pdfCategoryItem);
          		TextView subTitleView=(TextView) view.findViewById(R.id.pdfCategorySubTitle);
             	
+         		categoryView.setTypeface(fontL);
             	categoryView.setText(((Document)item).getHeader());
             	
+            	subTitleView.setTypeface(fontM);
             	
             	System.out.println("Subtitle: "+((Document)item).getComment());
 
@@ -95,6 +106,7 @@ public class PDFListAdapter extends BaseAdapter {
             else{
             	view = this.mInflater.inflate(R.layout.pdf_list_pdf_item, parent, false);
             	TextView itemView = (TextView) view.findViewById(R.id.pdfItem);
+            	itemView.setTypeface(fontL);
             	System.out.println("İtem is PDF");
             	
             	String pdfName=((HashMap<String, String>)item).get(Document.DOC_NAME);

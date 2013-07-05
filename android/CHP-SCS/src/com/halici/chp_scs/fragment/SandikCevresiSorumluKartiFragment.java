@@ -133,7 +133,7 @@ public class SandikCevresiSorumluKartiFragment extends Fragment {
 		
 		@Override
 		public void onClick(View v) {
-			 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:00903122100020")); 
+			 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+Util.convertPhoneNumber(scsSorumluBilgileri.getDigerGoervliTel()))); 
 			 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		     getActivity().startActivity(callIntent);
 			

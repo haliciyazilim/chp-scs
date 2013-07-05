@@ -36,5 +36,15 @@ public class Util {
 	
 	// Sandik SecmenListesi
 	public static final String SiraNo="SiraNo";
+	
+	
+	public static String convertPhoneNumber(String number){
+		String convertedNumber;
+		
+		convertedNumber=number.replaceAll("[(]", "");
+		convertedNumber=convertedNumber.replaceAll("[)]", "");
+		convertedNumber=convertedNumber.replaceAll("[ ]", "");
+		return convertedNumber;
+	}
 
 }

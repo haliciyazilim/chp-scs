@@ -37,7 +37,7 @@
 {
     [super setFrame:frame];
     self.secmenNumberLabel.frame = CGRectMake(0.0, 0.0, frame.size.width*0.15, frame.size.height);
-    self.secmenNameLabel.frame = CGRectMake(frame.size.width*0.20, 0.0, frame.size.width*0.80, frame.size.height);
+    self.secmenNameLabel.frame = CGRectMake(frame.size.width*0.20+15.0, 0.0, frame.size.width*0.80, frame.size.height);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

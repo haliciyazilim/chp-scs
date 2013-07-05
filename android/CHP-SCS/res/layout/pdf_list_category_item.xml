@@ -2,41 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingLeft="6dip"
-    android:paddingRight="6dip" >
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/pdfCategoryItem"
         style="@style/HeaderText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="6dip"
-        android:gravity="left"
-        android:singleLine="true"
-        android:textColor="@android:color/white"
-        android:textIsSelectable="false"
         android:clickable="false"
-        android:linksClickable="false"
+        android:drawablePadding="6dip"
         android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:focusableInTouchMode="false"
+        android:gravity="left"
+        android:linksClickable="false"
+        android:singleLine="false"
+        android:textColor="@color/sorumlu_karti_header"
+        android:textSize="15dp"
+        android:textIsSelectable="false"
+        android:padding="10dp"
+        android:background="@color/actions_bg" />
 
     <TextView
-        android:id="@+id/iletisimSandikNo"
+        android:id="@+id/pdfCategorySubTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.68"
         android:text="TextView"
-        android:gravity="right"
+        android:gravity="left"
         android:clickable="false"
         android:linksClickable="false"
         android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:focusableInTouchMode="false"
+        android:singleLine="false"
+        android:padding="10dp"
+        android:textSize="12dp"
+        android:background="@color/content_bg"
+        android:textColor="@color/pdf_text" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_large_size"
-        android:background="@color/divider" />
+        android:background="@color/actions_divider" />
 
 </LinearLayout>

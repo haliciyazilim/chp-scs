@@ -30,7 +30,7 @@ public class Document  implements Serializable{
 		try{
 			this.content=new ArrayList<HashMap<String,String>>();
 			this.header=json.getString(HEADER)==null?"":json.getString(HEADER);
-			this.comment=json.getString(COMMENT)==null?"":json.getString(COMMENT);
+			this.comment=json.isNull(COMMENT)==true?"":json.getString(COMMENT);
 			System.out.println("Dcument: header: "+this.header+", "+this.comment);
 			JSONArray array=json.getJSONArray(CONTENT);
 			

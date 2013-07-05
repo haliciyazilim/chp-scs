@@ -2,6 +2,7 @@ package com.halici.chp_scs.fragment;
 
 
 
+import com.halici.chp_scs.ExternalFont;
 import com.halici.chp_scs.MainActivity;
 import com.halici.chp_scs.R;
 import com.halici.chp_scs.adapter.SecmenListesiAdapter;
@@ -15,6 +16,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +45,9 @@ public class IletisimFragment extends Fragment{
 	String savedName, savedPassword;
 	Iletisim iletisimBilgileri;
 	
+	TextView tvIlceBaskaniHeader,tvIlceBaskanligiHeader,
+	tvBilsimSorumlusuHeader,tvBitemHeader;
+	
 	TextView tvSandikNo,tvIlceBaskani,tvIlceBaskaniTel,tvIlceBaskanligiTel,
 	tvBilsimSorumlusu,tvBilsimSorumlusuTel,tvBitemEPosta,tvBitemTel;
 	
@@ -49,6 +55,19 @@ public class IletisimFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		final View v=inflater.inflate(R.layout.iletisim, container,false);
+		
+		
+		new ExternalFont(getActivity());
+		Typeface fontM=ExternalFont.getFontM();
+		Typeface fontL=ExternalFont.getFontL();
+		
+		tvIlceBaskaniHeader=(TextView)v.findViewById(R.id.ilceBaskaniHeader);
+		tvIlceBaskaniHeader.setTypeface(fontM);
+		tvIlceBaskanligiHeader=(TextView)v.findViewById(R.id.ilceBaskanligiHaeder);
+		tvIlceBaskanligiHeader.setTypeface(fontM);
+		tvBilsimSorumlusuHeader=(TextView)v.findViewById(R.id.bitemHeader);
+		tvBilsimSorumlusuHeader.setTypeface(fontM);
+		
 		
 		tvSandikNo=(TextView) v.findViewById(R.id.iletisimSandiNo);
 		tvIlceBaskani=(TextView) v.findViewById(R.id.ilceBaskaniName);
@@ -62,12 +81,19 @@ public class IletisimFragment extends Fragment{
 		iletisimBilgileri=(Iletisim)getArguments().getSerializable(Util.ILETISIM);
 		
 		tvSandikNo.setText(iletisimBilgileri.getSandikNo());
+		tvSandikNo.setTypeface(fontL);
 		tvIlceBaskani.setText(iletisimBilgileri.getIlceBaskani());
+		tvIlceBaskani.setTypeface(fontL);
 		tvIlceBaskaniTel.setText(iletisimBilgileri.getIlceBaskaniTel());
+		tvIlceBaskaniTel.setTypeface(fontL);
 		tvIlceBaskanligiTel.setText(iletisimBilgileri.getIlceBaskanligiTel());
+		tvIlceBaskanligiTel.setTypeface(fontL);
 		tvBilsimSorumlusu.setText(iletisimBilgileri.getIlceBilisimSorumlusu());
+		tvBilsimSorumlusu.setTypeface(fontL);
 		tvBilsimSorumlusuTel.setText(iletisimBilgileri.getIlceBilisimSorumlusuTel());
+		tvBilsimSorumlusuTel.setTypeface(fontL);
 		tvBitemEPosta.setText(iletisimBilgileri.getBitemEPosta());
+		tvBitemEPosta.setTypeface(fontL);
 		tvBitemEPosta.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -90,6 +116,7 @@ public class IletisimFragment extends Fragment{
 			}
 		});
 		tvBitemTel.setText(iletisimBilgileri.getBitemTel());
+		tvBitemTel.setTypeface(fontL);
 		
 		return v;
 	}

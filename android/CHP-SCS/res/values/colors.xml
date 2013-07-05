@@ -44,4 +44,7 @@
     <color name="button_bg_highlighted">#322E25</color>
     <color name="shadow">#D8000000</color>
     
+    <!-- pdfList -->
+    <color name="pdf_text">#9e9d99</color>
+    
 </resources>

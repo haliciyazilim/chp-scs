@@ -4,6 +4,7 @@ package com.halici.chp_scs.adapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.halici.chp_scs.ExternalFont;
 import com.halici.chp_scs.R;
 import com.halici.chp_scs.common.Document;
 import com.halici.chp_scs.common.DocumentList;
@@ -11,6 +12,7 @@ import com.halici.chp_scs.common.SandikSecmenListesi;
 import com.halici.chp_scs.common.Util;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,9 @@ public class SecmenListesiAdapter extends BaseAdapter {
 	
 	private LayoutInflater mInflater;
 	
+	Typeface fontM;
+	Typeface fontL;
+	
 	public SecmenListesiAdapter(Context context, SandikSecmenListesi secmenListesi) {
         this.list=secmenListesi.getSecmenler();
         
@@ -32,6 +37,11 @@ public class SecmenListesiAdapter extends BaseAdapter {
         mInflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         
         this.isEnabled=new ArrayList<Boolean>();
+        
+        
+        new ExternalFont(context);
+		Typeface fontM=ExternalFont.getFontM();
+		Typeface fontL=ExternalFont.getFontL();
     }
 
 	@Override
@@ -69,7 +79,8 @@ public class SecmenListesiAdapter extends BaseAdapter {
             
             itemView.setText(name);
             numberView.setText(String.valueOf(number));
-            
+            numberView.setTypeface(fontM);
+            itemView.setTypeface(fontL);
             isEnabled.add(true);
     	}
 

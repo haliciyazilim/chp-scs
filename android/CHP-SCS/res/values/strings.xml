@@ -84,8 +84,10 @@
     <string name="strike_out">Çiz</string>
     <string name="ilceBaskani">İlçe Başkanı</string>
     <string name="ilceBilisiSorumlusu">İlçe Bilişim Sorumlusu</string>
-    <string name="bitemEposta">CHP - BİTEM E-Posta</string>
+    <string name="bitemHeader">CHP - BİTEM</string>
     <string name="bitemTel">CHP - BİTEM E-Posta</string>
     <string name="ilceBaskanligi">İlçe Başkanlığı</string>
+    <string name="siraNo">Sıra No</string>
+    <string name="secmenAdi">Seçmen Adı</string>
 
 </resources>

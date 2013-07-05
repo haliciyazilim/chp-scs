@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical" >
+
+	<LinearLayout
+	    android:id="@+id/llSecmenListeTop"
+	    android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:orientation="horizontal"
+	    android:background="@color/top_bar_bg" >
+
+	    <TextView
+	        android:id="@+id/txtSandikNo"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="left|center_vertical"
+	        android:paddingLeft="20dp"
+	        android:text="Sandık No: 1180"
+	        android:textAlignment="center"
+	        android:textColor="@color/text_normal" />
+
+	    <TextView
+	        android:id="@+id/txtSecmenSayisi"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical|center_horizontal"
+	        android:layout_marginRight="20dp"
+	        android:layout_weight="1"
+	        android:gravity="center_vertical|center_horizontal"
+	        android:text="Seçmen Sayısı: 288"
+	        android:textAlignment="center"
+	        android:textColor="@color/text_normal" />
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:id="@+id/LinearLayout2"
+	    android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:orientation="horizontal"
+	    android:background="@color/actions_bg" >
+
+	    <TextView
+	        android:id="@+id/txtSandikSiraNo"
+	        android:layout_width="60dp"
+	        android:layout_height="match_parent"
+			android:layout_marginLeft="6dp"
+	        android:text="@string/siraNo"
+	        android:gravity="left|center_vertical"
+	        android:textColor="@color/text_normal" />
+
+	    <TextView
+	        android:id="@+id/txtSandikSecmenAdi"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:text="@string/secmenAdi"
+	        android:gravity="left|center_vertical"
+	        android:textColor="@color/text_normal" />
+	</LinearLayout>
+
+    <ListView
+        android:id="@+id/listSecmen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8dp"
+        android:background="@android:color/transparent"
+		android:cacheColorHint="@android:color/transparent" >
+    </ListView>
+
+</LinearLayout>

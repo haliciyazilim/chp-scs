@@ -1,62 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/content_bg" >
-
-    <LinearLayout
+   <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="97dp"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@color/content_bg" >
 
         <TextView
             android:id="@+id/iletisimSandiNo"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@android:color/black"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="TextView"
+            android:textColor="@color/sorumlu_karti_header"
+            android:textSize="18sp" />
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/divider_large_size"
             android:background="@color/list_divider" />
 
-        <TextView
-            android:id="@+id/ilceBaskaniHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ilceBaskani" />
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                
+                <LinearLayout
             android:id="@+id/ilceBaskani"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
+            android:orientation="vertical" >
+            
             <TextView
-                android:id="@+id/ilceBaskaniName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+            android:id="@+id/ilceBaskaniHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ilceBaskani"
+            android:textColor="@color/sorumlu_karti_header"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:layout_marginLeft="50dp" />
 
-            <TextView
-                android:id="@+id/ilceBaskaniTel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+            <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="fill_parent"
+		        android:orientation="horizontal"
+		        android:layout_marginLeft="10dp" >
+            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/card_icon_person" />
+	
+	            <TextView
+	                android:id="@+id/ilceBaskaniName"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+	        </LinearLayout>
+			<LinearLayout
+				        android:layout_width="match_parent"
+				        android:layout_height="fill_parent"
+				        android:orientation="horizontal"
+				        android:layout_marginLeft="10dp" >
+		            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="5dp"
+	                android:paddingRight="5dp"
+	                android:src="@drawable/card_icon_phone" />
 
+	            <TextView
+	                android:id="@+id/ilceBaskaniTel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+  			</LinearLayout>
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/divider_large_size"
-            android:background="@color/list_divider" />
+            android:background="@color/list_divider"
+            android:layout_margin="10dp" />
 
         <LinearLayout
             android:id="@+id/ilceBaskanligi"
@@ -68,51 +111,109 @@
                 android:id="@+id/ilceBaskanligiHaeder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ilceBaskanligi" />
+                android:text="@string/ilceBaskanligi"
+                android:textColor="@color/sorumlu_karti_header"
+                android:paddingTop="6dp"
+            	android:paddingBottom="6dp"
+            	android:layout_marginLeft="50dp" />
 
-            <TextView
-                android:id="@+id/ilceBaskanligiTel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+            <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="fill_parent"
+		        android:orientation="horizontal"
+		        android:layout_marginLeft="10dp" >
+		            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="5dp"
+	                android:paddingRight="5dp"
+	                android:src="@drawable/card_icon_phone" />
+	            <TextView
+	                android:id="@+id/ilceBaskanligiTel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+	            </LinearLayout>
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/divider_large_size"
-            android:background="@color/list_divider" />
+            android:background="@color/list_divider"
+            android:layout_margin="10dp" />
 
         <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ilceBilisiSorumlusu" />
+            android:text="@string/ilceBilisiSorumlusu"
+            android:textColor="@color/sorumlu_karti_header"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:layout_marginLeft="50dp" />
 
-        <LinearLayout
+       <LinearLayout
             android:id="@+id/ilceBilisimSorumlusu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/ilceBilisimSorumlusuName"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal" >
+            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/card_icon_person" />
+	
+	            <TextView
+	                android:id="@+id/ilceBilisimSorumlusuName"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+	        </LinearLayout>
+			<LinearLayout
+				        android:layout_width="match_parent"
+				        android:layout_height="fill_parent"
+				        android:orientation="horizontal"
+				        android:layout_marginLeft="10dp" >
+		            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="5dp"
+	                android:paddingRight="5dp"
+	                android:src="@drawable/card_icon_phone" />
 
-            <TextView
-                android:id="@+id/ilceBilisimSorumlusuTel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
-
+	            <TextView
+	                android:id="@+id/ilceBilisimSorumlusuTel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+  			</LinearLayout>
+            
+            
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/divider_large_size"
-            android:background="@color/list_divider" />
+            android:background="@color/list_divider"
+            android:layout_margin="10dp" />
 
         <LinearLayout
             android:id="@+id/bitem_ePosta"
@@ -121,43 +222,74 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/bitem_ePostaHeader"
+                android:id="@+id/bitemHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bitemEposta" />
+                android:layout_marginLeft="50dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/bitemHeader"
+                android:textColor="@color/sorumlu_karti_header" />
 
-            <TextView
-                android:id="@+id/bitem_ePostaMail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+            <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="fill_parent"
+		        android:orientation="horizontal"
+		        android:layout_marginLeft="10dp" >
+            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="2dp"
+	                android:paddingRight="2dp"
+	                android:src="@drawable/card_icon_mail" />
+	
+	            <TextView
+	                android:id="@+id/bitem_ePostaMail"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+	        </LinearLayout>
+			<LinearLayout
+				        android:layout_width="match_parent"
+				        android:layout_height="fill_parent"
+				        android:orientation="horizontal"
+				        android:layout_marginLeft="10dp" >
+		            
+	            <ImageView
+	                android:id="@+id/imageView1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="5dp"
+	                android:paddingRight="5dp"
+	                android:src="@drawable/card_icon_phone" />
+
+	            <TextView
+	                android:id="@+id/bitemTelefonPhone"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:text="TextView"
+	                android:paddingBottom="6dp"
+	           		android:layout_marginLeft="15dp" />
+  			</LinearLayout>
+
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/divider_large_size"
-            android:background="@color/list_divider" />
+            android:background="@color/list_divider"
+            android:layout_margin="10dp"  />
+                
+                
+            </LinearLayout>
+        </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/bitemTelefon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/bitemTelefonHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bitemTel" />
-
-            <TextView
-                android:id="@+id/bitemTelefonPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </LinearLayout>
         
 
     </LinearLayout>
 
-</RelativeLayout>

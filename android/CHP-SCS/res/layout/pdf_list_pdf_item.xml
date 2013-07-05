@@ -2,7 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="horizontal"
+    android:background="@color/content_bg" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/icon_doc"
+        android:padding="10dp" />
 
 <TextView
     android:id="@+id/pdfItem"
@@ -13,9 +21,9 @@
     android:minHeight="48dip"
     android:paddingLeft="0dip"
     android:paddingRight="0dip"
-    android:singleLine="true"
+    android:singleLine="false"
     android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textColor="@color/action_text"
+    android:textColor="@color/sorumlu_karti_content"
     android:shadowColor="#0000004D"
     android:shadowDx="0"
     android:shadowDy="1"

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class PDFListAdapter extends BaseAdapter {
@@ -78,11 +79,17 @@ public class PDFListAdapter extends BaseAdapter {
             	System.out.println("İtem is DOC");
             	
             	TextView categoryView = (TextView) view.findViewById(R.id.pdfCategoryItem);
-         		TextView subTitleView=(TextView) view.findViewById(R.id.iletisimSandikNo);
+         		TextView subTitleView=(TextView) view.findViewById(R.id.pdfCategorySubTitle);
             	
             	categoryView.setText(((Document)item).getHeader());
-            	subTitleView.setText(((Document)item).getComment());
             	
+            	
+            	System.out.println("Subtitle: "+((Document)item).getComment());
+
+            	if(((Document)item).getComment().isEmpty())
+            		((LinearLayout)subTitleView.getParent()).removeView(subTitleView);
+            	else
+            		subTitleView.setText(((Document)item).getComment());
             	isEnabled.add(false);
             }
             else{

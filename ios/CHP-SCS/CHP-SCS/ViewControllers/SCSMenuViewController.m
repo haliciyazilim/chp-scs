@@ -51,8 +51,7 @@
     description.numberOfLines = 0;
     description.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:description];
-    description.text = @"Dökümanları print etmek için web sitemizi ziyaret ediniz";
-    
+    description.text = @"Dökümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
     
     self.menu = @[
                   @{
@@ -95,7 +94,6 @@
     [self.tableView setSeparatorColor:MENU_SEPERATOR_COLOR];
     [self initHeader];
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.01f;
 }

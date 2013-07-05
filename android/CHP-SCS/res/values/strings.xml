@@ -6,6 +6,7 @@
     <string name="about_details">Selam Gençler</string>
     <string name="about_play">Play in sandbox</string>
     <string name="about_tutorial">View tutorial page</string>
+    <string name="remark">Dökümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.</string>
     
     <!-- Login strings -->
     <string name="loginHeader">Sandık Çevresi Sorumluları Bilgi Sistemi</string>

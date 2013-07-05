@@ -7,7 +7,7 @@
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/actions"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/actions_bg"
     android:cacheColorHint="@color/actions_bg"
     android:divider="@null"
@@ -16,12 +16,13 @@
 
  	<TextView
 		android:id="@+id/decsription"
-		android:layout_width="wrap_content"
-		android:layout_height="match_parent"
-		android:gravity="left|center_vertical"
+		android:layout_width="match_parent"
+		android:layout_height="fill_parent"
+		android:gravity="center_horizontal|bottom"
 	    android:layout_marginBottom="0dp"
-        android:text="Sandık No: 1180"
-        android:textAlignment="center"
-        android:textColor="@color/text_normal" />
+        android:text="@string/remark"
+        android:textColor="@android:color/white"
+        android:background="@color/actions_bg"
+        android:paddingBottom="10dp" />
 
 </LinearLayout>

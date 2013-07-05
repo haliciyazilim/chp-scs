@@ -1,11 +1,17 @@
 package com.halici.chp_scs.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class DocumentList {
+public class DocumentList implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private static final String GENELGE_LIST="GenelgeList";
 	

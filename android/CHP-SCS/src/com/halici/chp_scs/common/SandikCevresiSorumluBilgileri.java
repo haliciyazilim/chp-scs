@@ -20,7 +20,7 @@ public class SandikCevresiSorumluBilgileri implements Serializable{
 	private String sandikAlani;
 	private String digerGorevliAdi;
 	private String digerGoervliTel;
-	private String gorecliFotoUrl;
+	private String gorevliFotoUrl;
 	
 	public SandikCevresiSorumluBilgileri(String json) {
 		try {
@@ -34,6 +34,7 @@ public class SandikCevresiSorumluBilgileri implements Serializable{
 			this.mahalleMuhtarligi=jsonObject.getString(Util.MahalleMuhtarligi);
 			this.digerGorevliAdi=jsonObject.getString(Util.DigerGorevliAdi);
 			this.digerGoervliTel=jsonObject.getString(Util.DigerGorevliTelefonu);
+			this.gorevliFotoUrl=jsonObject.getString(Util.GorevliFotoUrl);
 			
 		} catch (Exception e) {
 			System.out.println("SandikCevresiSorumluBilgileri: "+e.toString());
@@ -113,12 +114,12 @@ public class SandikCevresiSorumluBilgileri implements Serializable{
 		this.digerGoervliTel = digerGoervliTel;
 	}
 
-	public String getGorecliFotoUrl() {
-		return gorecliFotoUrl;
+	public String getGorevliFotoUrl() {
+		return gorevliFotoUrl;
 	}
 
-	public void setGorecliFotoUrl(String gorecliFotoUrl) {
-		this.gorecliFotoUrl = gorecliFotoUrl;
+	public void setGorevliFotoUrl(String gorevliFotoUrl) {
+		this.gorevliFotoUrl = gorevliFotoUrl;
 	}
 	
 }

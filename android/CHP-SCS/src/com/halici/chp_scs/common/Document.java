@@ -1,5 +1,6 @@
 package com.halici.chp_scs.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -7,8 +8,12 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Document {
+public class Document  implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String HEADER="Baslik";
 	public static final String COMMENT="Aciklama";
 	public static final String CONTENT="DosyaIcerik";

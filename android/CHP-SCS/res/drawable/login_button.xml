@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_pressed="true"
-          android:drawable="@color/button_bg_highlighted" /> <!-- pressed -->
-    <item android:drawable="@color/button_bg" /> <!-- default -->
-
-</selector>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="2dp" android:top="0dp">
+	    <shape>
+			<corners android:radius="7dp" />
+			<solid android:color="@color/shadow" />
+        </shape>    
+	</item>
+    <item>
+		<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android"> 
+			<corners android:radius="7dp" />
+		   	<solid android:color="@color/button_bg" />
+		</shape>
+	</item>
+	
+</layer-list>

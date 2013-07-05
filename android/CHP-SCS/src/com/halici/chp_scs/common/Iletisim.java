@@ -1,10 +1,16 @@
 package com.halici.chp_scs.common;
 
+import java.io.Serializable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Iletisim {
+public class Iletisim implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String SandikNo="SandikNo";
 	private static final String IlceBaskani="IlceBaskani";
 	private static final String IlceBaskaniTel="IlceBaskaniTelefonu";

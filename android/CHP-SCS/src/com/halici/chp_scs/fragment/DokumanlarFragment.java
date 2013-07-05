@@ -3,26 +3,48 @@ package com.halici.chp_scs.fragment;
 
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
+
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.artifex.mupdfdemo.MuPDFActivity;
 
+import com.halici.chp_scs.Login;
+import com.halici.chp_scs.MainActivity;
 import com.halici.chp_scs.R;
 import com.halici.chp_scs.adapter.PDFListAdapter;
 import com.halici.chp_scs.common.Document;
 import com.halici.chp_scs.common.DocumentList;
+import com.halici.chp_scs.common.DownloadDocument;
+import com.halici.chp_scs.common.Iletisim;
+import com.halici.chp_scs.common.SandikCevresiSorumluBilgileri;
+import com.halici.chp_scs.common.SandikSecmenListesi;
 import com.halici.chp_scs.common.Sorgulama;
+import com.halici.chp_scs.common.Util;
 
+import android.R.bool;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class DokumanlarFragment extends ListFragment {
@@ -37,6 +59,7 @@ public class DokumanlarFragment extends ListFragment {
 		.authority(ABOUT_AUTHORITY)
 		.build();
 	DocumentList liste;
+	boolean isCanceled;
 //	private ListView listView;
 	
 	@Override
@@ -45,8 +68,13 @@ public class DokumanlarFragment extends ListFragment {
 		System.out.println("Genelgeler oncreateView");
 		
 		final View v = inflater.inflate(R.layout.pdf_list, container, false);
+		if(docType==1)
+			liste=(DocumentList)getArguments().getSerializable(Util.EGITIM_DOKUMANLARI);
+		else
+			liste=(DocumentList)getArguments().getSerializable(Util.GENELGELER);
+		PDFListAdapter adapter=new PDFListAdapter(getActivity(),liste);
+		setListAdapter(adapter);
 		
-		new Servis().execute();
 //		System.out.println("Dokumanlar fragment docTye:"+docType);
 		return v;
 		
@@ -62,10 +90,9 @@ public class DokumanlarFragment extends ListFragment {
 			
 		System.out.println("Selected: "+hashmap.get(Document.DOC_NAME)+" value"+hashmap.get(Document.DOC_LINK));
 
-		showPDF(hashmap.get(Document.DOC_LINK));	
+//		showPDF(hashmap.get(Document.DOC_LINK));
+		new Servis().execute(hashmap.get(Document.DOC_LINK));
 	}
-	
-	
 	
 	public void showPDF(String adress){
 		Intent intent=new Intent(getActivity(), MuPDFActivity.class);
@@ -73,46 +100,64 @@ public class DokumanlarFragment extends ListFragment {
 		startActivity(intent);
 	}
 	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
 	
-	
 	public class Servis extends AsyncTask<String, Void, String>{
-		private ProgressDialog dialog = new ProgressDialog(getActivity());
-
-		@Override
-		protected String doInBackground(String... params) {
-			Sorgulama sorgu=new Sorgulama(docType);
-			String sonuc=sorgu.docGetir();
-			
-//			System.out.println("Genelge sonuc: "+sonuc);
-			
-			liste=new DocumentList(docType, sonuc);
-			
-			return sonuc;
-		}
-
-		@Override
-		protected void onPostExecute(String sonuc) {
-			dialog.dismiss();
-			System.out.println("Genelge getActivity"+getActivity().toString());
-			PDFListAdapter adapter=new PDFListAdapter(getActivity(),liste);
-			setListAdapter(adapter);
-		
-		}
-
+		AlertDialog alert;
 		@Override
 		protected void onPreExecute() {
+			AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+	        builder.setMessage("Dokümanlar indiriliyor...");
+	        builder.setCancelable(true);
+	        builder.setNeutralButton("İptal Et",
+	                new DialogInterface.OnClickListener() {
+	            public void onClick(DialogInterface dialog, int id) {
+	            	isCanceled=true;
+	                dialog.cancel();
+	            }
+	        });
+
+	        alert = builder.create();
+	        alert.show();
+		}
+		
+		@Override
+		protected String doInBackground(String... params) {
 			
-			dialog.setMessage("Bilgiler alınıyor; lütfen Bekleyin.");
-			dialog.show();
+			DownloadDocument download=new DownloadDocument(params[0]);
+			String sonuc=download.downloadDocument();
+			System.out.println("Pdf Adres: "+sonuc);
+			return sonuc;
 		}
 
 		@Override
 		protected void onProgressUpdate(Void... values) {
 			
 		}
-	}	
+		
+		@Override
+		protected void onPostExecute(String sonuc) {
+			
+			alert.dismiss();
+			
+			if(!isCanceled)
+				showPDF(sonuc);
+			
+			
+		}
+
+		
+
+		
+		
+		
+		
+	}
+
+
+	
 }

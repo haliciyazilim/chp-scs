@@ -42,5 +42,6 @@
     <color name="button_text">#fff</color>
     <color name="button_bg">#D94A3D</color>
     <color name="button_bg_highlighted">#322E25</color>
+    <color name="shadow">#D8000000</color>
     
 </resources>

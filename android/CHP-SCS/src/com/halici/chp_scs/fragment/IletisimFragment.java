@@ -2,6 +2,7 @@ package com.halici.chp_scs.fragment;
 
 
 
+import com.halici.chp_scs.MainActivity;
 import com.halici.chp_scs.R;
 import com.halici.chp_scs.adapter.SecmenListesiAdapter;
 import com.halici.chp_scs.common.Crypto;
@@ -11,6 +12,8 @@ import com.halici.chp_scs.common.Sorgulama;
 import com.halici.chp_scs.common.Util;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -20,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IletisimFragment extends Fragment{
 
@@ -54,7 +58,39 @@ public class IletisimFragment extends Fragment{
 		tvBilsimSorumlusuTel=(TextView) v.findViewById(R.id.ilceBilisimSorumlusuTel);
 		tvBitemEPosta=(TextView) v.findViewById(R.id.bitem_ePostaMail);
 		tvBitemTel=(TextView) v.findViewById(R.id.bitemTelefonPhone);
-		new Servis().execute();
+		
+		iletisimBilgileri=(Iletisim)getArguments().getSerializable(Util.ILETISIM);
+		
+		tvSandikNo.setText(iletisimBilgileri.getSandikNo());
+		tvIlceBaskani.setText(iletisimBilgileri.getIlceBaskani());
+		tvIlceBaskaniTel.setText(iletisimBilgileri.getIlceBaskaniTel());
+		tvIlceBaskanligiTel.setText(iletisimBilgileri.getIlceBaskanligiTel());
+		tvBilsimSorumlusu.setText(iletisimBilgileri.getIlceBilisimSorumlusu());
+		tvBilsimSorumlusuTel.setText(iletisimBilgileri.getIlceBilisimSorumlusuTel());
+		tvBitemEPosta.setText(iletisimBilgileri.getBitemEPosta());
+		tvBitemEPosta.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent mailIntent=new Intent(Intent.ACTION_SENDTO);
+				mailIntent.setType("text/plain");
+//				mailIntent.putExtra(Intent.EXTRA_SUBJECT, "CHP-SÇS Mobil Uygulaması");
+//				mailIntent.putExtra(Intent.EXTRA_TEXT, "Abdullah Karacabey");
+				mailIntent.setData(Uri.parse("mailto:"+iletisimBilgileri.getBitemEPosta()));
+				mailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				
+			    
+			    
+			    try {
+			    	getActivity().startActivity(mailIntent);
+			    } catch (android.content.ActivityNotFoundException ex) {
+			        Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+			    }
+				
+			}
+		});
+		tvBitemTel.setText(iletisimBilgileri.getBitemTel());
+		
 		return v;
 	}
 	
@@ -73,44 +109,4 @@ public class IletisimFragment extends Fragment{
 		}
 		
 	}
-
-	public class Servis extends AsyncTask<String, Void, String>{
-		private ProgressDialog dialog = new ProgressDialog(getActivity());
-	
-		@Override
-		protected String doInBackground(String... params) {
-			Sorgulama sorgu=new Sorgulama(savedName,savedPassword);
-			String sonuc=sorgu.iletisimGetir();
-						
-			iletisimBilgileri=new Iletisim(sonuc);
-			
-			return sonuc;
-		}
-	
-		@Override
-		protected void onPostExecute(String sonuc) {
-			dialog.dismiss();
-			tvSandikNo.setText(iletisimBilgileri.getSandikNo());
-			tvIlceBaskani.setText(iletisimBilgileri.getIlceBaskani());
-			tvIlceBaskaniTel.setText(iletisimBilgileri.getIlceBaskaniTel());
-			tvIlceBaskanligiTel.setText(iletisimBilgileri.getIlceBaskanligiTel());
-			tvBilsimSorumlusu.setText(iletisimBilgileri.getIlceBilisimSorumlusu());
-			tvBilsimSorumlusuTel.setText(iletisimBilgileri.getIlceBilisimSorumlusuTel());
-			tvBitemEPosta.setText(iletisimBilgileri.getBitemEPosta());
-			tvBitemTel.setText(iletisimBilgileri.getBitemTel());
-			
-		}
-	
-		@Override
-		protected void onPreExecute() {
-			
-			dialog.setMessage("Bilgiler alınıyor; lütfen Bekleyin.");
-			dialog.show();
-		}
-	
-		@Override
-		protected void onProgressUpdate(Void... values) {
-			
-		}
-	}	
 }

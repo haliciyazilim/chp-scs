@@ -2,8 +2,17 @@ package com.halici.chp_scs.common;
 
 public class Util {
 
+
+	public static final String SANDIK_CEVRESI_SORUMLU_KARTI="SandikCevresiSorumlusuKarti";
+	public static final String EGITIM_DOKUMANLARI="EgitimDokumanlari";
+	public static final String GENELGELER="Genelgeler";
+	public static final String ILETISIM="Iletisim";
+	public static final String SANDIK_SECMEN_LISTESI="SandikSecmenListesi";
+	public static final String SANDIK_BILGI_KARTI="SandikBilgiKarti";
+	public static final String SANDIK_BILGI_KARTI_LINK="sandikkartilink";
 	
-	public static final String SANDIK_CEVRESI_SORUMLU_BILGILERI="SandikCevresiSorumluBilgileri";
+	public static final int EGITIM_DOKUMANLARI_TYPE=1;
+	public static final int GENELGELER_TYPE=2;
 	
 	public static final String TCKN="TCKN";
 	public static final String AdSoyad="AdSoyad";
@@ -16,8 +25,8 @@ public class Util {
 	public static final String DigerGorevliTelefonu="DigerGorevliTelefonu";
 	public static final String GorevliFotoUrl="GorevliFotoUrl"; 
 	
-	public static final int EGITIM_DOKUMANLARI=1;
-	public static final int GENELGELER=2;
+	
+	
 	
 	// SharedPreferences
 	

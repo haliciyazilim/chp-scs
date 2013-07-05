@@ -1,13 +1,18 @@
 package com.halici.chp_scs.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class SandikSecmenListesi {
+public class SandikSecmenListesi implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String IlAdi="IlAdi";
 	private static final String IlceAdi="IlceAdi";
 	private static final String Mahalle="Mahalle";

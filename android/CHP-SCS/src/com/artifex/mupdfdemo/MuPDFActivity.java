@@ -1,6 +1,7 @@
 package com.artifex.mupdfdemo;
 
 import com.halici.chp_scs.R;
+import com.halici.chp_scs.common.Util;
 import com.halici.chp_scs.fragment.DokumanlarFragment;
 
 import java.util.concurrent.Executor;
@@ -56,6 +57,7 @@ public class MuPDFActivity extends Activity
 	/* The core rendering instance */
 	private MuPDFCore    core;
 	private String       mFileName;
+	private String 		 mTitle;
 	private MuPDFReaderView mDocView;
 	private View         mButtonsView;
 	private boolean      mButtonsVisible;
@@ -252,6 +254,7 @@ public class MuPDFActivity extends Activity
 		
 		
 		mFileName=getIntent().getStringExtra(DokumanlarFragment.PDF_FILE);
+		mTitle=getIntent().getStringExtra(Util.PDF_TITLE);
 		try {
 			core=new MuPDFCore(mFileName);
 		} catch (Exception e1) {
@@ -432,7 +435,7 @@ public class MuPDFActivity extends Activity
 		mPageSliderRes = ((10 + smax - 1)/smax) * 2;
 
 		// Set the file-name text
-		mFilenameView.setText(mFileName);
+		mFilenameView.setText(mTitle);
 
 		// Activate the seekbar
 		mPageSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -894,7 +897,7 @@ public class MuPDFActivity extends Activity
 
 	@Override
 	public void onBackPressed() {
-		if (core.hasChanges()) {
+		/*if (core.hasChanges()) {
 			DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					if (which == AlertDialog.BUTTON_POSITIVE)
@@ -909,8 +912,8 @@ public class MuPDFActivity extends Activity
 			alert.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", listener);
 			alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", listener);
 			alert.show();
-		} else {
+		} else {*/
 			super.onBackPressed();
-		}
+//		}
 	}
 }

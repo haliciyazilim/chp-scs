@@ -44,6 +44,8 @@ public class MainActivity extends FragmentActivity {
 	Iletisim iletisim;
 	String sandikBilgiKarti;
 	
+	TextView title;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -87,12 +89,13 @@ public class MainActivity extends FragmentActivity {
 	
 	    
 	//  Typeface headerTypeFace = Typeface.createFromAsset(getAssets(), "fonts/SWZ721M.TTF");
-	    TextView header=(TextView) findViewById(R.id.topBarHeader);
+	    title=(TextView) findViewById(R.id.topBarHeader);
 	    
 	    
 	    new ExternalFont(this);
 		Typeface fontM=ExternalFont.getFontM();
-	    header.setTypeface(fontM);
+		title.setTypeface(fontM);
+		
 	    
 	    if (savedInstanceState != null) {
 	      currentUri = Uri.parse(savedInstanceState.getString(STATE_URI));
@@ -132,26 +135,27 @@ public class MainActivity extends FragmentActivity {
 	    final Bundle bundle=new Bundle();
 	    
 	    if (currentContentFragmentTag != null) {
-	      final Fragment currentFragment = fm.findFragmentByTag(currentContentFragmentTag);
-	      if (currentFragment != null)
-	        tr.hide(currentFragment);
-	    }
+	    	final Fragment currentFragment = fm.findFragmentByTag(currentContentFragmentTag);
+	    	if (currentFragment != null)
+	    		tr.hide(currentFragment);
+	    	}
 	
 	    if (SandikCevresiSorumluKartiFragment.ABOUT_URI.equals(uri)) {
-	      tag = SandikCevresiSorumluKartiFragment.TAG;
-	      final Fragment foundFragment = fm.findFragmentByTag(tag);
-	      if (foundFragment != null) {
-	        fragment = foundFragment;
-	      } else {
-	        fragment = new SandikCevresiSorumluKartiFragment();
-	        
-	        bundle.putSerializable(Util.SANDIK_CEVRESI_SORUMLU_KARTI, sandikCevresiSorumluBilgileri);
-	        fragment.setArguments(bundle);
-	      }
+	    	title.setText(Util.TITLE_SANDIK_CEVRESI_SORUMLU_KARTI);
+	    	tag = SandikCevresiSorumluKartiFragment.TAG;
+	    	final Fragment foundFragment = fm.findFragmentByTag(tag);
+	    	if (foundFragment != null) {
+	    		fragment = foundFragment;
+	    	} else {
+	    		fragment = new SandikCevresiSorumluKartiFragment();
+	    		bundle.putSerializable(Util.SANDIK_CEVRESI_SORUMLU_KARTI, sandikCevresiSorumluBilgileri);
+	    		fragment.setArguments(bundle);
+	    	}
 	      
 	      
 	    }
 	    else  if (SandikSecmenListesiFragment.ABOUT_URI.equals(uri)) {
+	    	title.setText(Util.TITLE_SANDIK_SECMEN_LISTESI);
 	    	tag = SandikSecmenListesiFragment.TAG;
 	        final Fragment foundFragment = fm.findFragmentByTag(tag);
 	        if (foundFragment != null) {
@@ -160,11 +164,10 @@ public class MainActivity extends FragmentActivity {
 	        	fragment = new SandikSecmenListesiFragment();
 	        	bundle.putSerializable(Util.SANDIK_SECMEN_LISTESI, secmenListesi);
 		        fragment.setArguments(bundle);
-	        }
-	        
-	        
+	        }  
 	    }
 	    else if (IletisimFragment.ABOUT_URI.equals(uri)) {
+	    	title.setText(Util.TITLE_ILETISIM);
 	        tag = IletisimFragment.TAG;
 	        final Fragment foundFragment = fm.findFragmentByTag(tag);
 	        if (foundFragment != null) {
@@ -176,6 +179,7 @@ public class MainActivity extends FragmentActivity {
 	        }
 	      }
 	    else if (SandikBilgiKartiFragment.ABOUT_URI.equals(uri)) {
+	    	title.setText(Util.TITLE_SANDIK_BILGI_KARTI);
 	        tag = SandikBilgiKartiFragment.TAG;
 	        final Fragment foundFragment = fm.findFragmentByTag(tag);
 	        if (foundFragment != null) {
@@ -187,6 +191,7 @@ public class MainActivity extends FragmentActivity {
 	        }
 	      }
 	    else if (DokumanlarFragment.ABOUT_URI.equals(uri)) {
+	    	
 	        tag = DokumanlarFragment.TAG;
 	        final Fragment foundFragment = fm.findFragmentByTag(tag);
 	//        if (foundFragment != null) {
@@ -196,6 +201,11 @@ public class MainActivity extends FragmentActivity {
 	          bundle.putSerializable(Util.EGITIM_DOKUMANLARI, egitimDoc);
 	          bundle.putSerializable(Util.GENELGELER, genelgeDoc);
 		      fragment.setArguments(bundle);
+		      
+		      if(DokumanlarFragment.docType==Util.GENELGELER_TYPE)
+		    	  title.setText(Util.TITLE_GENELGELER);
+		      else
+		    	  title.setText(Util.TITLE_EGITIM_DOKUMANLARI);
 	//        }
 	      }
 	    else {
@@ -212,12 +222,5 @@ public class MainActivity extends FragmentActivity {
 	    currentUri = uri;
 	    currentContentFragmentTag = tag;
 	  }
-	  
-	  public void showPDF(View view){
-			Intent intent=new Intent(this, MuPDFActivity.class);
-			intent.putExtra("pdfFile", "/mnt/sdcard/Download/matematik_1.pdf");
-			startActivity(intent);
-			
-		}
 
  }

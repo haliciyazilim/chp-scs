@@ -23,6 +23,7 @@
         android:text="@string/remark"
         android:textColor="@android:color/white"
         android:background="@color/actions_bg"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="10dp"
+        android:paddingLeft="48dp" />
 
 </LinearLayout>

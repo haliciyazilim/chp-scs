@@ -6,7 +6,7 @@
     <string name="about_details">Selam Gençler</string>
     <string name="about_play">Play in sandbox</string>
     <string name="about_tutorial">View tutorial page</string>
-    <string name="remark">Dökümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.</string>
+    <string name="remark">Dökümanları yazdırmak için \nhttp://scs.chp.org.tr/ adresini ziyaret ediniz.</string>
     
     <!-- Login strings -->
     <string name="loginHeader">Sandık Çevresi Sorumluları Bilgi Sistemi</string>
@@ -83,6 +83,8 @@
     <string name="search">Arama</string>
     <string name="copy">Copy</string>
     <string name="strike_out">Çiz</string>
+    
+    
     <string name="ilceBaskani">İlçe Başkanı</string>
     <string name="ilceBilisiSorumlusu">İlçe Bilişim Sorumlusu</string>
     <string name="bitemHeader">CHP - BİTEM</string>

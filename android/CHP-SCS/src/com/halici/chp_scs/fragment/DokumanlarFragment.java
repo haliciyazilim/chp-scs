@@ -60,6 +60,7 @@ public class DokumanlarFragment extends ListFragment {
 		.build();
 	DocumentList liste;
 	boolean isCanceled;
+	String clickedItemTitle;
 //	private ListView listView;
 	
 	@Override
@@ -91,12 +92,14 @@ public class DokumanlarFragment extends ListFragment {
 		System.out.println("Selected: "+hashmap.get(Document.DOC_NAME)+" value"+hashmap.get(Document.DOC_LINK));
 
 //		showPDF(hashmap.get(Document.DOC_LINK));
+		clickedItemTitle=hashmap.get(Document.DOC_NAME);
 		new Servis().execute(hashmap.get(Document.DOC_LINK));
 	}
 	
-	public void showPDF(String adress){
+	public void showPDF(String adress, String title){
 		Intent intent=new Intent(getActivity(), MuPDFActivity.class);
 		intent.putExtra(PDF_FILE, adress);
+		intent.putExtra(Util.PDF_TITLE, title);
 		startActivity(intent);
 	}
 	
@@ -145,7 +148,7 @@ public class DokumanlarFragment extends ListFragment {
 			alert.dismiss();
 			
 			if(!isCanceled)
-				showPDF(sonuc);
+				showPDF(sonuc,clickedItemTitle);
 			
 			
 		}

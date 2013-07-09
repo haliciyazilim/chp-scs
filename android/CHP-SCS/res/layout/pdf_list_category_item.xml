@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/actions_bg" >
 
     <TextView
         android:id="@+id/pdfCategoryItem"
@@ -10,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
-        android:drawablePadding="6dip"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:gravity="left"
@@ -34,8 +34,8 @@
         android:focusableInTouchMode="false"
         android:singleLine="false"
         android:padding="10dp"
-        android:textSize="12dp"
-        android:background="@color/content_bg"
+        android:textSize="14sp"
+        android:background="@color/actions_bg"
         android:textColor="@color/pdf_text" />
 
     <View

@@ -11,7 +11,7 @@
             android:id="@+id/iletisimSandiNo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/black"
+            android:background="@color/actions_bg"
             android:gravity="center_horizontal"
             android:paddingBottom="6dp"
             android:paddingTop="6dp"
@@ -48,7 +48,8 @@
             android:textColor="@color/sorumlu_karti_header"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:textSize="16sp" />
 
             <LinearLayout
 		        android:layout_width="match_parent"
@@ -68,7 +69,8 @@
 	                android:layout_height="wrap_content"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
 	        </LinearLayout>
 			<LinearLayout
 				        android:layout_width="match_parent"
@@ -91,7 +93,8 @@
 	                android:layout_weight="1"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
   			</LinearLayout>
         </LinearLayout>
 
@@ -115,7 +118,8 @@
                 android:textColor="@color/sorumlu_karti_header"
                 android:paddingTop="6dp"
             	android:paddingBottom="6dp"
-            	android:layout_marginLeft="50dp" />
+            	android:layout_marginLeft="50dp"
+            	android:textSize="16sp" />
 
             <LinearLayout
 		        android:layout_width="match_parent"
@@ -136,7 +140,8 @@
 	                android:layout_height="wrap_content"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
 	            </LinearLayout>
         </LinearLayout>
 
@@ -154,7 +159,8 @@
             android:textColor="@color/sorumlu_karti_header"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:textSize="16sp" />
 
        <LinearLayout
             android:id="@+id/ilceBilisimSorumlusu"
@@ -180,7 +186,8 @@
 	                android:layout_height="wrap_content"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
 	        </LinearLayout>
 			<LinearLayout
 				        android:layout_width="match_parent"
@@ -203,7 +210,8 @@
 	                android:layout_weight="1"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
   			</LinearLayout>
             
             
@@ -229,7 +237,8 @@
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:text="@string/bitemHeader"
-                android:textColor="@color/sorumlu_karti_header" />
+                android:textColor="@color/sorumlu_karti_header"
+                android:textSize="16sp" />
 
             <LinearLayout
 		        android:layout_width="match_parent"
@@ -251,7 +260,8 @@
 	                android:layout_height="wrap_content"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
 	        </LinearLayout>
 			<LinearLayout
 				        android:layout_width="match_parent"
@@ -274,7 +284,8 @@
 	                android:layout_weight="1"
 	                android:text="TextView"
 	                android:paddingBottom="6dp"
-	           		android:layout_marginLeft="15dp" />
+	           		android:layout_marginLeft="15dp"
+	           		android:textSize="16sp" />
   			</LinearLayout>
 
         </LinearLayout>

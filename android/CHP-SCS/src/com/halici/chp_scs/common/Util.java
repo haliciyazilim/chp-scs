@@ -2,7 +2,15 @@ package com.halici.chp_scs.common;
 
 public class Util {
 
-
+	public static final String PDF_TITLE="pdfTitle";
+	
+	public static final String TITLE_SANDIK_CEVRESI_SORUMLU_KARTI="SÇS Kartı";
+	public static final String TITLE_EGITIM_DOKUMANLARI="Eğitim Dokümanları";
+	public static final String TITLE_GENELGELER="Genelgeler";
+	public static final String TITLE_ILETISIM="İletişim";
+	public static final String TITLE_SANDIK_SECMEN_LISTESI="Sandık Seçmen Listesi";
+	public static final String TITLE_SANDIK_BILGI_KARTI="Sandık Bilgi Kartı";
+	
 	public static final String SANDIK_CEVRESI_SORUMLU_KARTI="SandikCevresiSorumlusuKarti";
 	public static final String EGITIM_DOKUMANLARI="EgitimDokumanlari";
 	public static final String GENELGELER="Genelgeler";

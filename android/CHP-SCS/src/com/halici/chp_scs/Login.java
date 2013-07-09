@@ -57,7 +57,7 @@ public class Login extends Activity {
 		eTuserName.setTypeface(fontM);
 
 		eTpassword=(EditText)findViewById(R.id.editPassword);
-		eTuserName.setTypeface(fontM);
+		eTpassword.setTypeface(fontM);
 		
 		btnSign=(Button)findViewById(R.id.btnSubmit);
 		shPreferences=getSharedPreferences("data", MODE_PRIVATE);

@@ -46,7 +46,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.topBar setTitleText:@"Anasayfa"];
+    [self.topBar setTitleText:@"SÇS Kartı"];
     [self initViews];
 }
 - (void) initViews {

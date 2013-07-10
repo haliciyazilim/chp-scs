@@ -131,7 +131,7 @@ public class DokumanlarFragment extends ListFragment {
 		@Override
 		protected String doInBackground(String... params) {
 			
-			DownloadDocument download=new DownloadDocument(params[0]);
+			DownloadDocument download=new DownloadDocument(getActivity(),params[0]);
 			String sonuc=download.downloadDocument();
 			System.out.println("Pdf Adres: "+sonuc);
 			return sonuc;
@@ -147,8 +147,12 @@ public class DokumanlarFragment extends ListFragment {
 			
 			alert.dismiss();
 			
-			if(!isCanceled)
+			if(!isCanceled && sonuc!=null)
 				showPDF(sonuc,clickedItemTitle);
+			else{
+				Toast.makeText(getActivity(), "İnternet bağlantınız ile ilgili bir sorun var; lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
+				
+			}
 			
 			
 		}

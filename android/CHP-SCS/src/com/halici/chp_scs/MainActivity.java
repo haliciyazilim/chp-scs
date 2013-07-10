@@ -2,6 +2,7 @@ package com.halici.chp_scs;
 
 import com.artifex.mupdfdemo.MuPDFActivity;
 import com.halici.chp_scs.adapter.ActionsAdapter;
+import com.halici.chp_scs.common.BaglantiKontrolu;
 import com.halici.chp_scs.common.DocumentList;
 import com.halici.chp_scs.common.Iletisim;
 import com.halici.chp_scs.common.SandikCevresiSorumluBilgileri;
@@ -26,6 +27,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 
@@ -183,11 +185,21 @@ public class MainActivity extends FragmentActivity {
 	        tag = SandikBilgiKartiFragment.TAG;
 	        final Fragment foundFragment = fm.findFragmentByTag(tag);
 	        if (foundFragment != null) {
-	          fragment = foundFragment;
-	        } else {
-	          fragment = new SandikBilgiKartiFragment();
-	          bundle.putSerializable(Util.SANDIK_BILGI_KARTI, sandikBilgiKarti);
-		      fragment.setArguments(bundle);
+	        	fragment = foundFragment;
+	        } 
+	        else {
+	        	boolean baglanti=new BaglantiKontrolu(this).kontrolEt();
+	        	
+	        	if(baglanti){
+		        	fragment = new SandikBilgiKartiFragment();
+		        	bundle.putSerializable(Util.SANDIK_BILGI_KARTI, sandikBilgiKarti);
+		        	fragment.setArguments(bundle);
+	        	}
+	        	else{
+	        		Toast.makeText(getApplicationContext(), "İnternet bağlantınız ile ilgili bir sorun var; lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
+	        		return;
+	        	}
+	        	
 	        }
 	      }
 	    else if (DokumanlarFragment.ABOUT_URI.equals(uri)) {

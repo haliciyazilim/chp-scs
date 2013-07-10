@@ -13,15 +13,20 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.app.Application;
+import android.content.Context;
 import android.os.Environment;
+import android.widget.Toast;
 
 public class DownloadDocument {
 
 	private File root;
 	private String documentName;
 	private String url;
+	private Context context;
 	
-	public DownloadDocument(String url) {
+	public DownloadDocument(Context context, String url) {
+		this.context=context;
 		this.url=url;
 		this.root=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/CHP-SCS");
 		
@@ -58,32 +63,38 @@ public class DownloadDocument {
 	
 	public String downloadDocument(){
 		File documentOnLocal=new File(this.root,this.documentName);
-		
+		boolean baglanti=new BaglantiKontrolu(this.context).kontrolEt();
 		if(documentOnLocal.exists()){
 			long lastMofiedDateOnServer=getLastModifiedDate(this.url);
 			
-			if(lastMofiedDateOnServer<documentOnLocal.lastModified()){
+			if(lastMofiedDateOnServer<documentOnLocal.lastModified() || !baglanti){
 				System.out.println("Document is allready exist! Document is not changed.");
 				return this.root+"/"+this.documentName;
 			}
 		}
-		try {
-			System.out.println("Document is downloading!");
-			new DefaultHttpClient().execute(new HttpGet(url))
-			.getEntity().writeTo(
-			        new FileOutputStream(new File(this.root,this.documentName)));
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		else{
+			if(baglanti){
+				try {
+					System.out.println("Document is downloading!");
+					new DefaultHttpClient().execute(new HttpGet(url))
+					.getEntity().writeTo(
+					        new FileOutputStream(new File(this.root,this.documentName)));
+				} catch (ClientProtocolException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else{
+				return null;
+			}
 		}
-		
 		
 		return this.root+"/"+this.documentName;
 	}

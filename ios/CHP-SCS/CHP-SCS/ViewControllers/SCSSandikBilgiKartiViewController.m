@@ -13,7 +13,9 @@
 @end
 
 @implementation SCSSandikBilgiKartiViewController
-
+{
+    UIActivityIndicatorView* activityIndicator;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,9 +33,21 @@
     [self.view addSubview:self.webView];
     [self.webView setScalesPageToFit:YES];
     NSURL* url = [NSURL URLWithString:[[SCSManager currentManager] chestInformationCardUrl]];
-    NSLog(@"url: %@",url);
+//    NSLog(@"url: %@",url);
+    [self.webView setDelegate:self];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 	// Do any additional setup after loading the view.
+    
+    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityIndicator setFrame:CGRectMake(0.0,0.0,self.webView.frame.size.width,self.webView.frame.size.height)];
+    [self.webView addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [activityIndicator stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning

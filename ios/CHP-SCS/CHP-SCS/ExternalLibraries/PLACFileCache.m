@@ -179,6 +179,9 @@ static PLACFileCache * sharedFileCache;
             shouldDownload = YES;
         }
     }
+    else {
+        shouldDownload = YES;
+    }
     
     if(shouldDownload)
     {

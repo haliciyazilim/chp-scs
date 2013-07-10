@@ -8,7 +8,7 @@
 
 #import "SCSViewController.h"
 
-@interface SCSSandikBilgiKartiViewController : SCSViewController
+@interface SCSSandikBilgiKartiViewController : SCSViewController <UIWebViewDelegate>
 
 @property (readonly) UIWebView* webView;
 

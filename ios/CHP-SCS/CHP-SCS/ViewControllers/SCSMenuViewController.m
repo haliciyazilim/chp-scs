@@ -51,7 +51,7 @@
     description.numberOfLines = 0;
     description.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:description];
-    description.text = @"Dökümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
+    description.text = @"Dokümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
     
     self.menu = @[
                   @{

@@ -33,7 +33,9 @@
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:gravity="center_horizontal" >
+        android:gravity="center_horizontal"
+        android:focusable="false"
+	  	android:focusableInTouchMode="true" >
 
         <Button
             android:id="@+id/btnSubmit"
@@ -58,12 +60,11 @@
             android:background="@drawable/login_input"
             android:gravity="center"
             android:hint="@string/userNameHint"
-            android:inputType="text"
+            android:inputType="number"
             android:singleLine="true"
             android:textColor="@color/input_text"
             android:textSize="16sp" >
 
-            <requestFocus />
         </EditText>
 
         <EditText

@@ -1,35 +1,14 @@
 <resources>
 
-    <string name="app_name">CHP-SCS</string>
-    <string name="app_header">SÇSbilgiSis</string>
-    <string name="link_to_sources">source code is here &#187;</string>
-    <string name="about_details">Selam Gençler</string>
-    <string name="about_play">Play in sandbox</string>
-    <string name="about_tutorial">View tutorial page</string>
+    <string name="app_name">CHP - SÇS</string>
     <string name="remark">Dökümanları yazdırmak için \nhttp://scs.chp.org.tr/ adresini ziyaret ediniz.</string>
     
     <!-- Login strings -->
     <string name="loginHeader">Sandık Çevresi Sorumluları Bilgi Sistemi</string>
-    <string name="userNameHint">Telefon No/T.C. Kimlik No Giriniz</string>
-    <string name="passwordHint">Lütfen Şifrenizi Giriniz.</string>
+    <string name="userNameHint">Telefon No Giriniz.</string>
+    <string name="passwordHint">Şifrenizi Giriniz.</string>
     <string name="submit">Sorgula</string>
    
-    <!-- Setting strings -->
-    <string name="pref_spacing">Spacing settings</string>
-    <string name="pref_spacing_type">Spacing type</string>
-    <string name="pref_spacing_width">Spacing width</string>
-    <string name="pref_spacing_actions">Actions spacing width</string>
-    <string name="pref_shadow">Shadow settings</string>
-    <string name="pref_show_shadow">Show shadow</string>
-    <string name="pref_shadow_width">Shadow width</string>
-    <string name="pref_fade">Fade settings</string>
-    <string name="pref_fade_type">Fade type</string>
-    <string name="pref_fade_max_value">Fade max value</string>
-    <string name="pref_swiping">Swiping settings</string>
-    <string name="pref_swiping_type">Swiping type</string>
-    <string name="pref_swiping_edge_width">Swiping edge width</string>
-    <string name="pref_other">Other</string>
-    <string name="pref_other_fling_duration">Fling duration</string>
     
     <!-- Action titles -->    
     <string name="action_sorumlu_karti">Sorumlu Kartı</string>
@@ -46,21 +25,8 @@
     <string name="sandik_alani">Sandık Alanı</string>
     <string name="sandik_gorevlisi_2">2. Sandık Görevlisi</string>
     <string name="sandik_gorevlisi_2_tel">Sandık Görevlisi Telefon</string>
-    
-    
-    <!-- Effects -->
-    <string name="effect_parallax">Parallax</string>
-    <string name="effect_replace">Replace</string>
-    <string name="effect_alpha">Alpha</string>
-    <string name="effect_duration">Duration</string>
-    <string name="effect_bounce">Bounce</string>
-    <string name="effect_overshot">Overshot</string>
-    
-    <!-- Effects content strings -->
-    <string name="effect_content_actions_xml">Actions effect animation XML</string>
-    <string name="effect_content_content_xml">Content effect animation XML</string>
+ 
     <string name="sandik_cevresi_sorumlu_karti_header">SANDIK ÇEVRESİ SORUMLU KARTI</string>
-    
     
     <!-- PDF -->
     <string name="version">1.2</string>

@@ -14,10 +14,10 @@ public class BaglantiKontrolu{
 	public boolean kontrolEt() {
         final ConnectivityManager conMgr = (ConnectivityManager) this.context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         if (conMgr.getActiveNetworkInfo() != null && conMgr.getActiveNetworkInfo().isAvailable() &&    conMgr.getActiveNetworkInfo().isConnected()) {
-        	System.out.println("İnternet Baplantısı var");
+        	System.out.println("İnternet Bağlantısı var");
         	return true;
         } else {
-              System.out.println("İnternet Baplantısı yok");
+              System.out.println("İnternet Bağlantısı yok");
             return false;
         }
      }

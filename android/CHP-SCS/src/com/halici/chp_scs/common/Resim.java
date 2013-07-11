@@ -14,6 +14,7 @@ public class Resim {
 
 	private static ArrayList<URLImage> images = new ArrayList<URLImage>();
 	
+	@SuppressWarnings("deprecation")
 	public static BitmapDrawable resimGetir(String string){
 		BitmapDrawable arkaplan=new BitmapDrawable();
 		try {

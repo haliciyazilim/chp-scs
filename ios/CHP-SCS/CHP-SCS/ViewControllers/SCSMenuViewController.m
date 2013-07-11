@@ -57,12 +57,12 @@
                   @{
                       },
                   @{
-                      TITLE:@"Anasayfa",
+                      TITLE:@"SÇS Kartı",
                       IDENTIFIER:@"SCSMain",
                       IMAGE:@"icon_card_default.png"
                       },
                   @{
-                      TITLE:@"Egitim Dokumanlari",
+                      TITLE:@"Eğitim Dökümanları",
                       IDENTIFIER:@"Egitim",
                       IMAGE:@"icon_egitim_default.png"
                       },
@@ -72,17 +72,17 @@
                       IMAGE:@"icon_genelgeler_default.png"
                       },
                   @{
-                      TITLE:@"Sandik Bilgi Karti",
+                      TITLE:@"Sandık Bilgi Kartı",
                       IDENTIFIER:@"SandikBilgiKarti",
                       IMAGE:@"icon_sandikbilgi_default.png"
                       },
                   @{
-                      TITLE:@"Sandik Secmen Listesi",
+                      TITLE:@"Sandık Seçmen Listesi",
                       IDENTIFIER:@"SandikSecmenListesi",
                       IMAGE:@"icon_sandiksecmen_default.png"
                       },
                   @{
-                      TITLE:@"Iletisim",
+                      TITLE:@"İletişim",
                       IDENTIFIER:@"Iletisim",
                       IMAGE:@"icon_iletisim_default.png"
                       },

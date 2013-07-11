@@ -88,8 +88,8 @@ public class Sorgulama {
 			sonuc=sonucSoap.toString();
 					
 				
-			System.out.println("Gelen Veri: ");
-			System.out.println(sonuc);
+//			System.out.println("Gelen Veri: ");
+//			System.out.println(sonuc);
 		} 
 		catch (Exception e) {
 			System.out.println("Hata: "+e.toString());
@@ -139,8 +139,8 @@ public class Sorgulama {
 			sonuc=sonucSoap.toString();
 					
 				
-			System.out.println("Gelen Veri: ");
-			System.out.println(sonuc);
+//			System.out.println("Gelen Veri: ");
+//			System.out.println(sonuc);
 		} 
 		catch (Exception e) {
 			System.out.println("Hata: "+e.toString());
@@ -191,8 +191,8 @@ public class Sorgulama {
 			sonuc=sonucSoap.toString();
 					
 				
-			System.out.println("Gelen Veri: ");
-			System.out.println(sonuc);
+//			System.out.println("Gelen Veri: ");
+//			System.out.println(sonuc);
 		} 
 		catch (Exception e) {
 			System.out.println("Hata: "+e.toString());
@@ -246,8 +246,8 @@ public class Sorgulama {
 			sonuc=sonucSoap.toString();
 					
 				
-			System.out.println("Gelen Veri: ");
-			System.out.println(sonuc);
+//			System.out.println("Gelen Veri: ");
+//			System.out.println(sonuc);
 		} 
 		catch (Exception e) {
 			System.out.println("Hata: "+e.toString());

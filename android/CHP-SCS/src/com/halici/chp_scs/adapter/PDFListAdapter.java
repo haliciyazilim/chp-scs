@@ -74,9 +74,10 @@ public class PDFListAdapter extends BaseAdapter {
 		return arg0;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		System.out.println("PDFLİstadapter getView is runned");
+//		System.out.println("PDFLİstadapter getView is runned");
         View view = convertView;
 
         Object item = getItem(position);
@@ -85,7 +86,7 @@ public class PDFListAdapter extends BaseAdapter {
 
             if(item instanceof Document){
             	view = this.mInflater.inflate(R.layout.pdf_list_category_item, parent, false);
-            	System.out.println("İtem is DOC");
+//            	System.out.println("İtem is DOC");
             	
             	TextView categoryView = (TextView) view.findViewById(R.id.pdfCategoryItem);
          		TextView subTitleView=(TextView) view.findViewById(R.id.pdfCategorySubTitle);
@@ -107,12 +108,12 @@ public class PDFListAdapter extends BaseAdapter {
             	view = this.mInflater.inflate(R.layout.pdf_list_pdf_item, parent, false);
             	TextView itemView = (TextView) view.findViewById(R.id.pdfItem);
             	itemView.setTypeface(fontL);
-            	System.out.println("İtem is PDF");
+//            	System.out.println("İtem is PDF");
             	
             	String pdfName=((HashMap<String, String>)item).get(Document.DOC_NAME);
             	String pdfURL=((HashMap<String, String>)item).get(Document.DOC_LINK);
             	
-            	System.out.println("İtem is PDF: "+pdfName+", "+pdfURL);
+//            	System.out.println("İtem is PDF: "+pdfName+", "+pdfURL);
             	
             	itemView.setText(pdfName);
             	itemView.setTag(pdfURL);

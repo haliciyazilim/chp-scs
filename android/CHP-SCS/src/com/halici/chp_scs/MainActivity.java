@@ -1,6 +1,5 @@
 package com.halici.chp_scs;
 
-import com.artifex.mupdfdemo.MuPDFActivity;
 import com.halici.chp_scs.adapter.ActionsAdapter;
 import com.halici.chp_scs.common.BaglantiKontrolu;
 import com.halici.chp_scs.common.DocumentList;
@@ -10,7 +9,7 @@ import com.halici.chp_scs.common.SandikSecmenListesi;
 import com.halici.chp_scs.common.Util;
 import com.halici.chp_scs.fragment.DokumanlarFragment;
 import com.halici.chp_scs.fragment.IletisimFragment;
-import com.halici.chp_scs.fragment.SandikBilgiKartiFragment;
+import com.halici.chp_scs.fragment.SandikBilgiKartiActivity;
 import com.halici.chp_scs.fragment.SandikCevresiSorumluKartiFragment;
 import com.halici.chp_scs.fragment.SandikSecmenListesiFragment;
 
@@ -74,10 +73,6 @@ public class MainActivity extends FragmentActivity {
 	          long flags) {
 	        final Uri uri = actionsAdapter.getItem(position);
 	
-	        if (EffectsActivity.URI.equals(uri)) {
-	          startActivity(new Intent(getBaseContext(), EffectsActivity.class));
-	          return;
-	        }
 	        if(position==1){
 	        	DokumanlarFragment.docType=Util.EGITIM_DOKUMANLARI_TYPE;
 	        }
@@ -146,6 +141,8 @@ public class MainActivity extends FragmentActivity {
 	    	title.setText(Util.TITLE_SANDIK_CEVRESI_SORUMLU_KARTI);
 	    	tag = SandikCevresiSorumluKartiFragment.TAG;
 	    	final Fragment foundFragment = fm.findFragmentByTag(tag);
+	    	
+	    	
 	    	if (foundFragment != null) {
 	    		fragment = foundFragment;
 	    	} else {
@@ -154,7 +151,7 @@ public class MainActivity extends FragmentActivity {
 	    		fragment.setArguments(bundle);
 	    	}
 	      
-	      
+	    	System.out.println("fragment"+fragment.toString());
 	    }
 	    else  if (SandikSecmenListesiFragment.ABOUT_URI.equals(uri)) {
 	    	title.setText(Util.TITLE_SANDIK_SECMEN_LISTESI);
@@ -180,32 +177,37 @@ public class MainActivity extends FragmentActivity {
 		      fragment.setArguments(bundle);
 	        }
 	      }
-	    else if (SandikBilgiKartiFragment.ABOUT_URI.equals(uri)) {
+	    else if (SandikBilgiKartiActivity.ABOUT_URI.equals(uri)) {
 	    	title.setText(Util.TITLE_SANDIK_BILGI_KARTI);
-	        tag = SandikBilgiKartiFragment.TAG;
-	        final Fragment foundFragment = fm.findFragmentByTag(tag);
-	        if (foundFragment != null) {
-	        	fragment = foundFragment;
-	        } 
-	        else {
+	        tag = SandikBilgiKartiActivity.TAG;
+//	        final Fragment foundFragment = fm.findFragmentByTag(tag);
+//	        if (foundFragment != null) {
+//	        	fragment = foundFragment;
+//	        } 
+//	        else {
 	        	boolean baglanti=new BaglantiKontrolu(this).kontrolEt();
 	        	
 	        	if(baglanti){
-		        	fragment = new SandikBilgiKartiFragment();
-		        	bundle.putSerializable(Util.SANDIK_BILGI_KARTI, sandikBilgiKarti);
-		        	fragment.setArguments(bundle);
+//		        	fragment = new SandikBilgiKartiFragment();
+//		        	bundle.putSerializable(Util.SANDIK_BILGI_KARTI, sandikBilgiKarti);
+//		        	fragment.setArguments(bundle);
+	        		
+	        		Intent intent=new Intent(this, SandikBilgiKartiActivity.class);
+	        		intent.putExtra(Util.SANDIK_BILGI_KARTI, sandikBilgiKarti);
+	        		startActivity(intent);
+	        		return;
 	        	}
 	        	else{
 	        		Toast.makeText(getApplicationContext(), "İnternet bağlantınız ile ilgili bir sorun var; lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
 	        		return;
 	        	}
 	        	
-	        }
+//	        }
 	      }
 	    else if (DokumanlarFragment.ABOUT_URI.equals(uri)) {
 	    	
 	        tag = DokumanlarFragment.TAG;
-	        final Fragment foundFragment = fm.findFragmentByTag(tag);
+//	        final Fragment foundFragment = fm.findFragmentByTag(tag);
 	//        if (foundFragment != null) {
 	//          fragment = foundFragment;
 	//        } else {

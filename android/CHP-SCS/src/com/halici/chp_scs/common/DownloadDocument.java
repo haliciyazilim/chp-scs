@@ -13,10 +13,8 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import android.app.Application;
 import android.content.Context;
 import android.os.Environment;
-import android.widget.Toast;
 
 public class DownloadDocument {
 

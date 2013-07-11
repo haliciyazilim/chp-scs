@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:gravity="left|center_horizontal"
             android:paddingLeft="10dp"
-            android:text="@string/app_header"
+            android:text=""
             android:textColor="@color/header_text"
             android:textSize="22sp" />
 

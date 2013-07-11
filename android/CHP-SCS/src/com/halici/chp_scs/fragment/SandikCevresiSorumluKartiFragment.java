@@ -149,7 +149,7 @@ public class SandikCevresiSorumluKartiFragment extends Fragment {
 	  BitmapDrawable gelenResim;
 		@Override
 		protected Void doInBackground(String... sUrl) {
-			System.out.println("GorevliFoto URL: "+scsSorumluBilgileri.getGorevliFotoUrl());
+//			System.out.println("GorevliFoto URL: "+scsSorumluBilgileri.getGorevliFotoUrl());
 			gelenResim=Resim.resimGetir(scsSorumluBilgileri.getGorevliFotoUrl());
 
 			

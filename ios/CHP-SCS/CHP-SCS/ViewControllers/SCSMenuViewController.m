@@ -62,7 +62,7 @@
                       IMAGE:@"icon_card_default.png"
                       },
                   @{
-                      TITLE:@"Eğitim Dökümanları",
+                      TITLE:@"Eğitim Dokümanları",
                       IDENTIFIER:@"Egitim",
                       IMAGE:@"icon_egitim_default.png"
                       },

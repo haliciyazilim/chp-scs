@@ -11,6 +11,7 @@
 #import "SCSViewController.h"
 #import "TypeDefs.h"
 #import "SCSMenuTableViewCell.h"
+#import "SCSManager.h"
 
 #define TITLE @"title"
 #define IDENTIFIER @"identifier"
@@ -109,7 +110,6 @@
     }
     [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
-
 - (void) initHeader
 {
     
@@ -157,7 +157,6 @@
     return cell;
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,4 +177,10 @@
     
 }
 
+- (void) logout
+{
+    [self.slidingViewController dismissViewControllerAnimated:YES completion:^{
+        [SCSManager setCurrentManagerAsNil];
+    }];
+}
 @end

@@ -89,4 +89,6 @@
 
 - (id) initWithDictionary:(NSDictionary*)dictionary;
 
++ (void) setCurrentManagerAsNil;
+
 @end

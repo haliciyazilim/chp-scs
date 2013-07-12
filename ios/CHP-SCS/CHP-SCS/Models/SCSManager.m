@@ -21,7 +21,10 @@ static SCSManager* currentManager = nil;
 {
     return currentManager;
 }
-
++ (void) setCurrentManagerAsNil
+{
+    currentManager = nil;
+}
 - (id) initWithDictionary:(NSDictionary*)dictionary
 {
     if (self = [super init]) {

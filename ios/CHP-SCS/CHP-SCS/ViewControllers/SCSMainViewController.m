@@ -29,6 +29,7 @@
     UILabel* secondOfficerLabel;
     UILabel* secondOfficerPhoneLabel;
     UIButton* secondOfficerPhoneView;
+    UIScrollView* scrollView;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,7 +46,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.topBar setTitleText:@"Anasayfa"];
+    [self.topBar setTitleText:@"SÇS Kartı"];
     [self initViews];
 }
 - (void) initViews {
@@ -73,7 +74,18 @@
     
     CGFloat chestAreaY = homeTownY+66.0;
     
-    CGFloat cardPersonImageY = chestAreaY+66.0;
+    _currentManager = [SCSManager currentManager];
+    
+    CGSize size = [[_currentManager chestArea] sizeWithFont:CARD_OTHER_CONTENT_TEXT_FONT constrainedToSize:CGSizeMake(274.0, 1000.0)];
+    
+    CGFloat cardPersonImageY = chestAreaY+40.0+size.height;
+    
+    scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    [scrollView setContentSize:CGSizeMake(frame.size.width, cardPersonImageY+56.0)];
+//    [scrollView setUserInteractionEnabled:YES];
+    [scrollView setScrollEnabled:YES];
+    [scrollView setShowsHorizontalScrollIndicator:NO];
+    [scrollView setShowsVerticalScrollIndicator:NO];
     
     UIImageView* cardBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"card_bg.png"]];
     [cardBackground setFrame:CGRectMake(0.0, topBarHeight, frame.size.width, cardHeight)];
@@ -157,12 +169,13 @@
     [chestAreaHeader setTextColor:MAIN_CONTENT_SUBHEADER_TEXT_COLOR];
     [chestAreaHeader setText:@"Sandık Alanı"];
     
-    chestAreaLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, chestAreaY+14.0, 220.0, 26.0)];
+    chestAreaLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset+3, chestAreaY+14.0, 274.0, size.height)];
     [chestAreaLabel setBackgroundColor:[UIColor clearColor]];
     [chestAreaLabel setFont:CARD_OTHER_CONTENT_TEXT_FONT];
     [chestAreaLabel setTextColor:CARD_OTHER_CONTENT_TEXT_COLOR];
+    [chestAreaLabel setNumberOfLines:0];
     
-    UIView* subSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, chestAreaY+53.0, 280.0, 1.0)];
+    UIView* subSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, chestAreaY+size.height+26.0, 280.0, 1.0)];
     [subSeperator3 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
     
     UIImage* cardPersonImage = [UIImage imageNamed:@"card_icon_person.png"];
@@ -202,32 +215,35 @@
     UIView* subSeperator4 = [[UIView alloc] initWithFrame:CGRectMake(xOffset, cardPersonImageY+33.0, 280.0, 1.0)];
     [subSeperator4 setBackgroundColor:MAIN_CONTENT_SEPERATOR_COLOR];
     
-    [self.view addSubview:cardBackground];
-    [self.view addSubview:officerImageView];
-    [self.view addSubview:yearLabel];
-    [self.view addSubview:headerLabel];
-    [self.view addSubview:cardSeperator];
-    [self.view addSubview:nameLabel];
-    [self.view addSubview:chestNoHeader];
-    [self.view addSubview:chestNoLabel];
-    [self.view addSubview:chestProvinceHeader];
-    [self.view addSubview:chestProvinceLabel];
-    [self.view addSubview:chestDistrictLabel];
-    [self.view addSubview:subSeperator1];
-    [self.view addSubview:homeTownHeader];
-    [self.view addSubview:homeTownLabel];
-    [self.view addSubview:subSeperator2];
-    [self.view addSubview:chestAreaHeader];
-    [self.view addSubview:chestAreaLabel];
-    [self.view addSubview:subSeperator3];
-    [self.view addSubview:cardPersonView];
-    [self.view addSubview:secondOfficerHeader];
-    [self.view addSubview:secondOfficerLabel];
-    [self.view addSubview:cardPhoneView];
+    [scrollView addSubview:cardBackground];
+    [scrollView addSubview:officerImageView];
+    [scrollView addSubview:yearLabel];
+    [scrollView addSubview:headerLabel];
+    [scrollView addSubview:cardSeperator];
+    [scrollView addSubview:nameLabel];
+    [scrollView addSubview:chestNoHeader];
+    [scrollView addSubview:chestNoLabel];
+    [scrollView addSubview:chestProvinceHeader];
+    [scrollView addSubview:chestProvinceLabel];
+    [scrollView addSubview:chestDistrictLabel];
+    [scrollView addSubview:subSeperator1];
+    [scrollView addSubview:homeTownHeader];
+    [scrollView addSubview:homeTownLabel];
+    [scrollView addSubview:subSeperator2];
+    [scrollView addSubview:chestAreaHeader];
+    [scrollView addSubview:chestAreaLabel];
+    [scrollView addSubview:subSeperator3];
+    [scrollView addSubview:cardPersonView];
+    [scrollView addSubview:secondOfficerHeader];
+    [scrollView addSubview:secondOfficerLabel];
+    [scrollView addSubview:cardPhoneView];
     [secondOfficerPhoneView addSubview:secondOfficerPhoneHeader];
     [secondOfficerPhoneView addSubview:secondOfficerPhoneLabel];
-    [self.view addSubview:secondOfficerPhoneView];
-    [self.view addSubview:subSeperator4];
+    [scrollView addSubview:secondOfficerPhoneView];
+    [scrollView addSubview:subSeperator4];
+    
+    [self.view addSubview:scrollView];
+    [self.view sendSubviewToBack:scrollView];
 }
 - (void) viewWillAppear:(BOOL)animated {
     _currentManager = [SCSManager currentManager];
@@ -259,6 +275,7 @@
     if ([[SCSManager currentManager] otherManagerPhone] != nil && ![[[SCSManager currentManager] otherManagerPhone] isEqualToString:@""]) {
         [secondOfficerPhoneView setUserInteractionEnabled:YES];
         [secondOfficerPhoneView setBackgroundImage:[UIImage imageNamed:@"phone_highlighted.png"] forState:UIControlStateHighlighted];
+        [secondOfficerPhoneView setBackgroundImage:nil forState:UIControlStateNormal];
         [secondOfficerPhoneView addTarget:self action:@selector(callManager) forControlEvents:UIControlEventTouchUpInside];
     }
 

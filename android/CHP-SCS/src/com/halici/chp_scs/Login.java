@@ -50,8 +50,6 @@ public class Login extends Activity {
 		
 		new ExternalFont(this);
 		Typeface fontM=ExternalFont.getFontM();
-		Typeface fontL=ExternalFont.getFontL();
-		Typeface fontT=ExternalFont.getFontT();
 		
 		eTuserName=(EditText)findViewById(R.id.editUserName);
 		eTuserName.setTypeface(fontM);
@@ -97,7 +95,7 @@ public class Login extends Activity {
 			shPrefEditor.putString(Util.SH_PASSWORD, passwordToSave).commit();
 		}
 		catch(Exception e){
-			System.out.println("Saved Data Decrypt: "+e);
+//			System.out.println("Saved Data Decrypt: "+e);
 		}
 		
 	}
@@ -114,7 +112,7 @@ public class Login extends Activity {
 //		System.out.println("Datas was become: "+savedName+", "+shPreferences.getString(NAME, ""));
 		}
 		catch(Exception e){
-			System.out.println("getSavedData Error "+e);
+//			System.out.println("getSavedData Error "+e);
 		}
 	}
 	
@@ -126,7 +124,7 @@ public class Login extends Activity {
 		
 		if(this.userName.startsWith("0")){
 			this.userName=this.userName.substring(1, this.userName.length());
-			System.out.println("userName: "+this.userName);
+//			System.out.println("userName: "+this.userName);
 		}
 		
 		if(this.userName.length()<10){

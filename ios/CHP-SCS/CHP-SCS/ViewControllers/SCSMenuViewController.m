@@ -51,18 +51,18 @@
     description.numberOfLines = 0;
     description.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:description];
-    description.text = @"Dökümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
+    description.text = @"Dokümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
     
     self.menu = @[
                   @{
                       },
                   @{
-                      TITLE:@"Anasayfa",
+                      TITLE:@"SÇS Kartı",
                       IDENTIFIER:@"SCSMain",
                       IMAGE:@"icon_card_default.png"
                       },
                   @{
-                      TITLE:@"Egitim Dokumanlari",
+                      TITLE:@"Eğitim Dokümanları",
                       IDENTIFIER:@"Egitim",
                       IMAGE:@"icon_egitim_default.png"
                       },
@@ -72,17 +72,17 @@
                       IMAGE:@"icon_genelgeler_default.png"
                       },
                   @{
-                      TITLE:@"Sandik Bilgi Karti",
+                      TITLE:@"Sandık Bilgi Kartı",
                       IDENTIFIER:@"SandikBilgiKarti",
                       IMAGE:@"icon_sandikbilgi_default.png"
                       },
                   @{
-                      TITLE:@"Sandik Secmen Listesi",
+                      TITLE:@"Sandık Seçmen Listesi",
                       IDENTIFIER:@"SandikSecmenListesi",
                       IMAGE:@"icon_sandiksecmen_default.png"
                       },
                   @{
-                      TITLE:@"Iletisim",
+                      TITLE:@"İletişim",
                       IDENTIFIER:@"Iletisim",
                       IMAGE:@"icon_iletisim_default.png"
                       },

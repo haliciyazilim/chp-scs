@@ -6,8 +6,6 @@ import java.util.HashMap;
 
 import com.halici.chp_scs.ExternalFont;
 import com.halici.chp_scs.R;
-import com.halici.chp_scs.common.Document;
-import com.halici.chp_scs.common.DocumentList;
 import com.halici.chp_scs.common.SandikSecmenListesi;
 import com.halici.chp_scs.common.Util;
 
@@ -40,8 +38,8 @@ public class SecmenListesiAdapter extends BaseAdapter {
         
         
         new ExternalFont(context);
-		Typeface fontM=ExternalFont.getFontM();
-		Typeface fontL=ExternalFont.getFontL();
+		fontM=ExternalFont.getFontM();
+		fontL=ExternalFont.getFontL();
     }
 
 	@Override
@@ -63,7 +61,7 @@ public class SecmenListesiAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		System.out.println("SecmenListesi Adapter getView is runned");
+//		System.out.println("SecmenListesi Adapter getView is runned");
         View view = convertView;
 
         Object item = getItem(position);

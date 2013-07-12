@@ -3,42 +3,27 @@ package com.halici.chp_scs.fragment;
 
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
 
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 
 import com.artifex.mupdfdemo.MuPDFActivity;
 
-import com.halici.chp_scs.Login;
-import com.halici.chp_scs.MainActivity;
+
 import com.halici.chp_scs.R;
 import com.halici.chp_scs.adapter.PDFListAdapter;
 import com.halici.chp_scs.common.Document;
 import com.halici.chp_scs.common.DocumentList;
 import com.halici.chp_scs.common.DownloadDocument;
-import com.halici.chp_scs.common.Iletisim;
-import com.halici.chp_scs.common.SandikCevresiSorumluBilgileri;
-import com.halici.chp_scs.common.SandikSecmenListesi;
-import com.halici.chp_scs.common.Sorgulama;
+
 import com.halici.chp_scs.common.Util;
 
-import android.R.bool;
+
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,7 +51,7 @@ public class DokumanlarFragment extends ListFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-		System.out.println("Genelgeler oncreateView");
+//		System.out.println("Genelgeler oncreateView");
 		
 		final View v = inflater.inflate(R.layout.pdf_list, container, false);
 		if(docType==1)
@@ -89,7 +74,7 @@ public class DokumanlarFragment extends ListFragment {
 		@SuppressWarnings("unchecked")
 		HashMap<String, String> hashmap=(HashMap<String, String>)l.getItemAtPosition(position);
 			
-		System.out.println("Selected: "+hashmap.get(Document.DOC_NAME)+" value"+hashmap.get(Document.DOC_LINK));
+//		System.out.println("Selected: "+hashmap.get(Document.DOC_NAME)+" value"+hashmap.get(Document.DOC_LINK));
 
 //		showPDF(hashmap.get(Document.DOC_LINK));
 		clickedItemTitle=hashmap.get(Document.DOC_NAME);
@@ -133,7 +118,7 @@ public class DokumanlarFragment extends ListFragment {
 			
 			DownloadDocument download=new DownloadDocument(getActivity(),params[0]);
 			String sonuc=download.downloadDocument();
-			System.out.println("Pdf Adres: "+sonuc);
+//			System.out.println("Pdf Adres: "+sonuc);
 			return sonuc;
 		}
 

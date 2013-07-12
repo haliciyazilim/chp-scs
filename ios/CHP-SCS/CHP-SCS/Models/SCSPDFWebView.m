@@ -100,6 +100,7 @@
         self.transform = CGAffineTransformMakeTranslation(0.0, self.frame.size.height);
     } completion:^(BOOL finished) {
         [self setHidden:YES];
+        [self loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]]];
         closeBlock();
     }];
     [UIView animateWithDuration:0.3 animations:^{

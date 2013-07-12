@@ -86,6 +86,11 @@
                       IDENTIFIER:@"Iletisim",
                       IMAGE:@"icon_iletisim_default.png"
                       },
+                  @{
+                      TITLE:@"Çıkış Yap",
+                      IDENTIFIER:@"Logout",
+                      IMAGE:@"icon_iletisim_default.png"
+                      },
               ];
     
     [self.slidingViewController setAnchorRightRevealAmount:200.0f];
@@ -163,9 +168,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row != 0){
+        
         lastSelectedIndexPath = indexPath;
         NSString *identifier = [[self.menu objectAtIndex:indexPath.row] objectForKey:IDENTIFIER];
-        
+        if([identifier isEqualToString:@"Logout"]){
+            [self logout];
+            return;
+        }
         SCSViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         [newViewController setTopBarTitle:[[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE]];
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
@@ -176,6 +185,11 @@
         }];
     }
     
+}
+
+- (void) logout
+{
+#define mark - Alperen Kavun
 }
 
 @end

@@ -27,6 +27,7 @@
         _cellTitle = [[UILabel alloc] init];
         
         [self.cellIcon setFrame:CGRectMake(6.0, 0.0, 44.0, self.frame.size.height)];
+        [self.cellIcon setContentMode:UIViewContentModeCenter];
         [self.cellTitle setFrame:CGRectMake(59.0, 0.0, 250.0, self.frame.size.height)];
         
         [self.cellTitle setTextColor:MENU_TEXT_COLOR];

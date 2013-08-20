@@ -11,6 +11,7 @@
 #import "SCSViewController.h"
 #import "TypeDefs.h"
 #import "SCSMenuTableViewCell.h"
+#import "SCSManager.h"
 
 #define TITLE @"title"
 #define IDENTIFIER @"identifier"
@@ -51,7 +52,7 @@
     description.numberOfLines = 0;
     description.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:description];
-    description.text = @"Dökümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
+    description.text = @"Dokümanları yazdırmak için http://scs.chp.org.tr/ adresini ziyaret ediniz.";
     
     self.menu = @[
                   @{
@@ -62,7 +63,7 @@
                       IMAGE:@"icon_card_default.png"
                       },
                   @{
-                      TITLE:@"Eğitim Dökümanları",
+                      TITLE:@"Eğitim Dokümanları",
                       IDENTIFIER:@"Egitim",
                       IMAGE:@"icon_egitim_default.png"
                       },
@@ -85,6 +86,11 @@
                       TITLE:@"İletişim",
                       IDENTIFIER:@"Iletisim",
                       IMAGE:@"icon_iletisim_default.png"
+                      },
+                  @{
+                      TITLE:@"Çıkış Yap",
+                      IDENTIFIER:@"Logout",
+                      IMAGE:@"icon_logout.png"
                       },
               ];
     
@@ -109,7 +115,6 @@
     }
     [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
-
 - (void) initHeader
 {
     
@@ -157,15 +162,18 @@
     return cell;
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row != 0){
+        
         lastSelectedIndexPath = indexPath;
         NSString *identifier = [[self.menu objectAtIndex:indexPath.row] objectForKey:IDENTIFIER];
-        
+        if([identifier isEqualToString:@"Logout"]){
+            [self logout];
+            return;
+        }
         SCSViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         [newViewController setTopBarTitle:[[self.menu objectAtIndex:indexPath.row] objectForKey:TITLE]];
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
@@ -176,6 +184,13 @@
         }];
     }
     
+}
+
+- (void) logout
+{
+    [self.slidingViewController dismissViewControllerAnimated:YES completion:^{
+        [SCSManager setCurrentManagerAsNil];
+    }];
 }
 
 @end

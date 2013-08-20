@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">CHP - SÇS</string>
-    <string name="remark">Dökümanları yazdırmak için \nhttp://scs.chp.org.tr/ adresini ziyaret ediniz.</string>
+    <string name="remark">Dokümanları yazdırmak için \nhttp://scs.chp.org.tr/ adresini ziyaret ediniz.</string>
     
     <!-- Login strings -->
     <string name="loginHeader">Sandık Çevresi Sorumluları Bilgi Sistemi</string>

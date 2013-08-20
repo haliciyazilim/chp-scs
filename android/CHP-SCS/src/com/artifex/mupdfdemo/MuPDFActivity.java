@@ -162,19 +162,19 @@ public class MuPDFActivity extends Activity
 				switch (result.buttonGroupType)
 				{
 				case OkCancel:
-					mAlertDialog.setButton(AlertDialog.BUTTON2, "Cancel", listener);
+					mAlertDialog.setButton(AlertDialog.BUTTON2, "İptal", listener);
 					pressed[1] = MuPDFAlert.ButtonPressed.Cancel;
 				case Ok:
-					mAlertDialog.setButton(AlertDialog.BUTTON1, "Ok", listener);
+					mAlertDialog.setButton(AlertDialog.BUTTON1, "Tamam", listener);
 					pressed[0] = MuPDFAlert.ButtonPressed.Ok;
 					break;
 				case YesNoCancel:
-					mAlertDialog.setButton(AlertDialog.BUTTON3, "Cancel", listener);
+					mAlertDialog.setButton(AlertDialog.BUTTON3, "İptal", listener);
 					pressed[2] = MuPDFAlert.ButtonPressed.Cancel;
 				case YesNo:
-					mAlertDialog.setButton(AlertDialog.BUTTON1, "Yes", listener);
+					mAlertDialog.setButton(AlertDialog.BUTTON1, "Evet", listener);
 					pressed[0] = MuPDFAlert.ButtonPressed.Yes;
-					mAlertDialog.setButton(AlertDialog.BUTTON2, "No", listener);
+					mAlertDialog.setButton(AlertDialog.BUTTON2, "Hayır", listener);
 					pressed[1] = MuPDFAlert.ButtonPressed.No;
 					break;
 				}
@@ -308,7 +308,7 @@ public class MuPDFActivity extends Activity
 								String contentFailure = res.getString(R.string.content_failure);
 								String openFailed = res.getString(R.string.open_failed);
 								setTitle(String.format(contentFailure, openFailed, failString));
-								alert.setButton(AlertDialog.BUTTON_POSITIVE, "Dismiss",
+								alert.setButton(AlertDialog.BUTTON_POSITIVE, "İptal",
 										new DialogInterface.OnClickListener() {
 											public void onClick(DialogInterface dialog, int which) {
 												finish();
@@ -338,7 +338,7 @@ public class MuPDFActivity extends Activity
 		{
 			AlertDialog alert = mAlertBuilder.create();
 			alert.setTitle(R.string.open_failed);
-			alert.setButton(AlertDialog.BUTTON_POSITIVE, "Dismiss",
+			alert.setButton(AlertDialog.BUTTON_POSITIVE, "İptal",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 							finish();
@@ -359,7 +359,7 @@ public class MuPDFActivity extends Activity
 		AlertDialog alert = mAlertBuilder.create();
 		alert.setTitle(R.string.enter_password);
 		alert.setView(mPasswordView);
-		alert.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
+		alert.setButton(AlertDialog.BUTTON_POSITIVE, "Tamam",
 				new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				if (core.authenticatePassword(mPasswordView.getText().toString())) {
